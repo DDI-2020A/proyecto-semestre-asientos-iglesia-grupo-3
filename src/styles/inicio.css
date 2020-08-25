@@ -1,0 +1,17 @@
+.separa-boton{
+    margin-right: 20px;
+}
+
+.ant-card-cover{
+    height: 150px;
+    margin-top: 15px;
+}
+
+.ant-card-bordered{
+    border: none;
+}
+
+.site-card-border-less-wrapper {
+    padding: 30px;
+    background: #ececec;
+}
