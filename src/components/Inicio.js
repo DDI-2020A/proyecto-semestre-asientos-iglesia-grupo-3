@@ -23,11 +23,9 @@ const Inicio = () => {
 
     return (
         <>
-        <Header />,
+        <Header />
 
         {/*//Bienvenidos*/}
-
-
         <div className="site-card-border-less-wrapper  space-align-container " align="center" >
             <Card align="center" bordered={false} style={{ width: 900 }}>
                 <p>Bienvenidos</p>
