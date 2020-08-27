@@ -1,15 +1,17 @@
 import React from 'react';
 
 import Inicio from './Inicio';
+import Login from './Login';
 
 function App() {
-  return (
+    return (
 
-      <>
-        <Inicio />
+        <>
+            <Login />
+
         </>
 
-  );
+    );
 }
 
 export default App;

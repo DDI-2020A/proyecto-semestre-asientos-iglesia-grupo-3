@@ -1,3 +1,8 @@
+.imagen-fondo-inico{
+    background-image: url("../images/FondoPagInicio.jpg");
+    background-size: cover;
+}
+
 .separa-boton{
     margin-right: 20px;
 }
@@ -15,3 +20,4 @@
     padding: 30px;
     background: #ececec;
 }
+
