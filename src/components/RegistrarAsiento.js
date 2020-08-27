@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from "./Header";
-import {Form, Input, Checkbox, Button, Card, Row, Col} from "antd";
+import {Form, Input, Checkbox, Button, Card, Row, Col, Space, Divider} from "antd";
 import '../styles/registrarAsiento.css';
 import ImgDirec from "../images/ImgDirec.jpg";
+import Foot from "./Foot";
 
 const RegistrarAsiento = () => {
     return (
@@ -23,9 +24,10 @@ const RegistrarAsiento = () => {
                                 name="basic"
                                 initialValues={{remember: true}}
                             >
+                                <Divider dashed />
                             <Row gutter={16} align="center" >
 
-                                <Col xs={32} sm={32} md={16} lg={16}  span={8}>
+                                <Col xs={24} sm={24} md={16} lg={16}  span={8}>
 
                                     <Form.Item
                                         name="cédula de usuario"
@@ -64,12 +66,15 @@ const RegistrarAsiento = () => {
                                         <Input placeholder="Ingrese su teléfono" />
                                     </Form.Item>
                                 </Col>
-                                <Col xs={32} sm={32} md={8} lg={8}  span={8} >
+                                <Col xs={24} sm={24} md={8} lg={8}  span={8} >
+                                    <Space align="center padding-btn-registrar">
+
                                     <Form.Item >
                                         <Button type="primary" htmlType="submit">
                                             Registrar Asiento
                                         </Button>
                                     </Form.Item>
+                                    </Space>
                                 </Col>
 
                             </Row>
@@ -82,6 +87,8 @@ const RegistrarAsiento = () => {
                 </Card>
             </div>
 
+
+            <Foot />
 
         </>
     );
