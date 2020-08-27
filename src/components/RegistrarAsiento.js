@@ -12,7 +12,7 @@ const RegistrarAsiento = () => {
             <Header/>
 
             <div className="site-card-border-less-wrapper fondo-registrar-asiento" align="center">
-                <Card className="colorBaseA tamanio-cuadro opacidad-ventanas"  bordered={false}>
+                <Card className="colorBaseA tamanio-cuadro"  bordered={false}>
                     <h2>Registrar Asiento</h2>
                     <Card className="colorBaseB tamanio-cuadro-interno "  bordered={false}>
                         <p>

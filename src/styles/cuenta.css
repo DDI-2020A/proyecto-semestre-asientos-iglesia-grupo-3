@@ -1,8 +1,9 @@
-.fondo-cuenta {
+.fondo-cuenta{
     padding: 10px;
-    background-image: url("../images/FondoPagLog.jpg");
+    background-image: url("../images/FondoPagLog.jpg") !important;
     background-size: cover;
     height: 550px;
+    width: 100%;
 }
 .ant-card-cover{
     background-color:transparent;

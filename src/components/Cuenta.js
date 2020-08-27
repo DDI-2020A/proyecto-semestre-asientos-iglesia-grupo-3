@@ -2,8 +2,7 @@ import React from 'react';
 import Header from "./Header";
 import {Form, Input, Button, Card} from "antd";
 import '../styles/cuenta.css';
-import '../styles/login.css';
-import '../styles/App.css';
+
 import Foot from "./Foot";
 
 const Login = () => {

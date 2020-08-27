@@ -11,7 +11,7 @@ const Login = () => {
 
             <Header/>
 
-            <div className="site-card-border-less-wrapper" align="center">
+            <div className="site-card-border-less-wrapper fondo-login" align="center">
                 <Card className="ant-card-cover tamanio-cuadro"  bordered={false}>
                     <h1>
                         Se parte de nosotros y comparte opiniones,

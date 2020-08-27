@@ -24,7 +24,7 @@ const Inicio = () => {
     return (
         <>
 
-            <Header numPag = {numPag}/>
+            <Header/>
 
             {/*//Bienvenidos*/}
 
