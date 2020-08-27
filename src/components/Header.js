@@ -1,31 +1,32 @@
-import React from 'react';
-import {   Button , PageHeader } from 'antd';
-const Header = () => {
+import React, {useEffect, useState} from 'react';
+import { Button, PageHeader } from 'antd';
+
+const Header = ( ) => {
+
 
 
     return(
 
-    <div className='header'>
-        <PageHeader
-            title='Un lugar juntos'
-            extra={ [
+        <div className='header'>
+            <PageHeader
+                title='Un lugar juntos'
+                extra={ [
+                    <a href="#id-ini"><Button type="link" ghost>Inicio</Button></a>,
+                    <a href="#id-about"><Button type="link" ghost>Sobre Nosotros</Button></a>,
+                    <a href="#id-testimonio"><Button type="link" ghost>Testimonios</Button></a>,
+                    <a href="#id-equipo"><Button type="link" ghost>Equipo</Button></a>,
+                    <a href="#id-contact"><Button type="link" ghost>Contáctanos</Button></a>,
 
-                <Button type="link" ghost>Inicio</Button>,
-                <Button type="link" ghost>Sobre Nosotros</Button>,
-                <Button type="link" ghost>Testimonios</Button>,
-                <Button type="link" ghost>Equipo</Button>,
-                <Button type="link" ghost>Contactanos</Button>,
-                <Button key="2"> Log in </Button>,
-                <Button key="1" type="primary">
-                    Registrarse
-                </Button>,
-            ] }
-        >
+                    <Button key="2"> Log in </Button>,
+                    <Button key="1" type="primary">
+                        Registrarse
+                    </Button>,
+                ] }
+            >
 
+            </PageHeader>
 
-        </PageHeader>
-
-    </div>
+        </div>
 
     )
 
@@ -34,3 +35,10 @@ const Header = () => {
 }
 
 export default Header;
+
+/*     const [numPag, setNumPag] = useState (props.numPag);
+
+    useEffect(() => {
+            setNumPag(props.numPag)
+        }
+    ), [numPag];*/

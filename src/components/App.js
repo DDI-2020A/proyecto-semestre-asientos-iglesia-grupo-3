@@ -1,15 +1,19 @@
 import React from 'react';
 
 import Inicio from './Inicio';
+import Login from './Login';
+import RegistrarAsiento from './RegistrarAsiento';
+
 
 function App() {
-  return (
+    return (
 
-      <>
-        <Inicio />
+        <>
+            <Login />
+
         </>
 
-  );
+    );
 }
 
 export default App;

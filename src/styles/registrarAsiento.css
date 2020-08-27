@@ -1,0 +1,23 @@
+@import '~antd/dist/antd.css';
+
+.tamanio-cuadro{
+    height: auto;
+    width: 70%;
+}
+.tamanio-cuadro-interno{
+    height: auto;
+    width: 90%;
+}
+
+.fondo-registrar-asiento{
+    background-image: url("../images/Fondo Pag Registrar Asiento.jpg");
+    background-size: cover;
+}
+
+.opacidad-ventanas{
+    opacity: 0.7;
+}
+
+.sin-opacidad{
+    opacity: 1;
+}
