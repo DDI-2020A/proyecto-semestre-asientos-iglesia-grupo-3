@@ -1,13 +1,12 @@
 import React from 'react';
 
-import Inicio from './Inicio';
-import Login from './Login';
+import Cuenta from './Cuenta';
 
 function App() {
     return (
 
         <>
-            <Login />
+            <Cuenta />
 
         </>
 

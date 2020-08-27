@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from "./Header";
-import {Form, Input, Checkbox, Button, Card} from "antd";
+import {Form, Input, Button, Card} from "antd";
 import '../styles/login.css';
+import '../styles/App.css';
+import Foot from "./Foot";
 
 const Login = () => {
     return (
@@ -9,13 +11,13 @@ const Login = () => {
 
             <Header/>
 
-            <div className="site-card-border-less-wrapper " align="center">
-                <Card className="colorBaseA tamanio-cuadro"  bordered={false}>
-                    <p>
+            <div className="site-card-border-less-wrapper" align="center">
+                <Card className="ant-card-cover tamanio-cuadro"  bordered={false}>
+                    <h1>
                         Se parte de nosotros y comparte opiniones,
                         experiencias dentro de un ambiente
-                        seguro y abierto al dialogo.
-                    </p>
+                        seguro y abierto al diálogo.
+                    </h1>
                     <div>
                         <Form
                             name="basic"
@@ -23,7 +25,7 @@ const Login = () => {
 
                         >
                             <Form.Item
-                                label="Username"
+                                label="Email"
                                 name="username"
                                 rules={[{required: true, message: 'Please input your username!'}]}
                             >
@@ -31,23 +33,23 @@ const Login = () => {
                             </Form.Item>
 
                             <Form.Item
-                                label="Password"
+                                label="Contraseña"
                                 name="password"
                                 rules={[{required: true, message: 'Please input your password!'}]}
                             >
                                 <Input.Password/>
                             </Form.Item>
-
                             <Form.Item>
                                 <Button type="primary" htmlType="submit">
-                                    Submit
+                                    Iniciar Sesion
                                 </Button>
                             </Form.Item>
                         </Form>
                     </div>
                 </Card>
-            </div>
 
+            </div>
+            <Foot/>
 
         </>
     );
