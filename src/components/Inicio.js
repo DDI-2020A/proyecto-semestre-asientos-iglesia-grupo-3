@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Header from "./Header";
-import { Card, Col, Row, Form , Input,  Button } from 'antd';
+import {Card, Col, Row, Form, Input, Button, Space} from 'antd';
 import '../styles/App.css';
 import '../styles/inicio.css';
 import ImgSobreNosotros1 from  '../images/ImgSobreNosotros1.jpg';
@@ -27,30 +27,43 @@ const Inicio = () => {
 
 
             {/*//Bienvenidos*/}
+            <div >
 
 
-            <div className="site-card-border-less-wrapper  space-align-container" align="center" >
-                <Card className="imagen-fondo-inico" align="center" bordered={false} style={{ width: 900 }}>
-                    <p>Bienvenidos</p>
 
-                    {/*//Agregar Texto*/}
-                    <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia X,
-                        desde la comodidad de tu casa  </p>
-                    <Button className="separa-boton" type="primary" shape="round"  >
-                        <Link to="/RegistrarAsiento">Registrar Asiento</Link>
-                    </Button>
-                    <Button type="primary" shape="round"  >
-                        Ingresar Foro
-                    </Button>
+                <div className="site-card-border-less-wrapper " >
+                    <Card className="imagen-fondo-inicio" align="center" bordered={false} >
+                        <div className="site-card-wrapper " id="id-about" >
+                            <Card className=" tamanio-cuadro"  bordered={false}>
+                                <div className="site-card-wrapper " id="id-about" >
+                                    <p>Bienvenidos</p>
 
-                </Card>
+                                    {/*//Agregar Texto*/}
+                                    <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia X,
+                                        desde la comodidad de tu casa  </p>
+                                    <Button className="separa-boton" type="primary" shape="round"  >
+                                        <Link to="/RegistrarAsiento">Registrar Asiento</Link>
+                                    </Button>
+                                    <Button type="primary" shape="round"  >
+                                        <Link to="/Login">Ingresar Foro</Link>
+                                    </Button>
+                                </div>
+                            </Card>
+                        </div>
+
+
+                    </Card>
+                </div>
             </div>
+
 
             {/*//sobre Nosotros*/}
 
 
 
             <div >
+
+
 
                 <div className="site-card-border-less-wrapper " >
                     <Card className="colorBase" align="center" bordered={false} >
