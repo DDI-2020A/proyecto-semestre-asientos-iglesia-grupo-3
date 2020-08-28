@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
-import Header from "./Header";
-import {Card, Col, Row, Form, Input, Button, Space} from 'antd';
+import React from 'react';
+import {Card, Col, Row, Form, Input, Button} from 'antd';
 import '../styles/App.css';
 import '../styles/inicio.css';
 import ImgSobreNosotros1 from  '../images/ImgSobreNosotros1.jpg';
@@ -20,7 +19,7 @@ import {Link} from "react-router-dom";
 
 const Inicio = () => {
 
-    const [numPag, setNumPag] = useState (1);
+    //const [numPag, setNumPag] = useState (1);
 
     return (
         <>
@@ -28,17 +27,12 @@ const Inicio = () => {
 
             {/*//Bienvenidos*/}
             <div >
-
-
-
                 <div className="site-card-border-less-wrapper " >
                     <Card className="imagen-fondo-inicio" align="center" bordered={false} >
                         <div className="site-card-wrapper " id="id-about" >
-                            <Card className=" tamanio-cuadro"  bordered={false}>
+                            <Card className=" tamanio-cuadro"  bordered={false} style={{marginTop:95}}>
                                 <div className="site-card-wrapper " id="id-about" >
                                     <p>Bienvenidos</p>
-
-                                    {/*//Agregar Texto*/}
                                     <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia X,
                                         desde la comodidad de tu casa  </p>
                                     <Button className="separa-boton" type="primary" shape="round"  >
@@ -55,15 +49,9 @@ const Inicio = () => {
                     </Card>
                 </div>
             </div>
-
-
             {/*//sobre Nosotros*/}
 
-
-
             <div >
-
-
 
                 <div className="site-card-border-less-wrapper " >
                     <Card className="colorBase" align="center" bordered={false} >
@@ -74,7 +62,6 @@ const Inicio = () => {
                                     <Card
                                         className="colorBase"
                                         cover={
-
                                             <img style={{ width: '40%', height: '100%', borderRadius: '50%'}}
                                                  alt="example"
                                                  src={ImgSobreNosotros1}

@@ -1,16 +1,16 @@
 import React from 'react';
-import Header from "./Header";
 import {Form, Input, Button, Card} from "antd";
 import '../styles/login.css';
-import '../styles/App.css';
+import '../styles/cuenta.css';
 import Foot from "./Foot";
+import {Link} from "react-router-dom";
 
 const Login = () => {
     return (
         <>
-
-            <div className="site-card-border-less-wrapper fondo-login" align="center">
-                <Card className="ant-card-cover tamanio-cuadro"  bordered={false}>
+            <div className=" fondo-login" align="center">
+                <Card className="BaseA cuadro-grande"  bordered={false}>
+                    <Card className="BaseB cuadro-interno "  bordered={false}>
                     <h1>
                         Se parte de nosotros y comparte opiniones,
                         experiencias dentro de un ambiente
@@ -37,15 +37,18 @@ const Login = () => {
                             >
                                 <Input.Password/>
                             </Form.Item>
+                            <p><Link to="/RecuperarContraseña">¿Haz olvidado tu contraseña?</Link></p>
+                            <p> <Link to="/Cuenta">Crear cuenta</Link></p>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit">
                                     Iniciar Sesion
                                 </Button>
                             </Form.Item>
                         </Form>
-                    </div>
-                </Card>
 
+                    </div>
+                    </Card>
+                </Card>
             </div>
             <Foot/>
 

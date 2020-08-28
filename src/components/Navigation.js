@@ -4,6 +4,7 @@ import Cuenta from "./Cuenta";
 import Login from "./Login";
 import RegistrarAsiento from "./RegistrarAsiento";
 import React from "react";
+import RecuperarContraseña from "./RecuperarContraseña";
 
 const Navigation = () => {
 
@@ -20,6 +21,9 @@ const Navigation = () => {
             </Route>
             <Route path="/RegistrarAsiento">
                 <RegistrarAsiento />
+            </Route>
+            <Route path="/RecuperarContraseña">
+                <RecuperarContraseña/>
             </Route>
         </Switch>
     )

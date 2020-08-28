@@ -1,19 +1,19 @@
 import React from 'react';
-import Header from "./Header";
 import {Form, Input, Button, Card} from "antd";
 import '../styles/cuenta.css';
-
 import Foot from "./Foot";
 
-const Login = () => {
+const Cuenta = () => {
     return (
         <>
-            <div className="site-card-border-less-wrapper fondo-cuenta" align="center">
-                <Card className="ant-card-cover tamanio-cuadro" style={{marginTop:0}}  bordered={false}>
-                    <h1>
-                        Llene los siguientes campos:
-                    </h1>
-                    <div>
+            <div className=" fondo-cuenta" align="center">
+                <Card className="BaseA cuadro-grande"  bordered={false}>
+                    <Card className="BaseB cuadro-interno "  bordered={false}>
+                        <h2>Crear cuenta</h2>
+                        <p>
+                            Ingrese sus datos para crear una cuenta en Foros
+                        </p>
+                        <div >
                         <Form
                             name="basic"
                             initialValues={{remember: true}}
@@ -63,16 +63,16 @@ const Login = () => {
                             </Form.Item>
                             <Form.Item>
                                 <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                    Aceptar
+                                    Siguiente
                                 </Button>
                                 <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                     Cancelar
                                 </Button>
                             </Form.Item>
                         </Form>
-                    </div>
+                        </div>
+                    </Card>
                 </Card>
-
             </div>
             <Foot />
 
@@ -81,4 +81,4 @@ const Login = () => {
 
 }
 
-export default Login;
+export default Cuenta;

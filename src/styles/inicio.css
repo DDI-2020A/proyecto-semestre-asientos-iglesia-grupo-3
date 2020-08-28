@@ -1,6 +1,7 @@
 .imagen-fondo-inicio{
     background-image: url("../images/FondoPagInicio.jpg");
     background-size: cover;
+    height: 400px;
 }
 
 .separa-boton{
@@ -9,7 +10,7 @@
 
 .ant-card-cover{
     height: 150px;
-    margin-top: 15px;
+    margin-top: 0px !important;
 }
 
 .ant-card-bordered{

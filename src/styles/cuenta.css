@@ -2,9 +2,21 @@
     padding: 10px;
     background-image: url("../images/FondoPagLog.jpg") !important;
     background-size: cover;
-    height: 550px;
+    height: 640px;
     width: 100%;
 }
 .ant-card-cover{
+    background-color:transparent;
+}
+.cuadro-grande{
+    margin-top: 15px;
+    height: auto;
+    width: 60%;
+    background-color: #A3BAC3;
+
+}
+.cuadro-interno{
+    height: auto;
+    width: 80%;
     background-color:transparent;
 }

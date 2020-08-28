@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from "./Header";
-import {Form, Input, Checkbox, Button, Card, Row, Col, Space, Divider} from "antd";
+import {Form, Input, Button, Card, Row, Col, Space, Divider} from "antd";
 import '../styles/registrarAsiento.css';
-import ImgDirec from "../images/ImgDirec.jpg";
+
 import Foot from "./Foot";
 
 const RegistrarAsiento = () => {
@@ -16,7 +15,7 @@ const RegistrarAsiento = () => {
                             Ingrese sus datos para asignarle un asiento para la ceremonia en la Iglesia X, según
                             su disponibilidad de horario
                         </p>
-                        <div className="sin-opacidad">
+                        <div>
                             <Form
                                 name="basic"
                                 initialValues={{remember: true}}
