@@ -1,16 +1,25 @@
-import React from 'react';
-import {Form, Input, Button, Card, Row, Col, Space, Divider} from "antd";
+import React, {useState} from 'react';
+import  {Modal, Form, Input, Button, Card, Row, Col, Space, Divider} from "antd";
 import '../styles/registrarAsiento.css';
 
 import Foot from "./Foot";
+import FormRegistrarAsiento from "./FormRegistrarAsiento";
 
 const RegistrarAsiento = () => {
+
+    const [ ViewFormAsientoModalVisible, setViewFormAsientoModalVisible ] = useState( false );
+
+    const handleOpenForm =() =>{
+        setViewFormAsientoModalVisible(true);
+    };
+
+
     return (
         <>
             <div className="site-card-border-less-wrapper fondo-registrar-asiento" align="center">
-                <Card className="colorBaseA tamanio-cuadro"  bordered={false}>
+                <Card className="colorBaseA tamanio-cuadro"  bordered={true}>
                     <h2>Registrar Asiento</h2>
-                    <Card className="colorBaseB tamanio-cuadro-interno "  bordered={false}>
+                    <Card className="colorBaseB tamanio-cuadro-interno "  bordered={true}>
                         <p>
                             Ingrese sus datos para asignarle un asiento para la ceremonia en la Iglesia X, según
                             su disponibilidad de horario
@@ -19,6 +28,7 @@ const RegistrarAsiento = () => {
                             <Form
                                 name="basic"
                                 initialValues={{remember: true}}
+                                onFinish={()=> handleOpenForm()}
                             >
                                 <Divider dashed />
                             <Row gutter={16} align="center" >
@@ -27,7 +37,7 @@ const RegistrarAsiento = () => {
 
                                     <Form.Item
                                         name="cédula de usuario"
-                                        label="Cedula / Pasaporte"
+                                        label="Cédula / Pasaporte"
                                         rules={[
                                             {
                                                 required: true,
@@ -51,7 +61,7 @@ const RegistrarAsiento = () => {
                                     </Form.Item>
                                     <Form.Item
                                         name="telefono de usuario"
-                                        label="Telefono"
+                                        label="Teléfono"
                                         rules={[
                                             {
                                                 required: true,
@@ -83,7 +93,15 @@ const RegistrarAsiento = () => {
                 </Card>
             </div>
 
+            <Modal
+                title=  { "Prueba1"}
+                visible={ ViewFormAsientoModalVisible }
+                onCancel={ () => setViewFormAsientoModalVisible( false ) }
+                width={900}
+            >
+        <FormRegistrarAsiento />
 
+            </Modal>
             <Foot />
 
         </>
