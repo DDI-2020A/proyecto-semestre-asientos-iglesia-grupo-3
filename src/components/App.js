@@ -1,18 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 
-import Inicio from './Inicio';
-import Login from './Login';
-import RegistrarAsiento from './RegistrarAsiento';
-import Cuenta from './Cuenta';
+import Navigation from "./Navigation";
+import Header from "./Header";
 
 function App() {
     return (
 
-        <>
-            <Inicio />
+        <Router>
+            <div>
+                <Header />
 
-        </>
+                <Navigation />
+            </div>
+        </Router>
 
     );
 }

@@ -2,16 +2,12 @@ import React from 'react';
 import Header from "./Header";
 import {Form, Input, Button, Card} from "antd";
 import '../styles/cuenta.css';
-import '../styles/login.css';
-import '../styles/App.css';
+
 import Foot from "./Foot";
 
 const Login = () => {
     return (
         <>
-
-            <Header/>
-
             <div className="site-card-border-less-wrapper fondo-cuenta" align="center">
                 <Card className="ant-card-cover tamanio-cuadro" style={{marginTop:0}}  bordered={false}>
                     <h1>

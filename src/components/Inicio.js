@@ -15,6 +15,7 @@ import ImgEquipo3 from  '../images/ImgEquipo3.jpg';
 import ImgDirec from  '../images/ImgDirec.jpg';
 import Meta from "antd/es/card/Meta";
 import Divider from "antd/es/divider";
+import {Link} from "react-router-dom";
 
 
 const Inicio = () => {
@@ -24,7 +25,6 @@ const Inicio = () => {
     return (
         <>
 
-            <Header numPag = {numPag}/>
 
             {/*//Bienvenidos*/}
 
@@ -37,7 +37,7 @@ const Inicio = () => {
                     <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia X,
                         desde la comodidad de tu casa  </p>
                     <Button className="separa-boton" type="primary" shape="round"  >
-                        Registrar Asiento
+                        <Link to="/RegistrarAsiento">Registrar Asiento</Link>
                     </Button>
                     <Button type="primary" shape="round"  >
                         Ingresar Foro

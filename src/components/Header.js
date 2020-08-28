@@ -1,34 +1,39 @@
 import React from 'react';
 import { Button, PageHeader } from 'antd';
-
-const Header = ( ) => {
-
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 
-    return(
+const Header = () => {
+
+    return (
+
 
         <div className='header'>
             <PageHeader
                 title='Un lugar juntos'
-                extra={ [
-                    <a href="#id-ini"><Button type="link" ghost>Inicio</Button></a>,
+                extra={[
+                    <a href="#id-ini"><Button type="link" ghost><Link to="/">Inicio</Link></Button></a>,
                     <a href="#id-about"><Button type="link" ghost>Sobre Nosotros</Button></a>,
                     <a href="#id-testimonio"><Button type="link" ghost>Testimonios</Button></a>,
                     <a href="#id-equipo"><Button type="link" ghost>Equipo</Button></a>,
                     <a href="#id-contact"><Button type="link" ghost>Contáctanos</Button></a>,
 
-                    <Button key="2"> Log in </Button>,
-                    <Button key="1" type="primary">
-                        Registrarse
+                    <Button key="2">
+                        <Link to="/Login">Login</Link>
                     </Button>,
-                ] }
+                    <Button key="1" type="primary">
+
+                        <Link to="/Cuenta">Cuenta</Link>
+
+                    </Button>,
+                ]}
             >
 
             </PageHeader>
 
         </div>
 
-    )
+    );
 
 
 
@@ -42,3 +47,8 @@ export default Header;
             setNumPag(props.numPag)
         }
     ), [numPag];*/
+
+
+
+
+
