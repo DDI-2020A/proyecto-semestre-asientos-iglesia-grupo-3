@@ -10,7 +10,7 @@ const Header = () => {
 
         <div className='header'>
             <PageHeader
-                title='Un lugar juntos'
+                title='Un Lugar Juntos'
                 extra={[
                     <a href="#id-ini"><Button type="link" ghost><Link to="/">Inicio</Link></Button></a>,
                     <a href="#id-about"><Button type="link" ghost>Sobre Nosotros</Button></a>,

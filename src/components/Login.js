@@ -41,7 +41,7 @@ const Login = () => {
                             <p> <Link to="/Cuenta">Crear cuenta</Link></p>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit">
-                                    Iniciar Sesion
+                                    <Link to="/ForosPrincipal">Iniciar Sesion</Link>
                                 </Button>
                             </Form.Item>
                         </Form>

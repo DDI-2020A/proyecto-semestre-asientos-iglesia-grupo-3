@@ -1,0 +1,46 @@
+@import '~antd/dist/antd.css';
+
+.fondo-foros {
+    padding: 30px;
+    background-image: url("../images/ImgForos.jpg");
+    background-size: cover;
+    height: 550px;
+}
+
+.tam-titu{
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.tam-titu2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.tam-buscador{
+    width: 40%;
+    margin-bottom: 45px;
+}
+
+.div-datos-titulos {
+    background-color: white;
+    height: auto;
+    width: 100%;
+}
+
+.tamanio-cuadro{
+    height: auto;
+    width: 80%;
+}
+
+.tamanio-cuadro-interno{
+    height: auto;
+    width: 100%;
+    padding-left: 5px;
+}
+
+
+
+

@@ -1,0 +1,61 @@
+import React from 'react';
+import {Card, Col, Row, Form, Input, Button, Space} from 'antd';
+import '../styles/App.css';
+import '../styles/forosprincipal.css';
+import Foot from "./Foot";
+import HeaderForos from "./HeaderForos";
+
+const ForosPrincipal = () => {
+
+    const { Search } = Input;
+
+    return (
+        <>
+            <HeaderForos/>
+
+            <div className="fondo-foros">
+                <div align="center">
+                    <p className="tam-titu"><strong>Foros</strong></p>
+                    <Search className="tam-buscador" placeholder="Buscar" onSearch={value => console.log(value)}
+                            enterButton/>
+                    <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
+                        <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
+                        <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="center">
+                            <Row gutter={16}>
+                                <Col align="center" xs={24} sm={24} md={13} lg={13} span={1}>
+                                    <p className="tam-titu2"><strong>Tema</strong></p>
+                                </Col>
+                                <Col align="center" xs={24} sm={24} md={6} lg={6} span={1}>
+                                    <p className="tam-titu2"><strong>Autor</strong></p>
+                                </Col>
+                                <Col align="center" xs={24} sm={24} md={5} lg={5} span={1}>
+                                    <p className="tam-titu2"><strong>Fecha</strong></p>
+                                </Col>
+                            </Row>
+
+                            {/*//Esta parte debe de repertirse cuando hagamos con js*/}
+
+                            <Row gutter={16} align="center">
+                                <Col xs={1} sm={1} md={1} lg={1} span={1}>
+                                    <div><strong>1.-</strong></div>
+                                </Col>
+                                <Col xs={24} sm={24} md={10} lg={12} span={1}>
+                                    <div className="div-datos-titulos">De la Mano con Dios</div>
+                                </Col>
+                                <Col xs={24} sm={24} md={8} lg={6} span={1}>
+                                    <div className="div-datos-titulos">Dario Caiza</div>
+                                </Col>
+                                <Col xs={24} sm={24} md={6} lg={5} span={1}>
+                                    <div className="div-datos-titulos">23-04-2020</div>
+                                </Col>
+                            </Row>
+                        </Card>
+                    </Card>
+                </div>
+            </div>
+            <Foot/>
+        </>
+    );
+}
+
+export default ForosPrincipal;
