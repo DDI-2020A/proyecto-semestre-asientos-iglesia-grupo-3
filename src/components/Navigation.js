@@ -6,6 +6,7 @@ import RegistrarAsiento from "./RegistrarAsiento";
 import React from "react";
 import RecuperarContraseña from "./RecuperarContraseña";
 import ForosPrincipal from "./ForosPrincipal";
+import Perfil from "./Perfil";
 
 const Navigation = () => {
 
@@ -28,6 +29,9 @@ const Navigation = () => {
             </Route>
             <Route path="/ForosPrincipal">
                 <ForosPrincipal />
+            </Route>
+            <Route path="/Perfil">
+                <Perfil/>
             </Route>
         </Switch>
     )

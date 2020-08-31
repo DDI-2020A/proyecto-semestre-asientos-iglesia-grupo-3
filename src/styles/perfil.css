@@ -1,12 +1,5 @@
 @import '~antd/dist/antd.css';
 
-.fondo-foros {
-    padding: 30px;
-    background-image: url("../images/ImgForos.jpg");
-    background-size: cover;
-    height: auto;
-}
-
 .tam-titu{
     font-size: 50px;
     font-weight: 500;
@@ -14,25 +7,24 @@
 }
 
 .tam-titu2{
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
     margin-bottom: 15px;
 }
 
-.tam-buscador{
-    width: 40%;
-    margin-bottom: 45px;
-}
 
-.div-datos-titulos {
+.div-datos-titulos-perfil {
     background-color: white;
     height: auto;
     width: 100%;
+    margin-bottom: 20px;
+    margin-top: 6px;
+    align-content: initial;
 }
 
 .tamanio-cuadro{
     height: auto;
-    width: 80%;
+    width: 60%;
 }
 
 .tamanio-cuadro-interno{
@@ -41,6 +33,14 @@
     padding-left: 5px;
 }
 
+.tam-imagen-perfil{
+    border-radius: 50%;
+    height: 200px;
+    width: 150px;
+}
 
+.posicion-btns{
+    margin: 30px 0px;
+}
 
 

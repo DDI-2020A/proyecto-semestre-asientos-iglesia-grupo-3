@@ -20,12 +20,14 @@ const HeaderForos = () => {
                     <Button key="2" type="primary">
                         <p>Crear Foro</p>
                     </Button>,
-                    <Button key="3" type="primary" >
-                        <p className="tam-text">Perfil
-                            <img
-                                alt="example"
-                                src={avatar4} className="tam-imagen-btn-perfil"
-                            /></p>
+                    <Button key="3" type="primary">
+                        <Link to="/Perfil">
+                            <p className="tam-text">Perfil
+                                <img
+                                    alt="example"
+                                    src={avatar4} className="tam-imagen-btn-perfil"
+                                /></p>
+                        </Link>
                     </Button>,
                     <Button key="4" type="danger">
                         <Link to="/">Salir</Link>
