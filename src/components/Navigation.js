@@ -4,11 +4,13 @@ import Cuenta from "./Cuenta";
 import Login from "./Login";
 import RegistrarAsiento from "./RegistrarAsiento";
 import React from "react";
-import RecuperarContraseña from "./RecuperarContraseña";
+import RecuperarContrasenia from "./RecuperarContrasenia";
 import ForosPrincipal from "./ForosPrincipal";
 import Perfil from "./Perfil";
 import FormCuenta from "./FormCuenta";
 import FormAvatar from "./FormAvatar";
+import FormRecuperar from "./FormRecuperar";
+import NuevaContrasenia from "./NuevaContrasenia";
 
 const Navigation = () => {
 
@@ -26,8 +28,14 @@ const Navigation = () => {
             <Route path="/RegistrarAsiento">
                 <RegistrarAsiento />
             </Route>
-            <Route path="/RecuperarContraseña">
-                <RecuperarContraseña/>
+            <Route path="/RecuperarContrasenia">
+                <RecuperarContrasenia/>
+            </Route>
+            <Route path="/NuevaContrasenia">
+                <NuevaContrasenia/>
+            </Route>
+            <Route path="/FormRecuperar">
+                <FormRecuperar/>
             </Route>
             <Route path="/FormCuenta">
                 <FormCuenta/>

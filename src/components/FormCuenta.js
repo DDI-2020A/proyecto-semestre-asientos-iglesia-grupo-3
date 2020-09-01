@@ -134,7 +134,7 @@ const FormCuenta = () => {
                         <Col span={4}>
                             <Avatar shape="square" size={104} icon={<UserOutlined />} />
                             <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                Aceptar
+                                <Link to="/Login"> Aceptar</Link>
                             </Button>
                             <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                 Cancelar

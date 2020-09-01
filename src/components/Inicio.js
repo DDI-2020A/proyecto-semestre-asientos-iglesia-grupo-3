@@ -183,7 +183,6 @@ const Inicio = () => {
                             </Row>
                         </div>
 
-
                     </Card>
                 </div>
 

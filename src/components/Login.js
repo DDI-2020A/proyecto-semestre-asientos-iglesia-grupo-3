@@ -37,7 +37,7 @@ const Login = () => {
                             >
                                 <Input.Password/>
                             </Form.Item>
-                            <p><Link to="/RecuperarContraseña">¿Haz olvidado tu contraseña?</Link></p>
+                            <p><Link to="/RecuperarContrasenia">¿Haz olvidado tu contraseña?</Link></p>
                             <p> <Link to="/Cuenta">Crear cuenta</Link></p>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit">

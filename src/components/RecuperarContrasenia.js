@@ -1,11 +1,19 @@
-import React from 'react';
-import {Form, Input, Button, Card} from "antd";
+import React, {useState} from 'react';
+import {Form, Input, Button, Card, Modal, Alert} from "antd";
 import '../styles/login.css';
 import '../styles/cuenta.css';
 import Foot from "./Foot";
+import {Link} from "react-router-dom";
 
 
-const RecuperarContraseña = () => {
+
+const RecuperarContrasenia = () => {
+
+    const [ ViewModalCod, setViewModalCod] = useState( false );
+
+    const handleOpenModal =() =>{
+        setViewModalCod(true);
+    };
     return (
         <>
             <div className="site-card-border-less-wrapper fondo-login" align="center">
@@ -18,20 +26,21 @@ const RecuperarContraseña = () => {
                             <Form
                                 name="basic"
                                 initialValues={{remember: true}}
+                                onFinish={()=> handleOpenModal()}
 
                             >
                                 <Form.Item
                                     label="Email"
-                                    name="username"
-                                    rules={[{required: true, message: 'Please input your username!'}]}
+                                    name="usermail"
+                                    rules={[{required: true, message: 'Porfavor ingrese sus datos'}]}
                                 >
                                     <Input/>
                                 </Form.Item>
                                 <p>Confirmar Correo</p>
                                     <Form.Item
                                         label="Email"
-                                        name="username"
-                                        rules={[{required: true, message: 'Please input your username!'}]}
+                                        name="usermail1"
+                                        rules={[{required: true, message: 'Porfavor ingrese sus datos'}]}
                                     >
                                         <Input/>
                                     </Form.Item>
@@ -48,6 +57,22 @@ const RecuperarContraseña = () => {
                     </Card>
                 </Card>
             </div>
+            <Modal
+                title={"Código"}
+                visible={ ViewModalCod}
+                onCancel={ () => setViewModalCod( false ) }
+                footer={null}
+                width={500}
+            >
+                <Alert
+                    message="Información"
+                    description="Se ha enviado un código de seguridad al correo registrado"
+                    type="info"
+                    showIcon
+                />
+                <div className="modalLink"><Link to="/FormRecuperar">OK</Link></div>
+
+            </Modal>
             <Foot/>
 
         </>
@@ -55,4 +80,4 @@ const RecuperarContraseña = () => {
 
 }
 
-export default RecuperarContraseña;
+export default RecuperarContrasenia;

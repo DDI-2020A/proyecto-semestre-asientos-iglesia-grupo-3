@@ -22,14 +22,14 @@ const Cuenta = () => {
                             <Form.Item
                                 label="Email"
                                 name="usermail"
-                                rules={[{required: true, message: 'Please input your username!'}]}
+                                rules={[{required: true, message: 'Porfavor ingrese su correo!'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item
                                 label="Contraseña"
                                 name="password"
-                                rules={[{required: true, message: 'Please input your password!'}]}
+                                rules={[{required: true, message: 'Porfavor ingrese su contraseña!'}]}
                             >
                                 <Input.Password/>
                             </Form.Item>
@@ -43,21 +43,21 @@ const Cuenta = () => {
                             <Form.Item
                                 label="Nombre"
                                 name="username"
-                                rules={[{required: true, message: 'Please input your username!'}]}
+                                rules={[{required: true, message: 'Porfavor ingese su nombre !'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item
                                 label="Dirección"
                                 name="userdirection"
-                                rules={[{required: true, message: 'Please input your username!'}]}
+                                rules={[{required: true, message: 'Porfavor ingrese su direccion'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item
                                 label="Teléfono"
                                 name="userphone"
-                                rules={[{required: true, message: 'Please input your username!'}]}
+                                rules={[{required: true, message: 'Porfavor ingrese su teléfono'}]}
                             >
                                 <Input/>
                             </Form.Item>
