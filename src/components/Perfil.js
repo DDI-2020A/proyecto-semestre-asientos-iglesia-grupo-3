@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Col, Row, Form, Input, Button, Space} from 'antd';
+import {Card, Col, Row, Button,} from 'antd';
 import '../styles/App.css';
 import '../styles/perfil.css'
 import Foot from "./Foot";

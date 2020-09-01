@@ -2,6 +2,7 @@ import React from 'react';
 import {Form, Input, Button, Card} from "antd";
 import '../styles/cuenta.css';
 import Foot from "./Foot";
+import {Link} from "react-router-dom";
 
 const Cuenta = () => {
     return (
@@ -20,12 +21,11 @@ const Cuenta = () => {
                         >
                             <Form.Item
                                 label="Email"
-                                name="username"
+                                name="usermail"
                                 rules={[{required: true, message: 'Please input your username!'}]}
                             >
                                 <Input/>
                             </Form.Item>
-
                             <Form.Item
                                 label="Contraseña"
                                 name="password"
@@ -49,21 +49,21 @@ const Cuenta = () => {
                             </Form.Item>
                             <Form.Item
                                 label="Dirección"
-                                name="username"
+                                name="userdirection"
                                 rules={[{required: true, message: 'Please input your username!'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item
                                 label="Teléfono"
-                                name="username"
+                                name="userphone"
                                 rules={[{required: true, message: 'Please input your username!'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item>
                                 <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                    Siguiente
+                                    <Link to="/Formcuenta">Siguiente</Link>
                                 </Button>
                                 <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                     Cancelar

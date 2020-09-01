@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import {Card, Col, Row, Form, Input, Button, Space} from 'antd';
+import React from 'react';
+import {Card, Col, Row, Input} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "./Foot";
@@ -7,9 +7,9 @@ import HeaderForos from "./HeaderForos";
 
 const ForosPrincipal = () => {
 
-    const [ comments, setComments ] = useState( [] );
+    //const [ comments, setComments ] = useState( [] );
 
-    useEffect( () => {
+    /*useEffect( () => {
         const getComments = async() => {
             const data = await fetch( `https://run.mocky.io/v3/160b5ee4-3da0-4d86-80cd-5253856fa269` );
             const jsonComments = await data.json();
@@ -19,7 +19,7 @@ const ForosPrincipal = () => {
         };
         getComments();
 
-    }  );
+    }  );*/
 
     const { Search } = Input;
 

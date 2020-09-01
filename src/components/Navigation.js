@@ -7,6 +7,8 @@ import React from "react";
 import RecuperarContraseña from "./RecuperarContraseña";
 import ForosPrincipal from "./ForosPrincipal";
 import Perfil from "./Perfil";
+import FormCuenta from "./FormCuenta";
+import FormAvatar from "./FormAvatar";
 
 const Navigation = () => {
 
@@ -26,6 +28,12 @@ const Navigation = () => {
             </Route>
             <Route path="/RecuperarContraseña">
                 <RecuperarContraseña/>
+            </Route>
+            <Route path="/FormCuenta">
+                <FormCuenta/>
+            </Route>
+            <Route path="/FormAvatar">
+                <FormAvatar/>
             </Route>
             <Route path="/ForosPrincipal">
                 <ForosPrincipal />

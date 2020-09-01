@@ -11,7 +11,7 @@ function App() {
         <Router>
             <div>
                 <Header />
-                <Navigation />
+                <Navigation/>
             </div>
         </Router>
 
