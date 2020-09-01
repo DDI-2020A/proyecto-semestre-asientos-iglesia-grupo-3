@@ -28,6 +28,13 @@
     background-color: white;
     height: auto;
     width: 100%;
+    padding: 3px 0px;
+    margin: 5px 0px;
+}
+
+.div-datos-num{
+    padding: 3px 0px;
+    margin: 5px 0px;
 }
 
 .tamanio-cuadro{

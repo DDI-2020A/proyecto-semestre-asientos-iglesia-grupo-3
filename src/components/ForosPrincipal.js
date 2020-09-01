@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import {Card, Col, Row, Input} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
@@ -7,19 +7,19 @@ import HeaderForos from "./HeaderForos";
 
 const ForosPrincipal = () => {
 
-    //const [ comments, setComments ] = useState( [] );
+    const [ comments, setComments ] = useState( [] );
 
-    /*useEffect( () => {
+    useEffect( () => {
         const getComments = async() => {
-            const data = await fetch( `https://run.mocky.io/v3/160b5ee4-3da0-4d86-80cd-5253856fa269` );
-            const jsonComments = await data.json();
+            const dataComments = await fetch( `https://run.mocky.io/v3/160b5ee4-3da0-4d86-80cd-5253856fa269` );
+            const jsonComments = await dataComments.json();
             console.log( 'user', jsonComments );
 
             setComments( jsonComments );
         };
         getComments();
 
-    }  );*/
+    },[] );
 
     const { Search } = Input;
 
@@ -46,23 +46,31 @@ const ForosPrincipal = () => {
                                     <p className="tam-titu2"><strong>Fecha</strong></p>
                                 </Col>
                             </Row>
-
-                            {/*//Esta parte debe de repertirse cuando hagamos con js*/}
-
-                            <Row gutter={16} align="center">
-                                <Col xs={1} sm={1} md={1} lg={1} span={1}>
-                                    <div><strong>1.-</strong></div>
-                                </Col>
-                                <Col xs={24} sm={24} md={10} lg={12} span={1}>
-                                    <div className="div-datos-titulos">De la Mano con Dios</div>
-                                </Col>
-                                <Col xs={24} sm={24} md={8} lg={6} span={1}>
-                                    <div className="div-datos-titulos">Dario Caiza</div>
-                                </Col>
-                                <Col xs={24} sm={24} md={6} lg={5} span={1}>
-                                    <div className="div-datos-titulos">23-04-2020</div>
-                                </Col>
-                            </Row>
+                            {
+                                comments && comments.Foros
+                                    ? comments.Foros.map((comment, index) => {
+                                        return (
+                                            <Row gutter={16} align="center">
+                                                <Col xs={1} sm={1} md={1} lg={1} span={1}>
+                                                    <div className="div-datos-num"><strong>{index + 1}.-</strong></div>
+                                                </Col>
+                                                <Col xs={24} sm={24} md={10} lg={12} span={1}>
+                                                    <div className="div-datos-titulos"><strong>{comment.Titulo}</strong>
+                                                    </div>
+                                                </Col>
+                                                <Col xs={24} sm={24} md={8} lg={6} span={1}>
+                                                    <div className="div-datos-titulos">
+                                                        <strong>{comment.Usuario.Nombre}</strong></div>
+                                                </Col>
+                                                <Col xs={24} sm={24} md={6} lg={5} span={1}>
+                                                    <div className="div-datos-titulos"><strong>{comment.Fecha}</strong>
+                                                    </div>
+                                                </Col>
+                                            </Row>
+                                        );
+                                    })
+                                    : 'Cargando'
+                            }
                         </Card>
                     </Card>
                 </div>
