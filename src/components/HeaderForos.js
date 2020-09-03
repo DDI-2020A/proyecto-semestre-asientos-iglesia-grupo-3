@@ -15,10 +15,14 @@ const HeaderForos = () => {
                 extra={[
 
                     <Button key="1" type="primary">
-                        <p>Mis Foros</p>
+                        <Link to="/MisForos">
+                            <p>Mis Foros</p>
+                        </Link>
                     </Button>,
                     <Button key="2" type="primary">
-                        <p>Crear Foro</p>
+                        <Link to="/CrearForos">
+                            <p>Crear Foro</p>
+                        </Link>
                     </Button>,
                     <Button key="3" type="primary">
                         <Link to="/Perfil">
