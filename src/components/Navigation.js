@@ -11,6 +11,8 @@ import FormCuenta from "./FormCuenta";
 import FormAvatar from "./FormAvatar";
 import FormRecuperar from "./FormRecuperar";
 import NuevaContrasenia from "./NuevaContrasenia";
+import MisForos from "./MisForos";
+import CrearForos from "./CrearForos";
 
 const Navigation = () => {
 
@@ -48,6 +50,12 @@ const Navigation = () => {
             </Route>
             <Route path="/Perfil">
                 <Perfil/>
+            </Route>
+            <Route path="/MisForos">
+                <MisForos/>
+            </Route>
+            <Route path="/CrearForos">
+                <CrearForos/>
             </Route>
         </Switch>
     )

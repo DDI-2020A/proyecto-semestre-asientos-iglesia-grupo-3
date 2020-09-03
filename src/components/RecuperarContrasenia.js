@@ -49,7 +49,7 @@ const RecuperarContrasenia = () => {
                                             Aceptar
                                         </Button>
                                         <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                            Cancelar
+                                            <Link to="/Login">Cancelar</Link>
                                         </Button>
                                     </Form.Item>
                                 </Form>
