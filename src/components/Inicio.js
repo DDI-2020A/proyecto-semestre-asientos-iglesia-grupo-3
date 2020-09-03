@@ -29,9 +29,9 @@ const Inicio = () => {
             <div >
                 <div className="site-card-border-less-wrapper " >
                     <Card className="imagen-fondo-inicio" align="center" bordered={false} >
-                        <div className="site-card-wrapper " id="id-about" >
+                        <div className="site-card-wrapper "  >
                             <Card className=" tamanio-cuadro"  bordered={false} style={{marginTop:95}}>
-                                <div className="site-card-wrapper " id="id-about" >
+                                <div className="site-card-wrapper "  >
                                     <p>Bienvenidos</p>
                                     <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia X,
                                         desde la comodidad de tu casa  </p>
@@ -53,9 +53,9 @@ const Inicio = () => {
 
             <div >
 
-                <div className="site-card-border-less-wrapper " >
+                <div className="site-card-border-less-wrapper "  id="id-about">
                     <Card className="colorBase" align="center" bordered={false} >
-                        <div className="site-card-wrapper " id="id-about" >
+                        <div className="site-card-wrapper "  >
                             <Divider orientation="center">Sobre Nosotros</Divider>
                             <Row gutter={16} align="center">
                                 <Col xs={32} sm={16} md={8} lg={8}  span={8}>
@@ -124,9 +124,9 @@ const Inicio = () => {
 
             <div >
 
-                <div className="site-card-border-less-wrapper " >
+                <div className="site-card-border-less-wrapper " id="id-testimonio">
                     <Card  align="center" bordered={false} >
-                        <div className="site-card-wrapper " id="id-testimonio">
+                        <div className="site-card-wrapper " >
                             <Divider orientation="center">Testimonios</Divider>
                             <Row gutter={16} align="center">
                                 <Col xs={32} sm={16} md={8} lg={8}  span={8}>
@@ -193,9 +193,9 @@ const Inicio = () => {
 
             <div >
 
-                <div className="site-card-border-less-wrapper " >
+                <div className="site-card-border-less-wrapper "  id="id-equipo">
                     <Card className="colorBase" align="center" bordered={false} >
-                        <div className="site-card-wrapper " id="id-equipo">
+                        <div className="site-card-wrapper " >
                             <Divider orientation="center">Equipo</Divider>
                             <Row gutter={16} align="center">
                                 <Col xs={32} sm={16} md={8} lg={8}  span={8}>
@@ -266,9 +266,9 @@ const Inicio = () => {
 
             <div >
 
-                <div className="site-card-border-less-wrapper " >
+                <div className="site-card-border-less-wrapper "  id="id-contact">
                     <Card className="colorBaseA" align="center" bordered={false} >
-                        <div className="site-card-wrapper " id="id-contact">
+                        <div className="site-card-wrapper " >
                             <Divider orientation="center">Contáctanos</Divider>
                             Para recibir información detallada sobre las utilidades y servicios que ofrece nuestra pagina
                             ponte en contacto con nostros enviando un correo electrónico

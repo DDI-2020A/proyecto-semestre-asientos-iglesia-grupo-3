@@ -11,6 +11,8 @@ import FormCuenta from "./FormCuenta";
 import FormAvatar from "./FormAvatar";
 import FormRecuperar from "./FormRecuperar";
 import NuevaContrasenia from "./NuevaContrasenia";
+import ConfirmarAsiento from "./ConfirmarAsiento";
+
 
 const Navigation = () => {
 
@@ -48,6 +50,9 @@ const Navigation = () => {
             </Route>
             <Route path="/Perfil">
                 <Perfil/>
+            </Route>
+            <Route path="/ConfirmarAsiento">
+                <ConfirmarAsiento/>
             </Route>
         </Switch>
     )

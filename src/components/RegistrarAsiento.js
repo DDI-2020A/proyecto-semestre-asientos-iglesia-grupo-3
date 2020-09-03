@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import  {Modal, Form, Input, Button, Card, Row, Col, Space, Divider} from "antd";
+import {Modal, Form, Input, Button, Card, Row, Col, Space, Divider, Tabs} from "antd";
 import '../styles/registrarAsiento.css';
 
 import Foot from "./Foot";
 import FormRegistrarAsiento from "./FormRegistrarAsiento";
+
+const { TabPane } = Tabs;
 
 const RegistrarAsiento = () => {
 
@@ -94,12 +96,26 @@ const RegistrarAsiento = () => {
             </div>
 
             <Modal
-                title=  { "Prueba1"}
                 visible={ ViewFormAsientoModalVisible }
-                onCancel={ () => setViewFormAsientoModalVisible( false ) }
                 width={900}
+                onCancel={ () => setViewFormAsientoModalVisible( false ) }
             >
         <FormRegistrarAsiento />
+
+
+                <Tabs defaultActiveKey="1" centered>
+                    <TabPane tab={<p>SALUDOS</p>} key="1">
+                        Content of Tab Pane 1
+                    </TabPane>
+                    <TabPane tab="Tab 2" key="2">
+                        Content of Tab Pane 2
+                    </TabPane>
+                    <TabPane tab="Tab 3" key="3">
+                        <FormRegistrarAsiento />
+
+
+                    </TabPane>
+                </Tabs>
 
             </Modal>
             <Foot />

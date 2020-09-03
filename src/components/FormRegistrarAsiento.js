@@ -1,5 +1,6 @@
-import  { Select,DatePicker, Button, Card, Col, Divider, Form, Input, Row, Space} from "antd";
+import {Select, DatePicker, Button, Card, Col, Divider, Form, Input, Row, Space, Descriptions} from "antd";
 import React from "react";
+import {Link} from "react-router-dom";
 
 const FormRegistrarAsiento = () => {
 
@@ -101,7 +102,7 @@ const FormRegistrarAsiento = () => {
                             <Space align="center ">
                                 <Form.Item >
                                     <Button type="primary" htmlType="submit">
-                                        Aceptar
+                                        <Link to="/ConfirmarAsiento"> Registrar </Link>
                                     </Button>
                                 </Form.Item>
                             </Space>
@@ -120,3 +121,4 @@ const FormRegistrarAsiento = () => {
 }
 
 export default FormRegistrarAsiento;
+
