@@ -66,7 +66,7 @@ const Cuenta = () => {
                                     <Link to="/Formcuenta">Siguiente</Link>
                                 </Button>
                                 <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                    Cancelar
+                                    <Link to="/">Cancelar</Link>
                                 </Button>
                             </Form.Item>
                         </Form>

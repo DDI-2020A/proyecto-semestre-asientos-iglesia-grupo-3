@@ -1,21 +1,26 @@
-
-
-.tamanio-cuadro{
-    height: auto;
-    width: 70%;
-}
-.tamanio-cuadro-interno{
-    height: auto;
-    width: 90%;
-}
-
 .fondo-registrar-asiento{
     background-image: url("../images/Fondo Pag Registrar Asiento.jpg");
     background-size: cover;
 }
 
+.tamanio-card-grande{
+    height: auto;
+    width: 90%;
+}
+
+.tamanio-cuadro-interno{
+    height: auto;
+    width: 90%;
+}
 
 .padding-btn-registrar{
     padding-top: 20%;
 }
 
+.tamanio-menu{
+    width: 100%;
+}
+
+.tamanio-formularios{
+    width: 70%;
+}

@@ -24,11 +24,19 @@ const ConfirmarAsiento = () => {
                                             <Descriptions
                                                 column={{ xxl: 1, xl: 1, lg: 1 , md: 1, sm: 1, xs: 1 }}
                                             >
-                                                <Descriptions.Item label="Nombre">Usuario 1</Descriptions.Item>
-                                                <Descriptions.Item label="cedula">Cedula usuario</Descriptions.Item>
-                                                <Descriptions.Item label="Telefono">Número de usuario</Descriptions.Item>
-                                                <Descriptions.Item label="Horario">Horario</Descriptions.Item>
-                                                <Descriptions.Item label="Puesto">Posición</Descriptions.Item>
+                                                <Descriptions.Item label="Nombre">
+                                                    Nombre
+                                                </Descriptions.Item>
+                                                <Descriptions.Item label="cedula">
+                                                    Cádula
+                                                </Descriptions.Item>
+                                                <Descriptions.Item label="Telefono">
+                                                   Teléfono
+                                                </Descriptions.Item>
+                                                <Descriptions.Item label="Horario">
+                                                   Horario
+                                                </Descriptions.Item>
+                                                <Descriptions.Item label="Puesto"></Descriptions.Item>
                                             </Descriptions>
                                         </div>
 

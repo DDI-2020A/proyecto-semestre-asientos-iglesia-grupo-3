@@ -31,7 +31,7 @@ const FormRecuperar = () => {
                                         <Link to="/NuevaContrasenia">Aceptar</Link>
                                     </Button>
                                     <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                        Reenviar
+                                        <Link to="RecuperarContrasenia">Reenviar</Link>
                                     </Button>
                                 </Form.Item>
                             </Form>
