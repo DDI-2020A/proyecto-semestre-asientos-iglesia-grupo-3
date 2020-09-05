@@ -30,7 +30,7 @@ const MisForos = () => {
 
             <div className="fondo-foros">
                 <div align="center">
-                    <p className="tam-titu"><strong>Foros</strong></p>
+                    <p className="tam-titu"><strong>Mis Foros</strong></p>
                     <Search className="tam-buscador" placeholder="Buscar" onSearch={value => console.log(value)}
                             enterButton/>
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
@@ -47,10 +47,13 @@ const MisForos = () => {
                                     <p className="tam-titu2"><strong>Fecha</strong></p>
                                 </Col>
                             </Row>
+
                             {
+
                                 comments && comments.Foros
                                     ? comments.Foros.map((comment, index) => {
                                         return (
+
                                             <Row gutter={16} align="center">
                                                 <Col xs={1} sm={1} md={1} lg={1} span={1}>
                                                     <div className="div-datos-num"><strong>{index + 1}.-</strong></div>
@@ -72,6 +75,7 @@ const MisForos = () => {
                                     })
                                     : 'Cargando'
                             }
+
                         </Card>
                     </Card>
                 </div>
