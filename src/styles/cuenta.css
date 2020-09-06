@@ -11,7 +11,7 @@
 .cuadro-grande{
     margin-top: 15px;
     height: auto;
-    width: 60%;
+    width: 70%;
     background-color: #A3BAC3;
 
 }
@@ -23,4 +23,7 @@
 .modalLink{
     margin-top: 15px;
     text-align: right;
+}
+.conteiner{
+    align-content: center;
 }

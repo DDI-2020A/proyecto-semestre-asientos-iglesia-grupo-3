@@ -1,5 +1,5 @@
-import { Select,    Tabs} from "antd";
-import React, {useState} from "react";
+import {Tabs} from "antd";
+import React from "react";
 import '../styles/registrarAsiento.css';
 import FormRegistrarAsiento3 from "./FormRegistrarAsiento3";
 import FormRegistrarAsiento1 from "./FormRegistrarAsiento1";
@@ -9,13 +9,13 @@ const { TabPane } = Tabs;
 
 const FormRegistrarAsiento = () => {
 
-    const [keyTabs, setKeyTabs] = useState(1);
+    /* const [keyTabs, setKeyTabs] = useState(1);
 
-    const handleChangeKey = (numeroTab) => {
-        console.log("Tab is changing to ",numeroTab);
-        setKeyTabs( parseInt(numeroTab))
-        console.log("keytabs es ",keyTabs);
-    };
+ const handleChangeKey = (numeroTab) => {
+       console.log("Tab is changing to ",numeroTab);
+       setKeyTabs( parseInt(numeroTab))
+       console.log("keytabs es ",keyTabs);
+   };*/
 
     return (
 

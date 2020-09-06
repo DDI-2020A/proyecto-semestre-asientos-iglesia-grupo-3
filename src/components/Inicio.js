@@ -275,7 +275,7 @@ const Inicio = () => {
                             <Divider />
                             <Row gutter={16} align="center">
                                 <Col xs={32} sm={32} md={10} lg={10}  span={8}>
-                                    <a href="https://www.google.com.ec/maps/place/Iglesia+Del+Barco/@-0.2588519,-78.5188202,17z/data=!4m5!3m4!1s0x91d59854df33a4f1:0x2ba49ba5a33853b1!8m2!3d-0.2572981!4d-78.5196841"
+                                    <a href="https://www.google.com.ec/maps/place/La+luz+del+mundo/@-0.3285672,-78.5537108,15z/data=!4m8!1m2!2m1!1siglesia+la+luz+del+mundo!3m4!1s0x91d5a2350cf78025:0xb59ef8a2f91564d8!8m2!3d-0.3285672!4d-78.5449561"
                                        >
                                         <img
                                             style={{ width: '100%', height: '90%' }}

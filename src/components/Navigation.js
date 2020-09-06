@@ -8,7 +8,6 @@ import RecuperarContrasenia from "./RecuperarContrasenia";
 import ForosPrincipal from "./ForosPrincipal";
 import Perfil from "./Perfil";
 import FormCuenta from "./FormCuenta";
-import FormAvatar from "./FormAvatar";
 import FormRecuperar from "./FormRecuperar";
 import NuevaContrasenia from "./NuevaContrasenia";
 import ConfirmarAsiento from "./ConfirmarAsiento";
@@ -43,9 +42,6 @@ const Navigation = () => {
             </Route>
             <Route path="/FormCuenta">
                 <FormCuenta/>
-            </Route>
-            <Route path="/FormAvatar">
-                <FormAvatar/>
             </Route>
             <Route path="/ForosPrincipal">
                 <ForosPrincipal />

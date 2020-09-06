@@ -1,5 +1,14 @@
-@import '~antd/dist/antd.css';
+.avatar-b{
+    display: flex;
+    flex-wrap:wrap;
+}
+.avatar-b label{
 
-.cardimage{
+    height: 110px;
     background-color: transparent;
+    border: none;
+    padding: 5px;
+}
+.avatar-b label.ant-radio-button-wrapper-checked {
+    background-color: #006989 !important;
 }
