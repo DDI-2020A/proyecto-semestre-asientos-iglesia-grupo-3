@@ -1,19 +1,19 @@
 import {Route, Switch} from "react-router-dom";
-import Inicio from "./Inicio";
-import Cuenta from "./Cuenta";
-import Login from "./Login";
-import RegistrarAsiento from "./RegistrarAsiento";
+import Inicio from "../Pages/Inicio";
+import Cuenta from "../Pages/Cuenta";
+import Login from "../Pages/Login";
+import RegistrarAsiento from "../Pages/RegistrarAsiento";
 import React from "react";
-import RecuperarContrasenia from "./RecuperarContrasenia";
-import ForosPrincipal from "./ForosPrincipal";
-import Perfil from "./Perfil";
-import FormCuenta from "./FormCuenta";
-import FormRecuperar from "./FormRecuperar";
-import NuevaContrasenia from "./NuevaContrasenia";
-import ConfirmarAsiento from "./ConfirmarAsiento";
-import MisForos from "./MisForos";
-import CrearForos from "./CrearForos";
-import Foro from "./Foro";
+import RecuperarContrasenia from "../Pages/RecuperarContrasenia";
+import ForosPrincipal from "../Pages/ForosPrincipal";
+import Perfil from "../Pages/Perfil";
+import FormCuenta from "../Pages/FormCuenta";
+import FormRecuperar from "../Pages/FormRecuperar";
+import NuevaContrasenia from "../Pages/NuevaContrasenia";
+import ConfirmarAsiento from "../Pages/ConfirmarAsiento";
+import MisForos from "../Pages/MisForos";
+import CrearForos from "../Pages/CrearForos";
+import Foro from "../Pages/Foro";
 
 const Navigation = () => {
 

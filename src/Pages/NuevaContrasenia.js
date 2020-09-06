@@ -2,7 +2,7 @@ import React from 'react';
 import {Form, Input, Button, Card} from "antd";
 import '../styles/login.css';
 import '../styles/cuenta.css';
-import Foot from "./Foot";
+import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
 
 const NuevaContrasenia = () => {

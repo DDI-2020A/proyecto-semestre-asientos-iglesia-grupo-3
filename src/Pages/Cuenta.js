@@ -1,10 +1,24 @@
 import React from 'react';
 import {Form, Input, Button, Card} from "antd";
 import '../styles/cuenta.css';
-import Foot from "./Foot";
+import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
+import FIREBASE from '../firebase'
 
 const Cuenta = () => {
+
+    const writeDB = () => {
+        FIREBASE.db.ref('Login/' + 12 ).set({
+            Avatar: "a1",
+            Contrasena: "user",
+            Direccion: "Lucha",
+            Email: "torresadrian@gmail.com",
+            Nombre: "Adrian Torres",
+            Telefono: "0998765123"
+        })
+    }
+    writeDB();
+
     return (
         <>
             <div className=" fondo-cuenta" align="center">
