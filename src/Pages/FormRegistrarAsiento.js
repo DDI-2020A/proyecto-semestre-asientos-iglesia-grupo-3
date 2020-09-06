@@ -1,9 +1,9 @@
 import {Tabs} from "antd";
 import React from "react";
 import '../styles/registrarAsiento.css';
-import FormRegistrarAsiento3 from "./FormRegistrarAsiento3";
-import FormRegistrarAsiento1 from "./FormRegistrarAsiento1";
-import FormRegistrarAsiento2 from "./FormRegistrarAsiento2";
+import FormRegistrarAsiento3 from "../components/FormRegistrarAsiento3";
+import FormRegistrarAsiento1 from "../components/FormRegistrarAsiento1";
+import FormRegistrarAsiento2 from "../components/FormRegistrarAsiento2";
 
 const { TabPane } = Tabs;
 

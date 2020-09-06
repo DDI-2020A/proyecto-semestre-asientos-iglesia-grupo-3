@@ -1,10 +1,10 @@
 import React from "react";
 import {Card, Col, Input, Row, Comment, Tooltip, Button, Form} from "antd";
 import '../styles/foro.css';
-import HeaderForos from "./HeaderForos";
-import Foot from "./Foot";
+import HeaderForos from "../components/HeaderForos";
+import Foot from "../components/Foot";
 import moment from 'moment';
-import avatar4 from  '../images/avatar4.jpg';
+import avatar4 from '../images/avatar4.jpg';
 import {Link} from "react-router-dom";
 
 const Foro = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Card, Col, Descriptions, Divider, Row, Space} from "antd";
-import Foot from "./Foot";
+import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
 
 

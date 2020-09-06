@@ -2,8 +2,8 @@ import React, { useState, useEffect} from 'react';
 import {Card, Col, Row, Input} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
-import Foot from "./Foot";
-import HeaderForos from "./HeaderForos";
+import Foot from "../components/Foot";
+import HeaderForos from "../components/HeaderForos";
 
 
 const MisForos = () => {

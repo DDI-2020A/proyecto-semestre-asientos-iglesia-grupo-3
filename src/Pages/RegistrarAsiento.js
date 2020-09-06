@@ -2,7 +2,7 @@ import React from 'react';
 import { Card} from "antd";
 import '../styles/registrarAsiento.css';
 
-import Foot from "./Foot";
+import Foot from "../components/Foot";
 import FormRegistrarAsiento from "./FormRegistrarAsiento";
 
 

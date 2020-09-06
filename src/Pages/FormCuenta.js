@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button} from "antd";
 import '../styles/cuenta.css';
-import Foot from "./Foot";
+import Foot from "../components/Foot";
 import { Row, Col , Card} from 'antd';
 import Divider from "antd/es/divider";
 import {Link} from "react-router-dom";
-import UserAvatar from "./UserAvatar";
+import UserAvatar from "../components/UserAvatar";
 
 const FormCuenta = () => {
     return (
