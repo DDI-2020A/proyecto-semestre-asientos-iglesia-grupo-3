@@ -1,117 +1,63 @@
-import {Card, Col, Row} from "antd";
-import avatar1 from "../images/avatar1.jpg";
-import avatar2 from "../images/avatar2.jpg";
-import avatar3 from "../images/avatar3.jpg";
-import avatar4 from "../images/avatar4.jpg";
-import avatar5 from "../images/avatar5.jpg";
-import avatar6 from "../images/avatar6.jpg";
-import avatar7 from "../images/avatar7.jpg";
-import avatar8 from "../images/avatar8.jpg";
+import { Col, Row,Radio} from "antd";
+import a1 from "../images/avatar1.jpg";
+import a2 from "../images/avatar2.jpg";
+import a3 from "../images/avatar3.jpg";
+import a4 from "../images/avatar4.jpg";
+import a5 from "../images/avatar5.jpg";
+import a6 from "../images/avatar6.jpg";
+import a7 from "../images/avatar7.jpg";
+import a8 from "../images/avatar8.jpg";
+import a9 from  '../images/avatar9.jpg';
+import a10 from  '../images/avatar10.jpg';
+import a11 from  '../images/avatar11.jpg';
+import a12 from  '../images/avatar12.jpg';
+import a13 from  '../images/avatar13.jpg';
+import a14 from  '../images/avatar14.jpg';
+import a15 from  '../images/avatar15.jpg';
+import a16 from  '../images/avatar16.jpg';
+import '../styles/formcuenta.css';
 import React from "react";
+const avatars={
+    a1,
+    a2,
+    a3,
+    a4,
+    a5,
+    a6,
+    a7,
+    a8,
+    a9,
+    a10,
+    a11,
+    a12,
+    a13,
+    a14,
+    a15,
+    a16,
+};
+
+const getAvatar=()=> {
+    const avatarOptions = [];
+    for (let avatarkey in avatars) {
+        avatarOptions.push(
+            {
+                label: <img src={avatars[avatarkey]} alt='Imagen' height={100}/>,
+                value: avatarkey
+            }
+        );
+    }
+    return avatarOptions;
+}
 
 const UserAvatar =()=>{
     return (
         <>
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-            <Col className="gutter-row" span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar1}
-                          />
-                      }
-                >
-                </Card>
+            <Col span={24} >
+                <Radio.Group className='avatar-b' options={getAvatar()}
+                             optionType='button'/>
             </Col>
-            <Col className="gutter-row" span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar2}
-                          />
-                      }
-                >
-                </Card>
-            </Col>
-            <Col  span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar3}
-                          />
-                      }
-                >
-                </Card>
-            </Col>
-            <Col className="gutter-row" span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar4}
-                          />
-                      }
-                >
-                </Card>
-            </Col>
-        </Row>
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-            <Col className="gutter-row" span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar5}
-                          />
-                      }
-                >
-                </Card>
-            </Col>
-            <Col  span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar6}
-                          />
-                      }
-                >
-                </Card>
-            </Col>
-            <Col  span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar7}
-                          />
-                      }
-                >
-                </Card>
-            </Col>
-            <Col  span={6}>
-                <Card className="cardimage"
-                      cover={
-                          <img
-                              style={{ width: '80%', height: '100%', }}
-                              alt="example"
-                              src={avatar8}
-                          />
-                      }
-                >
-                </Card>
-            </Col>
-        </Row>
+            </Row>
     </>
 );
 }

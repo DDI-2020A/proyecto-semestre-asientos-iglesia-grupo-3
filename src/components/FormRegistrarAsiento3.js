@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Card, Col, DatePicker, Divider, Form, Input, Row, Select, Space} from "antd";
+import {Button, Card, Col,Divider, Form, Input, Row,Space} from "antd";
 import {Link} from "react-router-dom";
 import '../styles/registrarAsiento.css';
 

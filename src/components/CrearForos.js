@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {Card, Col, Row, Input, Form, Button} from 'antd';
+import {Card,Input, Form, Button} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "./Foot";
@@ -21,7 +21,7 @@ const CrearForos = () =>{
 
     },[] );
 
-    const { Search } = Input;
+  const { Search } = Input;
 
     return (
         <>

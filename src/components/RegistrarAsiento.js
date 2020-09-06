@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
-import {Modal, Form, Input, Button, Card, Row, Col, Space, Divider, Tabs} from "antd";
+import React from 'react';
+import { Card} from "antd";
 import '../styles/registrarAsiento.css';
 
 import Foot from "./Foot";
 import FormRegistrarAsiento from "./FormRegistrarAsiento";
 
-const { TabPane } = Tabs;
 
 const RegistrarAsiento = () => {
 
@@ -23,7 +22,6 @@ const RegistrarAsiento = () => {
                         </p>
 
                         <FormRegistrarAsiento />
-
 
                     </Card>
                 </Card>

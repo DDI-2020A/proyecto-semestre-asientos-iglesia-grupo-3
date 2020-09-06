@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Card, Col, DatePicker, Divider, Form, Input, Row, Select, Space} from "antd";
+import {Button, Card, DatePicker, Divider, Form,Select, Space} from "antd";
 import '../styles/registrarAsiento.css';
 
 const FormRegistrarAsiento2 = () =>{

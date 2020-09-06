@@ -1,5 +1,5 @@
-import React, { createElement, useEffect, useState} from "react";
-import {Card, Col, Input, Row, Comment, Tooltip, Button, Form, Item} from "antd";
+import React from "react";
+import {Card, Col, Input, Row, Comment, Tooltip, Button, Form} from "antd";
 import '../styles/foro.css';
 import HeaderForos from "./HeaderForos";
 import Foot from "./Foot";
@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 
 const Foro = () => {
 
-    const { Search } = Input;
+    /*const { Search } = Input;*/
 
     const onFinish = values => {
         console.log(values);
