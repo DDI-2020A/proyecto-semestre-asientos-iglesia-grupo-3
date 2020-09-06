@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react';
-import {Card, Col, Row, Input} from 'antd';
+import {Card, Col, Row, Input, Button} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "./Foot";
 import HeaderForos from "./HeaderForos";
+import {Link} from "react-router-dom";
 
 const ForosPrincipal = () => {
 
@@ -55,8 +56,13 @@ const ForosPrincipal = () => {
                                                     <div className="div-datos-num"><strong>{index + 1}.-</strong></div>
                                                 </Col>
                                                 <Col xs={24} sm={24} md={10} lg={12} span={1}>
-                                                    <div className="div-datos-titulos"><strong>{comment.Titulo}</strong>
-                                                    </div>
+                                                    <Button key="4" className="div-datos-num">
+                                                        <Link to="/Foro">
+                                                            <div className="div-datos-titulos">
+                                                                <strong>{comment.Titulo}</strong>
+                                                            </div>
+                                                        </Link>
+                                                    </Button>
                                                 </Col>
                                                 <Col xs={24} sm={24} md={8} lg={6} span={1}>
                                                     <div className="div-datos-titulos">

@@ -14,7 +14,7 @@ import NuevaContrasenia from "./NuevaContrasenia";
 import ConfirmarAsiento from "./ConfirmarAsiento";
 import MisForos from "./MisForos";
 import CrearForos from "./CrearForos";
-
+import Foro from "./Foro";
 
 const Navigation = () => {
 
@@ -61,6 +61,9 @@ const Navigation = () => {
             </Route>
             <Route path="/CrearForos">
                 <CrearForos/>
+            </Route>
+            <Route path="/Foro">
+                <Foro/>
             </Route>
         </Switch>
     )
