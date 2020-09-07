@@ -1,10 +1,11 @@
-import React from "react";
-import {Button, Card, Col,Form, Input, Row, Space} from "antd";
+import React, {useState} from "react";
+import {Button, Card, Col, Form, Input, message, Row, Space} from "antd";
 import '../styles/registrarAsiento.css';
+import {Link} from "react-router-dom";
 
-const FormRegistrarAsiento1 = () =>{
+const FormRegistrarAsiento1 = (props) =>{
 
-
+const [current, SetCurrent] = useState( props.current);
 
     return (
 
@@ -53,22 +54,38 @@ const FormRegistrarAsiento1 = () =>{
                                             required: true,
                                             message: 'Por favor ingrese su teléfono',
                                         },
+
                                     ]}
                                 >
                                     <Input id="ra-telefono-usuario" placeholder="Ingrese su teléfono" />
                                 </Form.Item>
                             </Col>
-                            <Col xs={24} sm={24} md={8} lg={8}  span={8} >
-                                <Space align="center padding-btn-registrar">
-                                    <Form.Item >
-                                        <Button type="primary" htmlType="submit">
-                                            Aceptar
-                                        </Button>
-                                    </Form.Item>
-                                </Space>
-                            </Col>
-
                         </Row>
+
+
+                        {current < 2 && (
+                            <Form.Item >
+                                <Button type="primary" htmlType="submit" >
+                                    Siguiente
+                                </Button>
+                            </Form.Item>
+                        )}
+                        {current === 2 && (
+                            <Form.Item >
+                                <Button type="primary" htmlType="submit"  onClick={() => message.success('Se han registrado sus datos')}>
+                                    <Link to="/ConfirmarAsiento"> Registrar </Link>
+                                </Button>
+                            </Form.Item >
+                        )}
+                        {current > 0 && (
+
+                            <Form.Item >
+                                <Button style={{ margin: '0 8px' }} >
+                                    Regresar
+                                </Button>
+                            </Form.Item >
+                        )}
+
                     </Form>
 
                 </Card>

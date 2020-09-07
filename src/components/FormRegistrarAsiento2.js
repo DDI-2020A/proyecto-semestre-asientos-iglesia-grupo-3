@@ -1,9 +1,11 @@
-import React from "react";
-import {Button, Card, DatePicker, Divider, Form,Select, Space} from "antd";
+import React, {useState} from "react";
+import {Button, Card, DatePicker, Divider, Form, message, Select, Space} from "antd";
 import '../styles/registrarAsiento.css';
+import {Link} from "react-router-dom";
 
-const FormRegistrarAsiento2 = () =>{
+const FormRegistrarAsiento2 = (props) =>{
 
+    const [current, SetCurrent] = useState( props.current);
 
     const { Option, OptGroup } = Select;
     function handleChange(value) {
@@ -39,14 +41,31 @@ const FormRegistrarAsiento2 = () =>{
                                 </Select>
                             </Form.Item>
 
-                            <Divider dashed />
-                            <Space align="center ">
+
+                            {current < 2 && (
                                 <Form.Item >
-                                    <Button type="primary" >
-                                        Aceptar
+                                    <Button type="primary" htmlType="submit" >
+                                        Siguiente
                                     </Button>
                                 </Form.Item>
-                            </Space>
+                            )}
+                            {current === 2 && (
+                                <Form.Item >
+                                    <Button type="primary" htmlType="submit"  onClick={() => message.success('Se han registrado sus datos')}>
+                                        <Link to="/ConfirmarAsiento"> Registrar </Link>
+                                    </Button>
+                                </Form.Item >
+                            )}
+                            {current > 0 && (
+
+                                <Form.Item >
+                                    <Button style={{ margin: '0 8px' }} >
+                                        Regresar
+                                    </Button>
+                                </Form.Item >
+                            )}
+
+
                         </Form>
                     </div>
                 </Card>

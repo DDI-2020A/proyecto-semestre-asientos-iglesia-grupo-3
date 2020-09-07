@@ -55,14 +55,6 @@ const FormRegistrarAsiento2 = () =>{
 
                             </Row>
 
-                            <Space align="center ">
-                                <Form.Item >
-                                    <Button type="primary" htmlType="submit">
-                                        <Link to="/ConfirmarAsiento"> Registrar </Link>
-                                    </Button>
-                                </Form.Item>
-                            </Space>
-
                         </Form>
                     </div>
                 </Card>
