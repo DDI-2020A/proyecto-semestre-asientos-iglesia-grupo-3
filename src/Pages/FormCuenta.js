@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button} from "antd";
+import {Button} from "antd";
 import '../styles/cuenta.css';
 import Foot from "../components/Foot";
 import { Row, Col , Card} from 'antd';
 import Divider from "antd/es/divider";
 import {Link} from "react-router-dom";
 import UserAvatar from "../components/UserAvatar";
+
 
 const FormCuenta = () => {
     return (
@@ -19,7 +20,7 @@ const FormCuenta = () => {
                         </Col>
                         <Divider orientation="center">
                             <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
-                                <Link to="/Login"> Aceptar</Link>
+                                 <Link to="/Login">Aceptar</Link>
                             </Button>
                             <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                 <Link to="/Login">Cancelar</Link>

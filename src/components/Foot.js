@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import Descriptions from "antd/es/descriptions";
-import {WhatsAppOutlined, FacebookOutlined,TwitterOutlined,GooglePlusOutlined } from '@ant-design/icons'
+import {WhatsAppOutlined, FacebookOutlined,TwitterOutlined} from '@ant-design/icons'
 import ImgDirec from "../images/ImgDirec.jpg";
 const { Footer} = Layout;
 

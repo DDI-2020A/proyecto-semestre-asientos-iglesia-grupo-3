@@ -1,5 +1,5 @@
-import React from 'react';
-import {Form, Input, Button, Card} from "antd";
+import React, {useState} from 'react';
+import {Form, Input, Button, Card, message} from "antd";
 import '../styles/cuenta.css';
 import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
@@ -7,17 +7,14 @@ import FIREBASE from '../firebase'
 
 const Cuenta = () => {
 
-    const writeDB = () => {
-        FIREBASE.db.ref('Login/' + 12 ).set({
-            Avatar: "a1",
-            Contrasena: "user",
-            Direccion: "Lucha",
-            Email: "torresadrian@gmail.com",
-            Nombre: "Adrian Torres",
-            Telefono: "0998765123"
-        })
+
+    const handleSubmit= async (values) => {
+        await FIREBASE.db.ref('Login' ).push(values);
+        console.log('valores',values);
+        message.success('Datos guardados')
+
     }
-    writeDB();
+
 
     return (
         <>
@@ -31,53 +28,49 @@ const Cuenta = () => {
                         <div >
                         <Form
                             name="basic"
-                            initialValues={{remember: true}}
+                            onFinish={handleSubmit}
                         >
                             <Form.Item
                                 label="Email"
-                                name="usermail"
-                                rules={[{required: true, message: 'Porfavor ingrese su correo!'}]}
+                                name="Email"
+                                rules={[{required: true, message: 'Porfavor ingrese su correo!'},
+                                {
+                                    type:"email",
+                                    message: "Ingresa un correo valido"}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item
                                 label="Contraseña"
-                                name="password"
+                                name="Contrasena"
                                 rules={[{required: true, message: 'Porfavor ingrese su contraseña!'}]}
                             >
                                 <Input.Password/>
                             </Form.Item>
                             <Form.Item
-                                label="Verificar Contraseña"
-                                name="checkpassword"
-                                rules={[{required: true, message: 'Please input your password!'}]}
-                            >
-                                <Input.Password/>
-                            </Form.Item>
-                            <Form.Item
                                 label="Nombre"
-                                name="username"
+                                name="Nombre"
                                 rules={[{required: true, message: 'Porfavor ingese su nombre !'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item
                                 label="Dirección"
-                                name="userdirection"
+                                name="Direccion"
                                 rules={[{required: true, message: 'Porfavor ingrese su direccion'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item
                                 label="Teléfono"
-                                name="userphone"
+                                name="Telefono"
                                 rules={[{required: true, message: 'Porfavor ingrese su teléfono'}]}
                             >
                                 <Input/>
                             </Form.Item>
                             <Form.Item>
                                 <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                    <Link to="/Formcuenta">Siguiente</Link>
+                                    <Link to="FormCuenta">Siguiente</Link>
                                 </Button>
                                 <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                     <Link to="/">Cancelar</Link>

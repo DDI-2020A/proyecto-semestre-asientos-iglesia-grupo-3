@@ -1,4 +1,4 @@
-import { Col, Row,Radio} from "antd";
+import {Col, Row, Radio, Button, message} from "antd";
 import a1 from "../images/avatar1.jpg";
 import a2 from "../images/avatar2.jpg";
 import a3 from "../images/avatar3.jpg";
@@ -47,9 +47,11 @@ const getAvatar=()=> {
         );
     }
     return avatarOptions;
+
 }
 
 const UserAvatar =()=>{
+
     return (
         <>
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
