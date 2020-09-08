@@ -1,14 +1,56 @@
 import React, { useState, useEffect} from 'react';
-import {Card, Col, Row, Input, Button} from 'antd';
+import {Card, Col, Row, Input, Button, Table} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
 import {Link} from "react-router-dom";
+import FIREBASE from "../firebase";
+
 
 const ForosPrincipal = () => {
 
     const [ comments, setComments ] = useState( [] );
+    const [dataComments, setDataComments] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [nombreUsuario, setNombreUsuario] = useState("");
+
+    useEffect( () => {
+        const getDataComments  = async () => {
+            FIREBASE.db.ref('Foros').on('value', (snapshot) => {
+                console.log('snapshot', snapshot.val());
+                const commentsData = [];
+                snapshot.forEach( (data) => {
+                    //  console.log('comment', data.val());
+                    const comment = data.val();
+                    const commentId = data.key;
+
+                    let idUsuario = "";
+                    FIREBASE.db.ref('Login/' + comment.Usuario).on('value', (snapshot) =>{
+                        const nombreUsu = snapshot.val();
+                        idUsuario = nombreUsu.Nombre;
+                        setNombreUsuario(idUsuario);
+                        console.log('Nomrbeusuarioa:', idUsuario );
+
+                        console.log('NomrbeusuarioUseEfecta: ', nombreUsuario);
+
+                    });
+
+
+                    commentsData.push({
+                        key: commentId,
+                        Titulo: comment.Titulo,
+                        Usuario: nombreUsuario,
+                        Fecha: comment.Fecha
+                    });
+                });
+                console.log('commentsData', commentsData);
+                setDataComments(commentsData);
+                setIsLoading(false);
+            });
+        };
+        getDataComments();
+    }, []);
 
     useEffect( () => {
         const getComments = async() => {
@@ -23,6 +65,25 @@ const ForosPrincipal = () => {
     },[] );
 
     const { Search } = Input;
+
+    const columns = [
+        {
+            title: 'Tema',
+            dataIndex: 'Titulo',
+            key: 'Titulo',
+        },
+        {
+            title: 'Autor',
+            dataIndex: 'Usuario',
+            key: 'Usuario',
+        },
+        {
+            title: 'Fecha',
+            dataIndex: 'Fecha',
+            key: 'Fecha',
+        },
+    ];
+
 
     return (
         <>
@@ -77,6 +138,7 @@ const ForosPrincipal = () => {
                                     })
                                     : 'Cargando'
                             }
+                            <Table dataSource={ dataComments } columns={ columns } loading={isLoading} />;
                         </Card>
                     </Card>
                 </div>
