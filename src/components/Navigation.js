@@ -50,7 +50,7 @@ const Navigation = () => {
                 <Perfil/>
             </Route>
             <Route path="/ConfirmarAsiento">
-                <ConfirmarAsiento/>
+                <ConfirmarAsiento />
             </Route>
             <Route path="/MisForos">
                 <MisForos/>

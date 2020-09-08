@@ -1,11 +1,25 @@
-import React, {useState} from "react";
-import {Button, Card, Col, Form, Input, message, Row, Space} from "antd";
+import React, {useEffect, useState} from "react";
+import {Button, Card, Col, Form, Input,  Row } from "antd";
 import '../styles/registrarAsiento.css';
-import {Link} from "react-router-dom";
+
 
 const FormRegistrarAsiento1 = (props) =>{
 
-const [current, SetCurrent] = useState( props.current);
+    const [ datosUsuario, setDatosUsuario ] = useState( props.datosUsuario );
+
+    useEffect( () => {
+        console.log( 'Datos usuario1', props.datosUsuario );
+    }, [ props.datosUsuario ] );
+
+
+
+    const handleDevolverDatos = () =>{
+        const nombreUsuario = document.querySelector('#ra-nombre-usuario').value;
+        const cedulaUsuario = document.querySelector('#ra-cedula-pasaporte').value;
+        const telefonoUsuario = document.querySelector('#ra-telefono-usuario').value;
+        props.onActualizarValores(nombreUsuario, telefonoUsuario, cedulaUsuario);
+        props.onNext();
+    }
 
     return (
 
@@ -32,8 +46,13 @@ const [current, SetCurrent] = useState( props.current);
                                         },
                                     ]}
                                 >
-                                    <Input id="ra-cecula-pasaporte" placeholder="Ingrese su Cédula o Pasaporte" />
-                                </Form.Item>
+                                    {
+                                        datosUsuario !== null ?
+                                            <Input  defaultValue={ datosUsuario.CedulaPasUsuario} id="ra-cedula-pasaporte" placeholder="Ingrese su Cédula o Pasaporte" />
+                                            :
+                                            <Input  id="ra-cedula-pasaporte" placeholder="Ingrese su Cédula o Pasaporte" />
+                                    }
+                                    </Form.Item>
                                 <Form.Item
                                     name="ra-nombre-usuario"
                                     label="Nombre"
@@ -44,7 +63,15 @@ const [current, SetCurrent] = useState( props.current);
                                         },
                                     ]}
                                 >
-                                    <Input id="ra-nombre-usuario" placeholder="Ingrese su nombre" />
+                                    {
+                                        datosUsuario !== null ?
+                                            <Input defaultValue={ datosUsuario.nombreUsuario } id="ra-nombre-usuario" placeholder="Ingrese su nombre" />
+                                            :
+                                            <Input id="ra-nombre-usuario" placeholder="Ingrese su nombre" />
+                                    }
+
+
+
                                 </Form.Item>
                                 <Form.Item
                                     name="ra-telefono-usuario"
@@ -57,33 +84,25 @@ const [current, SetCurrent] = useState( props.current);
 
                                     ]}
                                 >
-                                    <Input id="ra-telefono-usuario" placeholder="Ingrese su teléfono" />
+
+                                    {
+                                        datosUsuario !== null ?
+                                            <Input  defaultValue={ datosUsuario.telefonoUsuario}  id="ra-telefono-usuario" placeholder="Ingrese su teléfono" />
+                                            :
+                                            <Input id="ra-telefono-usuario" placeholder="Ingrese su teléfono" />
+                                    }
+
                                 </Form.Item>
                             </Col>
                         </Row>
 
 
-                        {current < 2 && (
+                        {props.current < 2 && (
                             <Form.Item >
-                                <Button type="primary" htmlType="submit" >
+                                <Button type="primary" htmlType="submit" onClick={handleDevolverDatos}>
                                     Siguiente
                                 </Button>
                             </Form.Item>
-                        )}
-                        {current === 2 && (
-                            <Form.Item >
-                                <Button type="primary" htmlType="submit"  onClick={() => message.success('Se han registrado sus datos')}>
-                                    <Link to="/ConfirmarAsiento"> Registrar </Link>
-                                </Button>
-                            </Form.Item >
-                        )}
-                        {current > 0 && (
-
-                            <Form.Item >
-                                <Button style={{ margin: '0 8px' }} >
-                                    Regresar
-                                </Button>
-                            </Form.Item >
                         )}
 
                     </Form>

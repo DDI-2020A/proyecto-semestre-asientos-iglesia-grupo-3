@@ -1,17 +1,32 @@
-import React, {useState} from "react";
-import {Button, Card, DatePicker, Divider, Form, message, Select, Space} from "antd";
+import React, {useEffect, useState} from "react";
+import {Button, Card, DatePicker, Form, Select } from "antd";
 import '../styles/registrarAsiento.css';
-import {Link} from "react-router-dom";
+
 
 const FormRegistrarAsiento2 = (props) =>{
-
-    const [current, SetCurrent] = useState( props.current);
 
     const { Option, OptGroup } = Select;
     function handleChange(value) {
         console.log(`selected ${value}`);
     }
 
+    const handleDevolverDatos = ( value ) =>{
+        const dia = "dia";
+        const horario = "horario";
+        props.onActualizarValores2(dia, horario);
+        {
+            value && true ?
+                 props.onNext()
+                :props.onPrev();
+        }
+
+
+
+    }
+
+    useEffect( () => {
+        console.log( 'Datos usuario2', props.datosUsuario );
+    }, [ props.datosUsuario ] );
 
     return (
 
@@ -31,7 +46,7 @@ const FormRegistrarAsiento2 = (props) =>{
                             </Form.Item>
                             <Form.Item name="ra-seleccionar-horario: " label="Seleccionar horario" >
                                 <Select defaultValue="buscar horario" style={{ width: 200 }} onChange={handleChange}>
-                                    <OptGroup label="Horarios Disponibles">
+                                    <OptGroup  label="Horarios Disponibles">
                                         <Option value="7">7:00 - 9:00</Option>
                                         <Option value="10">10:00 - 12:00</Option>
                                         <Option value="14">14:00 - 16:00</Option>
@@ -42,28 +57,22 @@ const FormRegistrarAsiento2 = (props) =>{
                             </Form.Item>
 
 
-                            {current < 2 && (
+                            {props.current < 2 && (
                                 <Form.Item >
-                                    <Button type="primary" htmlType="submit" >
+                                    <Button type="primary" htmlType="submit" onClick={ () => handleDevolverDatos( true )} >
                                         Siguiente
                                     </Button>
                                 </Form.Item>
                             )}
-                            {current === 2 && (
-                                <Form.Item >
-                                    <Button type="primary" htmlType="submit"  onClick={() => message.success('Se han registrado sus datos')}>
-                                        <Link to="/ConfirmarAsiento"> Registrar </Link>
-                                    </Button>
-                                </Form.Item >
-                            )}
-                            {current > 0 && (
+                            {props.current > 0 && (
 
                                 <Form.Item >
-                                    <Button style={{ margin: '0 8px' }} >
+                                    <Button style={{ margin: '0 8px' }} onClick={ () => handleDevolverDatos( false )}>
                                         Regresar
                                     </Button>
                                 </Form.Item >
                             )}
+
 
 
                         </Form>

@@ -1,9 +1,28 @@
-import React from "react";
-import {Button, Card, Col,Divider, Form, Input, Row,Space} from "antd";
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Button, Card, Col, Divider, Form, Input, message, Row} from "antd";
 import '../styles/registrarAsiento.css';
+import {Link} from "react-router-dom";
 
-const FormRegistrarAsiento2 = () =>{
+const FormRegistrarAsiento2 = (props) =>{
+
+    const [ datosUsuario, setDatosUsuario ] = useState( props.datosUsuario );
+
+    useEffect( () => {
+        console.log( 'Datos usuario3', props.datosUsuario );
+    }, [ props.datosUsuario ] );
+
+
+    const handleDevolverDatos = (value) =>{
+        const fila = document.querySelector('#ra-fila').value;
+        const columna = document.querySelector('#ra-columna').value;
+        props.onActualizarValores3(fila, columna);
+        {
+            value && true ?
+                message.success('Se han registrado sus datos')
+                :
+                props.onPrev();
+        }
+    }
 
     return (
 
@@ -34,7 +53,15 @@ const FormRegistrarAsiento2 = () =>{
                                             },
                                         ]}
                                     >
-                                        <Input id="ra-fila" placeholder="Ingresar fila" />
+                                        {
+                                            datosUsuario.PuestoMisaUsuarioF !== null ?
+                                                <Input  defaultValue={ datosUsuario.PuestoMisaUsuarioF} id="ra-fila" placeholder="Ingresar fila" />
+                                                :
+                                                <Input id="ra-fila" placeholder="Ingresar fila" />
+                                        }
+
+
+
                                     </Form.Item>
 
                                 </Col>
@@ -49,11 +76,34 @@ const FormRegistrarAsiento2 = () =>{
                                             },
                                         ]}
                                     >
-                                        <Input id="ra-columna" placeholder="Ingresar columna" />
+
+
+                                        {
+                                            datosUsuario.PuestoMisaUsuarioC !== null ?
+                                                <Input defaultValue={ datosUsuario.PuestoMisaUsuarioC } id="ra-columna" placeholder="Ingresar columna" />
+                                                :
+                                                <Input id="ra-columna" placeholder="Ingresar columna" />
+                                        }
+
                                     </Form.Item>
                                 </Col>
 
                             </Row>
+
+                            {props.current === 2 && (
+                                <Form.Item >
+                                    <Button type="primary" htmlType="submit"  onClick={()=> handleDevolverDatos(true)}>
+                                        <Link to="/ConfirmarAsiento" > Registrar </Link>
+                                    </Button>
+                                </Form.Item >
+                            )}
+                            {props.current > 0 && (
+                                <Form.Item >
+                                    <Button style={{ margin: '0 8px' }} onClick={ ()=> handleDevolverDatos(false)}>
+                                        Regresar
+                                    </Button>
+                                </Form.Item >
+                            )}
 
                         </Form>
                     </div>
@@ -68,3 +118,4 @@ const FormRegistrarAsiento2 = () =>{
 }
 
 export default FormRegistrarAsiento2;
+

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Card, Col, Descriptions, Divider, Row, Space} from "antd";
 import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
+import datosUsuario from "../Pages/FormRegistrarAsiento";
 
+const ConfirmarAsiento = ( ) => {
 
-const ConfirmarAsiento = () => {
+    const [datos, setDatos] = useState( datosUsuario );
 
     return (
         <>
@@ -24,7 +26,7 @@ const ConfirmarAsiento = () => {
                                                 column={{ xxl: 1, xl: 1, lg: 1 , md: 1, sm: 1, xs: 1 }}
                                             >
                                                 <Descriptions.Item label="Nombre">
-                                                    Nombre
+                                                    { datosUsuario }
                                                 </Descriptions.Item>
                                                 <Descriptions.Item label="cedula">
                                                     Cádula
@@ -73,10 +75,6 @@ const ConfirmarAsiento = () => {
 
         </>
     );
-
-
-
-
 
 }
 
