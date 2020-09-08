@@ -1,208 +1,183 @@
 {
-  "Login": [{
-    "Nombre": "Eddy Hipo",
-    "Email": "hipoeddy@gmail.com",
-    "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/rmlewisuk/128.jpg",
-    "Contrasena": "admin",
-    "Direccion": "La Ferroviaria",
-    "Telefono": "0992722138"
-  },
-    {
-      "Nombre": "Carlos Maldonado",
-      "Email": "carlos.maldonado@epn.edu.ec",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg",
-      "Contrasena": "admin",
-      "Direccion": "Pisuli",
-      "Telefono": "0992344876"
+  "users": {
+    "1": {
+      "name": "Eddy Hipo",
+      "email": "hipoeddy@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/rmlewisuk/128.jpg",
+      "address": "La Ferroviaria",
+      "phone": "0992722138"
     },
-    {
-      "Nombre": "Brenda Arcentales",
-      "Email": "brenda.arcentales@epn.edu.ec",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "admin",
-      "Direccion": "Miraflores",
-      "Telefono": "0998776854"
+    "2": {
+      "name": "Carlos Maldonado",
+      "email": "carlos.maldonado@epn.edu.ec",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg",
+      "address": "Pisuli",
+      "phone": "0992344876"
     },
-    {
-      "Nombre": "Juan Collaguazo",
-      "Email": "juan.collaguazo01@epn.edu.ec",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "admin",
-      "Direccion": "Calderón",
-      "Telefono": "0998776567"
+    "3": {
+      "name": "Brenda Arcentales",
+      "email": "brenda.arcentales@epn.edu.ec",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "Miraflores",
+      "phone": "0998776854"
     },
-    {
-      "Nombre": "Dario Caiza",
-      "Email": "caizadario@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "Machala",
-      "Telefono": "0998787967"
+    "4": {
+      "name": "Juan Collaguazo",
+      "email": "juan.collaguazo01@epn.edu.ec",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "Calderón",
+      "phone": "0998776567"
     },
-    {
-      "Nombre": "Viviana Chalfa",
-      "Email": "chaflaviviana@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "San Martí",
-      "Telefono": "0983717529"
+    "5": {
+      "name": "Dario Caiza",
+      "email": "caizadario@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "Machala",
+      "phone": "0998787967"
     },
-    {
-      "Nombre": "Cristian Miranda",
-      "Email": "mirandacristian@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "Calderón",
-      "Telefono": "0998712567"
+    "6": {
+      "name": "Viviana Chalfa",
+      "email": "chaflaviviana@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "San Martí",
+      "phone": "0983717529"
     },
-    {
-      "Nombre": "Erick Miranda",
-      "Email": "mirandaerick@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "El Inca",
-      "Telefono": "0998725467"
+    "7": {
+      "name": "Cristian Miranda",
+      "email": "mirandacristian@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "Calderón",
+      "phone": "0998712567"
     },
-    {
-      "Nombre": "Mateo Figueroa",
-      "Email": "figueroamateo@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "San Bartolo",
-      "Telefono": "0998776098"
+    "8": {
+      "name": "Erick Miranda",
+      "email": "mirandaerick@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "El Inca",
+      "phone": "0998725467"
     },
-    {
-      "Nombre": "Alejandro Arcentales",
-      "Email": "arcentalesalejandro@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "Villaflora",
-      "Telefono": "0912276567"
+    "9": {
+      "name": "Mateo Figueroa",
+      "email": "figueroamateo@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "San Bartolo",
+      "phone": "0998776098"
     },
-    {
-      "Nombre": "Eva Cagua",
-      "Email": "caguaeva@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "Calderón",
-      "Telefono": "0998712567"
+    "10": {
+      "name": "Alejandro Arcentales",
+      "email": "arcentalesalejandro@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "Villaflora",
+      "phone": "0912276567"
     },
-    {
-      "Nombre": "José Collaguazo",
-      "Email": "collaguazojose@gmail.com",
-      "Avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
-      "Contrasena": "user",
-      "Direccion": "La Lucha de los Pobres",
-      "Telefono": "0998712367"
+    "11": {
+      "name": "Eva Cagua",
+      "email": "caguaeva@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "Calderón",
+      "phone": "0998712567"
+    },
+    "12": {
+      "name": "José Collaguazo",
+      "email": "collaguazojose@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nilshelmersson/128.jpg",
+      "address": "La Lucha de los Pobres",
+      "phone": "0998712367"
     }
-  ],
-  "Misas": {
-    "1234567890": [{
-      "Nombre": "Amaya",
-      "Cedula": 22684,
-      "Telefono": "(317) 522-9670 x04212",
-      "Asiento": {
-        "Fila": 1,
-        "Columna": "B"
+  },
+
+  "masses": {
+    "1234567890": {
+      "1A" : {
+        "name" : "Carlos",
+        "phone" : "0990919625",
+        "identification-card" : "1727044371"
+      },
+      "1B" : {
+        "name" : "Eddy",
+        "phone" : "0994567625",
+        "identification-card" : "1727044471"
+      },
+      "2A" : {
+        "name" : "Breda",
+        "phone" : "0991456625",
+        "identification-card" : "1727044571"
       }
+    }
+  },
+
+
+  "forums": {
+  "1" : {
+    "title": "De la Mano con Dios",
+    "message": "Occaecati a veritatis. Aspernatur unde ut esse. Ut numquam id illum saepe omnis illum et eaque.",
+    "date": "2020-05-31",
+    "user": 0,
+    "comments":{
+      "1" : {
+      "comment": "Pariatur velit sint voluptates similique beatae et. Corrupti et maiores quia voluptas iste voluptatem. Et aut omnis numquam necessitatibus id. Quis dolores voluptatem voluptas quo. Eos aut ut soluta quas exercitationem. Quam beatae officia eaque et delectus temporibus dolorem sit et.",
+      "date": "2020-07-23",
+      "user": 4
     },
-      {
-        "Nombre": "Amaya",
-        "Cedula": 22684,
-        "Telefono": "(317) 522-9670 x04212",
-        "Asiento": {
-          "Fila": 83303,
-          "Columna": 93477
-        }
-      }
-    ],
-    "987654321": [{
-      "Nombre": "Amaya",
-      "Cedula": 22684,
-      "Telefono": "(317) 522-9670 x04212",
-      "Asiento": {
-        "Fila": 83303,
-        "Columna": 93477
-      }
-    },
-      {
-        "Nombre": "Amaya",
-        "Cedula": 22684,
-        "Telefono": "(317) 522-9670 x04212",
-        "Asiento": {
-          "Fila": 83303,
-          "Columna": 93477
-        }
+      "2" : {
+        "comment": "In et quasi ut quia saepe necessitatibus et accusamus quibusdam. Sunt maiores qui. Praesentium facere aut quos. Iste ratione natus recusandae.",
+        "date": "2020-01-16",
+        "user": 5
       }
     ]
   },
-  "Foros": [{
-    "Titulo": "De la Mano con Dios",
-    "Mensaje": "Occaecati a veritatis. Aspernatur unde ut esse. Ut numquam id illum saepe omnis illum et eaque.",
-    "Fecha": "2020-05-31",
-    "Usuario": 0,
-    "Comentarios": [{
-      "Comentario": "Pariatur velit sint voluptates similique beatae et. Corrupti et maiores quia voluptas iste voluptatem. Et aut omnis numquam necessitatibus id. Quis dolores voluptatem voluptas quo. Eos aut ut soluta quas exercitationem. Quam beatae officia eaque et delectus temporibus dolorem sit et.",
-      "Fecha": "2020-07-23",
-      "Usuario": 4
-    },
-      {
-        "Comentario": "In et quasi ut quia saepe necessitatibus et accusamus quibusdam. Sunt maiores qui. Praesentium facere aut quos. Iste ratione natus recusandae.",
-        "Fecha": "2020-01-16",
-        "Usuario": 5
-      }
-    ]
-  },
-    {
-      "Titulo": "Pasajes Buenos de la Biblia",
-      "Mensaje": "Animi aut ut sunt sit deleniti. Omnis provident earum id totam cum. Eum porro corporis vel illo quidem. Amet quidem cum exercitationem aut quas. Facilis ut laborum. Quas ullam voluptatibus quidem consequuntur.\n \rModi quo reiciendis occaecati est magnam ad exercitationem. Cumque voluptas qui accusamus magnam. Dolor incidunt repudiandae itaque. Earum et voluptate voluptatem.\n \rAlias molestiae ut voluptatem sit ullam quasi aut quidem magni. Hic provident quod cupiditate reprehenderit. A inventore dignissimos non mollitia tenetur. Excepturi ut nam est dolores dicta corporis quo deserunt. Repellat non consectetur tempora natus. Facere assumenda sit quidem sunt.",
-      "Fecha": "2020-01-21",
-      "Usuario": 1,
-      "Comentarios": [{
-        "Comentario": "Ex laboriosam sit nulla exercitationem sequi et molestiae qui. Enim nesciunt sed iure assumenda tempora. Quae dolor quo doloribus. Fuga architecto delectus dolorem dolore dolores quia quia.",
-        "Fecha": "2020-01-26",
-        "Usuario": 6
+    "2" : {
+      "title": "Pasajes Buenos de la Biblia",
+      "message": "Animi aut ut sunt sit deleniti. Omnis provident earum id totam cum. Eum porro corporis vel illo quidem. Amet quidem cum exercitationem aut quas. Facilis ut laborum. Quas ullam voluptatibus quidem consequuntur.\n \rModi quo reiciendis occaecati est magnam ad exercitationem. Cumque voluptas qui accusamus magnam. Dolor incidunt repudiandae itaque. Earum et voluptate voluptatem.\n \rAlias molestiae ut voluptatem sit ullam quasi aut quidem magni. Hic provident quod cupiditate reprehenderit. A inventore dignissimos non mollitia tenetur. Excepturi ut nam est dolores dicta corporis quo deserunt. Repellat non consectetur tempora natus. Facere assumenda sit quidem sunt.",
+      "date": "2020-01-21",
+      "user": 1,
+      "comments": {
+        "1" : {
+        "comment": "Ex laboriosam sit nulla exercitationem sequi et molestiae qui. Enim nesciunt sed iure assumenda tempora. Quae dolor quo doloribus. Fuga architecto delectus dolorem dolore dolores quia quia.",
+        "date": "2020-01-26",
+        "user": 6
       },
-        {
-          "Comentario": "Perspiciatis error et et vel quis est rem. Est vel modi ipsam distinctio qui similique saepe officia et. Aperiam dolore voluptates. Repellendus sed ipsam facilis et repellendus natus quam libero.",
-          "Fecha": "2019-10-25",
-          "Usuario": 7
+        "2" : {
+          "comment": "Perspiciatis error et et vel quis est rem. Est vel modi ipsam distinctio qui similique saepe officia et. Aperiam dolore voluptates. Repellendus sed ipsam facilis et repellendus natus quam libero.",
+          "date": "2019-10-25",
+          "user": 7
         }
-      ]
     },
-    {
-      "Titulo": "Pasajes Malos",
-      "Mensaje": "In excepturi placeat quo magni eveniet nesciunt.",
-      "Fecha": "2019-09-15",
-      "Usuario": 2,
-      "Comentarios": [{
-        "Comentario": "Ipsam voluptatum aut aut voluptate voluptate dolorum modi deserunt occaecati. Et placeat ut sint qui provident architecto officiis odio. Recusandae ut voluptatem dolores facilis et atque vel rem ut. Provident aut non facere et dolor voluptates.",
-        "Fecha": "2020-07-01",
-        "Usuario": 8
-      },
-        {
-          "Comentario": "Cumque a eius officia est sed aliquid fuga maiores explicabo. Totam aut animi tempora nemo. Dolor voluptates facilis quos voluptatem amet cupiditate mollitia.",
-          "Fecha": "2020-06-13",
-          "Usuario": 9
+    "3" : {
+      "title": "Pasajes Malos",
+      "message": "In excepturi placeat quo magni eveniet nesciunt.",
+      "date": "2019-09-15",
+      "user": 2,
+      "comments": {
+        "1" : {
+          "comment": "Ipsam voluptatum aut aut voluptate voluptate dolorum modi deserunt occaecati. Et placeat ut sint qui provident architecto officiis odio. Recusandae ut voluptatem dolores facilis et atque vel rem ut. Provident aut non facere et dolor voluptates.",
+          "date": "2020-07-01",
+          "user": 8
         }
-      ]
+        },
+        "2" : {
+          "comment": "Cumque a eius officia est sed aliquid fuga maiores explicabo. Totam aut animi tempora nemo. Dolor voluptates facilis quos voluptatem amet cupiditate mollitia.",
+          "date": "2020-06-13",
+          "user": 9
+        }
     },
-    {
-      "Titulo": "Hijos Rebeldes",
-      "Mensaje": "In excepturi placeat quo magni eveniet nesciunt.",
-      "Fecha": "2019-09-15",
-      "Usuario": 3,
-      "Comentarios": [{
-        "Comentario": "Ipsam voluptatum aut aut voluptate voluptate dolorum modi deserunt occaecati. Et placeat ut sint qui provident architecto officiis odio. Recusandae ut voluptatem dolores facilis et atque vel rem ut. Provident aut non facere et dolor voluptates.",
-        "Fecha": "2020-07-01",
-        "Usuario": 10
-      },
-        {
-          "Comentario": "Cumque a eius officia est sed aliquid fuga maiores explicabo. Totam aut animi tempora nemo. Dolor voluptates facilis quos voluptatem amet cupiditate mollitia.",
-          "Fecha": "2020-06-13",
-          "Usuario": 11
+    "4" : {
+      "title": "Hijos Rebeldes",
+      "message": "In excepturi placeat quo magni eveniet nesciunt.",
+      "date": "2019-09-15",
+      "user": 3,
+      "comments": {
+        "1" : {
+          "comment": "Ipsam voluptatum aut aut voluptate voluptate dolorum modi deserunt occaecati. Et placeat ut sint qui provident architecto officiis odio. Recusandae ut voluptatem dolores facilis et atque vel rem ut. Provident aut non facere et dolor voluptates.",
+          "date": "2020-07-01",
+          "user": 10
         }
-      ]
+        },
+        "2" : {
+          "comment": "Cumque a eius officia est sed aliquid fuga maiores explicabo. Totam aut animi tempora nemo. Dolor voluptates facilis quos voluptatem amet cupiditate mollitia.",
+          "date": "2020-06-13",
+          "user": 11
+        }
     }
-  ]
+}
 }

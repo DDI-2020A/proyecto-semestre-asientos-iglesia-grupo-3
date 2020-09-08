@@ -59,9 +59,7 @@ const FormRegistrarAsiento2 = (props) =>{
                                                 :
                                                 <Input id="ra-fila" placeholder="Ingresar fila" />
                                         }
-
-
-
+                                        
                                     </Form.Item>
 
                                 </Col>
