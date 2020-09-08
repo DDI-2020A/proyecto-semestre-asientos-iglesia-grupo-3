@@ -17,30 +17,35 @@ const ForosPrincipal = () => {
 
     useEffect( () => {
         const getDataComments  = async () => {
-            FIREBASE.db.ref('Foros').on('value', (snapshot) => {
+            await FIREBASE.db.ref('Foros').on('value', (snapshot) => {
                 console.log('snapshot', snapshot.val());
                 const commentsData = [];
-                snapshot.forEach( (data) => {
+                snapshot.forEach( async (data) => {
                     //  console.log('comment', data.val());
                     const comment = data.val();
                     const commentId = data.key;
 
+
                     let idUsuario = "";
-                    FIREBASE.db.ref('Login/' + comment.Usuario).on('value', (snapshot) =>{
-                        const nombreUsu = snapshot.val();
-                        idUsuario = nombreUsu.Nombre;
-                        setNombreUsuario(idUsuario);
-                        console.log('Nomrbeusuarioa:', idUsuario );
+                    const snapshot2 = await FIREBASE.db.ref('Login/' + comment.Usuario).once('value');
+                    
+                    const userData = snapshot2.val();
+                    comment.Usuario = userData.Nombre;
+                   // setNombreUsuario(idUsuario);
+                   // console.log('Nomrbeusuarioa:', idUsuario );
 
-                        console.log('NomrbeusuarioUseEfecta: ', nombreUsuario);
+                   // console.log('NomrbeusuarioUseEfecta: ', nombreUsuario);
 
-                    });
+
+                   // console.log('Nomrbeusuarioaafuera:', idUsuario );
+
+                   // console.log('NomrbeusuarioUseEfectaafuera: ', nombreUsuario);
 
 
                     commentsData.push({
                         key: commentId,
                         Titulo: comment.Titulo,
-                        Usuario: nombreUsuario,
+                        Usuario: comment.Usuario,
                         Fecha: comment.Fecha
                     });
                 });

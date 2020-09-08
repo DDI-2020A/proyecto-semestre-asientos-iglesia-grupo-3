@@ -9,9 +9,16 @@ const Cuenta = () => {
 
 
     const handleSubmit= async (values) => {
-        await FIREBASE.db.ref('Login' ).push(values);
-        console.log('valores',values);
-        message.success('Datos guardados')
+
+        try {
+            const user = await FIREBASE.auth.createUserWithEmailAndPassword(values.email, values.password);
+            delete values.password;
+            await FIREBASE.db.ref(`users/${user.uid}`).push(values);
+            console.log('valores', values);
+            message.success('Datos guardados')
+        } catch (error) {
+            message.error(error.message);
+        }
 
     }
 
