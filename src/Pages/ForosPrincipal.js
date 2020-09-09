@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {Card, Col, Row, Input, Button, Table} from 'antd';
+import {Card, Col, Row, Input, Button, Table, Space} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
@@ -10,64 +10,34 @@ import FIREBASE from "../firebase";
 
 const ForosPrincipal = () => {
 
-    const [ comments, setComments ] = useState( [] );
-    const [dataComments, setDataComments] = useState([]);
+    const [dataForums, setDataForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [nombreUsuario, setNombreUsuario] = useState("");
 
     useEffect( () => {
         const getDataComments  = async () => {
-            await FIREBASE.db.ref('Foros').on('value', (snapshot) => {
-                console.log('snapshot', snapshot.val());
-                const commentsData = [];
-                snapshot.forEach( async (data) => {
+                FIREBASE.db.ref('forums').on('value', (snapshot) => {
+                //console.log('snapshot', snapshot.val());
+                const forumsData = [];
+                snapshot.forEach( (data) => {
                     //  console.log('comment', data.val());
-                    const comment = data.val();
-                    const commentId = data.key;
+                    const forum = data.val();
+                    const forumId = data.key;
 
-
-                    let idUsuario = "";
-                    const snapshot2 = await FIREBASE.db.ref('Login/' + comment.Usuario).once('value');
-                    
-                    const userData = snapshot2.val();
-                    comment.Usuario = userData.Nombre;
-                   // setNombreUsuario(idUsuario);
-                   // console.log('Nomrbeusuarioa:', idUsuario );
-
-                   // console.log('NomrbeusuarioUseEfecta: ', nombreUsuario);
-
-
-                   // console.log('Nomrbeusuarioaafuera:', idUsuario );
-
-                   // console.log('NomrbeusuarioUseEfectaafuera: ', nombreUsuario);
-
-
-                    commentsData.push({
-                        key: commentId,
-                        Titulo: comment.Titulo,
-                        Usuario: comment.Usuario,
-                        Fecha: comment.Fecha
+                    forumsData.push({
+                        key: forumId,
+                        Titulo: forum.title,
+                        Usuario: forum.name,
+                        Fecha: forum.date
                     });
                 });
-                console.log('commentsData', commentsData);
-                setDataComments(commentsData);
+                setDataForums(forumsData);
                 setIsLoading(false);
             });
         };
         getDataComments();
     }, []);
 
-    useEffect( () => {
-        const getComments = async() => {
-            const dataComments = await fetch( `https://run.mocky.io/v3/160b5ee4-3da0-4d86-80cd-5253856fa269` );
-            const jsonComments = await dataComments.json();
-            console.log( 'user', jsonComments );
-
-            setComments( jsonComments );
-        };
-        getComments();
-
-    },[] );
+    console.log('dataForums',dataForums);
 
     const { Search } = Input;
 
@@ -76,6 +46,12 @@ const ForosPrincipal = () => {
             title: 'Tema',
             dataIndex: 'Titulo',
             key: 'Titulo',
+            render: text =>  <Link to={{
+                pathname: '/Foro',
+                state: { saludo: true }
+            }}>
+                {text}
+            </Link>,
         },
         {
             title: 'Autor',
@@ -102,48 +78,7 @@ const ForosPrincipal = () => {
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
                         <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="center">
-                            <Row gutter={16}>
-                                <Col align="center" xs={24} sm={24} md={13} lg={13} span={1}>
-                                    <p className="tam-titu2"><strong>Tema</strong></p>
-                                </Col>
-                                <Col align="center" xs={24} sm={24} md={6} lg={6} span={1}>
-                                    <p className="tam-titu2"><strong>Autor</strong></p>
-                                </Col>
-                                <Col align="center" xs={24} sm={24} md={5} lg={5} span={1}>
-                                    <p className="tam-titu2"><strong>Fecha</strong></p>
-                                </Col>
-                            </Row>
-                            {
-                                comments && comments.Foros
-                                    ? comments.Foros.map((comment, index) => {
-                                        return (
-                                            <Row gutter={16} align="center">
-                                                <Col xs={1} sm={1} md={1} lg={1} span={1}>
-                                                    <div className="div-datos-num"><strong>{index + 1}.-</strong></div>
-                                                </Col>
-                                                <Col xs={24} sm={24} md={10} lg={12} span={1}>
-                                                    <Button key="4" className="div-datos-num">
-                                                        <Link to="/Foro">
-                                                            <div className="div-datos-titulos">
-                                                                <strong>{comment.Titulo}</strong>
-                                                            </div>
-                                                        </Link>
-                                                    </Button>
-                                                </Col>
-                                                <Col xs={24} sm={24} md={8} lg={6} span={1}>
-                                                    <div className="div-datos-titulos">
-                                                        <strong>{comment.Usuario.Nombre}</strong></div>
-                                                </Col>
-                                                <Col xs={24} sm={24} md={6} lg={5} span={1}>
-                                                    <div className="div-datos-titulos"><strong>{comment.Fecha}</strong>
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                        );
-                                    })
-                                    : 'Cargando'
-                            }
-                            <Table dataSource={ dataComments } columns={ columns } loading={isLoading} />;
+                            <Table dataSource={ dataForums } columns={ columns } loading={isLoading} />;
                         </Card>
                     </Card>
                 </div>

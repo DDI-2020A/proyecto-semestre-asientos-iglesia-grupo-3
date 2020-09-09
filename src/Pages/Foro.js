@@ -7,9 +7,11 @@ import moment from 'moment';
 import avatar4 from '../images/avatar4.jpg';
 import {Link} from "react-router-dom";
 
-const Foro = () => {
+const Foro = ( {saludo} ) => {
 
     /*const { Search } = Input;*/
+    console.log('dataForums-foro', saludo);
+
 
     const onFinish = values => {
         console.log(values);
