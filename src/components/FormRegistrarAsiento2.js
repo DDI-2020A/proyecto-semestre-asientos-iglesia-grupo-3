@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {Button, Card, DatePicker, Form, Select } from "antd";
 import '../styles/registrarAsiento.css';
 
@@ -13,7 +13,7 @@ const FormRegistrarAsiento2 = (props) =>{
     const handleDevolverDatos = ( value ) =>{
         const dia = "dia";
         const horario = "horario";
-        props.onActualizarValores2(dia, horario);
+        props.onActualizarValores2(dia, horario); // eslint-disable-next-line
         {
             value && true ?
                  props.onNext()

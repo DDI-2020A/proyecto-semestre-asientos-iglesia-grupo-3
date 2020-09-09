@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import datosUsuario from "../Pages/FormRegistrarAsiento";
 
 const ConfirmarAsiento = ( ) => {
-
+    // eslint-disable-next-line
     const [datos, setDatos] = useState( datosUsuario );
 
     return (

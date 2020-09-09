@@ -1,4 +1,4 @@
-import {Col, Row, Radio, Button, message} from "antd";
+import {Col, Row, Radio, Card, Button} from "antd";
 import a1 from "../images/avatar1.jpg";
 import a2 from "../images/avatar2.jpg";
 import a3 from "../images/avatar3.jpg";
@@ -17,6 +17,9 @@ import a15 from  '../images/avatar15.jpg';
 import a16 from  '../images/avatar16.jpg';
 import '../styles/formcuenta.css';
 import React from "react";
+import Divider from "antd/es/divider";
+import {Link} from "react-router-dom";
+import Foot from "./Foot";
 const avatars={
     a1,
     a2,
@@ -54,13 +57,34 @@ const UserAvatar =()=>{
 
     return (
         <>
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-            <Col span={24} >
-                <Radio.Group className='avatar-b' options={getAvatar()}
-                             optionType='button'/>
-            </Col>
-            </Row>
-    </>
+            <div className=" fondo-cuenta" align="center">
+                <Card className="BaseA cuadro-grande"  bordered={false}>
+                    <Row align={'middle'}>
+                        <Col span={24}>
+                            <Divider orientation="center">Elegir un avatar</Divider>
+                            <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+                                <Col span={24} >
+                                    <Radio.Group className='avatar-b' options={getAvatar()}
+                                                 optionType='button'/>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Divider orientation="center">
+                            <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
+                                <Link to="/Login">Aceptar</Link>
+                            </Button>
+                            <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
+                                <Link to="/Login">Cancelar</Link>
+                            </Button>
+                        </Divider>
+
+                    </Row>
+                </Card>
+
+            </div>
+            <Foot/>
+        </>
+
 );
 }
 export default UserAvatar;

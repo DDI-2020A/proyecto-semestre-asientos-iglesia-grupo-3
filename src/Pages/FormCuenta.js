@@ -1,38 +1,76 @@
-import React from 'react';
-import {Button} from "antd";
+import React, {useState} from 'react';
+import { Steps} from "antd";
 import '../styles/cuenta.css';
-import Foot from "../components/Foot";
-import { Row, Col , Card} from 'antd';
-import Divider from "antd/es/divider";
-import {Link} from "react-router-dom";
 import UserAvatar from "../components/UserAvatar";
-
+import UserData from "../components/UserData";
+const { Step } = Steps;
 
 const FormCuenta = () => {
+    const [current, SetCurrent] = useState(0);
+    const [dataBill, SetDataBill] = useState({
+        nameUser: "",
+        mailUser: "",
+        phoneUser: "",
+        addressUser: "",
+        avatarUser: "",
+    });
+
+
+    const handleAddUserData = (name,mail,phone,address) => {
+        SetDataBill( prevState => {
+            const newUserDataBill = {...prevState};
+            newUserDataBill.nameUser = name;
+            newUserDataBill.mailUser = mail;
+            newUserDataBill.phoneUser = phone;
+            newUserDataBill.addressUser = address;
+            return newUserDataBill;
+        })
+        console.log("dataBill", dataBill);
+    }
+    const handleAddUserAvatar = (avatar) => {
+        SetDataBill( prevState => {
+            const newUserDataBill = {...prevState};
+            newUserDataBill.avatarUser = avatar;
+            return newUserDataBill;
+        })
+        console.log("dataBill", dataBill);
+    }
+    const handleNext= () => {
+        SetCurrent( current + 1);
+    }
+
+    const handlePrev = () => {
+        SetCurrent(current - 1);
+    }
+    const steps = [
+        {
+            title: 'Datos de usuario',
+            content: <UserData current = {current}
+                                             dataBill= { dataBill}
+                                            onNext = { handleNext }
+                                            onUpdateValues= { handleAddUserData() } /> ,
+        },
+        {
+            title: 'Seleccionar Avatar',
+            content: <UserAvatar current = {current}
+                                            dataBill = { dataBill}
+                                            onNext = { handleNext }
+                                            onPrev = { handlePrev }
+                                            onUpdateValues2 = { handleAddUserAvatar()} />,
+        },
+    ];
+
     return (
         <>
-            <div className=" fondo-cuenta" align="center">
-                <Card className="BaseA cuadro-grande"  bordered={false}>
-                    <Row align={'middle'}>
-                        <Col span={24}>
-                            <Divider orientation="center">Elegir un avatar</Divider>
-                            <UserAvatar/>
-                        </Col>
-                        <Divider orientation="center">
-                            <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
-                                 <Link to="/Login">Aceptar</Link>
-                            </Button>
-                            <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                <Link to="/Login">Cancelar</Link>
-                            </Button>
-                        </Divider>
+            <Steps current={current}>
+                {steps.map(item => (
+                    <Step key={item.title} title={item.title} />
+                ))}
+            </Steps>
+            <div className="steps-content">{steps[current].content}</div>
 
-                    </Row>
-                    </Card>
-
-            </div>
-            <Foot/>
         </>
+
     );
 }
 export default FormCuenta;

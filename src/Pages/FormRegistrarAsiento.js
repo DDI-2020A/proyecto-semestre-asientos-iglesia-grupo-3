@@ -1,10 +1,10 @@
-import { Steps, Button, message, Form } from "antd";
-import React, {useEffect, useState} from "react";
+import { Steps} from "antd";
+import React, { useState} from "react";
 import '../styles/registrarAsiento.css';
 import FormRegistrarAsiento3 from "../components/FormRegistrarAsiento3";
 import FormRegistrarAsiento1 from "../components/FormRegistrarAsiento1";
 import FormRegistrarAsiento2 from "../components/FormRegistrarAsiento2";
-import {Link} from "react-router-dom";
+
 
 
 const { Step } = Steps;

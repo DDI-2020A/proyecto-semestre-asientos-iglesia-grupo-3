@@ -20,7 +20,7 @@ const CrearForos = () =>{
         getComments();
 
     },[] );
-
+    // eslint-disable-next-line
   const { Search } = Input;
 
     return (
@@ -53,8 +53,8 @@ const CrearForos = () =>{
 
 
 
-                            {
-                                comments && comments.Foros
+                            { // eslint-disable-next-line
+                                comments && comments.Foros // eslint-disable-next-line
                                     ? comments.Foros.map((comment, index) => {
 
                                     })

@@ -4,7 +4,7 @@ import '../styles/registrarAsiento.css';
 import {Link} from "react-router-dom";
 
 const FormRegistrarAsiento2 = (props) =>{
-
+    // eslint-disable-next-line
     const [ datosUsuario, setDatosUsuario ] = useState( props.datosUsuario );
 
     useEffect( () => {
@@ -16,6 +16,7 @@ const FormRegistrarAsiento2 = (props) =>{
         const fila = document.querySelector('#ra-fila').value;
         const columna = document.querySelector('#ra-columna').value;
         props.onActualizarValores3(fila, columna);
+// eslint-disable-next-line
         {
             value && true ?
                 message.success('Se han registrado sus datos')

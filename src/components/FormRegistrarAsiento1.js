@@ -4,7 +4,7 @@ import '../styles/registrarAsiento.css';
 
 
 const FormRegistrarAsiento1 = (props) =>{
-
+    // eslint-disable-next-line
     const [ datosUsuario, setDatosUsuario ] = useState( props.datosUsuario );
 
     useEffect( () => {
