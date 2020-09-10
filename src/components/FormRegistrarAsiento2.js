@@ -1,6 +1,9 @@
 import React, {useEffect} from "react";
-import {Button, Card, DatePicker, Form, Select } from "antd";
+import moment from 'moment';
+import {Button, Card, DatePicker, Form, Select, Radio } from "antd";
 import '../styles/registrarAsiento.css';
+import '../styles/App.css'
+
 
 
 const FormRegistrarAsiento2 = (props) =>{
@@ -11,8 +14,9 @@ const FormRegistrarAsiento2 = (props) =>{
     }
 
     const handleDevolverDatos = ( value ) =>{
-        const dia = "dia";
-        const horario = "horario";
+        const dia = document.querySelector('#registrar-asiento_ra-fecha').value;
+        const horario = document.querySelector('#Select-prueba').value;
+
         props.onActualizarValores2(dia, horario); // eslint-disable-next-line
         {
             value && true ?
@@ -28,6 +32,19 @@ const FormRegistrarAsiento2 = (props) =>{
         console.log( 'Datos usuario2', props.datosUsuario );
     }, [ props.datosUsuario ] );
 
+
+
+
+
+    function disabledDate( date) {
+        // Can not select days before today and today
+        return (  date  < moment().startOf('day'));
+
+    }
+
+
+
+
     return (
 
         <>
@@ -40,26 +57,39 @@ const FormRegistrarAsiento2 = (props) =>{
                         <Form
                             name="registrar-asiento"
                             initialValues={{remember: true}}
+                            onFinish={()=> handleDevolverDatos(true)}
                         >
-                            <Form.Item name="ra-fecha" label="Seleccionar dia" >
-                                <DatePicker />
+                            <Form.Item name="ra-fecha" label="Seleccionar dia"
+                                       rules={[{ required: true, message: 'Por favor seleccionar un día válido' }]}>
+                                <DatePicker
+                                    format="YYYY-MM-DD "
+                                    disabledDate={disabledDate }
+                                    hasFeedback
+                                />
+
+
                             </Form.Item>
-                            <Form.Item name="ra-seleccionar-horario: " label="Seleccionar horario" >
-                                <Select defaultValue="buscar horario" style={{ width: 200 }} onChange={handleChange}>
-                                    <OptGroup  label="Horarios Disponibles">
-                                        <Option value="7">7:00 - 9:00</Option>
-                                        <Option value="10">10:00 - 12:00</Option>
-                                        <Option value="14">14:00 - 16:00</Option>
-                                        <Option value="18">18:00 - 20:00</Option>
-                                    </OptGroup>
-
-                                </Select>
+                            <Form.Item
+                                name="ra-seleccionar-horario" label="Seleccionar horario"
+                                hasFeedback
+                                rules={[{ required: true, message: 'Por favor seleccionar un horario' }]}
+                            >
+                                        <div className="content-select">
+                                                    <select
+                                                        id="Select-prueba">
+                                                        <option> </option>
+                                                        <option value='7:00:00'>7:00 - 9:00</option>
+                                                        <option value='10:00:00'>10:00 - 12:00</option>
+                                                        <option value='14:00:00'>14:00 - 16:00</option>
+                                                        <option value='18:00:00'>18:00 - 20:00</option>
+                                                    </select>
+                                                    <i></i>
+                                                </div>
                             </Form.Item>
 
-
-                            {props.current < 2 && (
+                            {props.current < 3 && (
                                 <Form.Item >
-                                    <Button type="primary" htmlType="submit" onClick={ () => handleDevolverDatos( true )} >
+                                    <Button type="primary" htmlType="submit"  >
                                         Siguiente
                                     </Button>
                                 </Form.Item>

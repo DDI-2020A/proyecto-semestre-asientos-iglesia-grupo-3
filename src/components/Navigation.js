@@ -10,7 +10,7 @@ import Perfil from "../Pages/Perfil";
 import FormCuenta from "../Pages/FormCuenta";
 import FormRecuperar from "../Pages/FormRecuperar";
 import NuevaContrasenia from "../Pages/NuevaContrasenia";
-import ConfirmarAsiento from "../Pages/ConfirmarAsiento";
+import ConfirmarAsiento from "./ConfirmarAsiento";
 import MisForos from "../Pages/MisForos";
 import CrearForos from "../Pages/CrearForos";
 import Foro from "../Pages/Foro";

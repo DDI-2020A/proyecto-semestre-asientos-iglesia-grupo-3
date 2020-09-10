@@ -4,6 +4,7 @@ import '../styles/registrarAsiento.css';
 import FormRegistrarAsiento3 from "../components/FormRegistrarAsiento3";
 import FormRegistrarAsiento1 from "../components/FormRegistrarAsiento1";
 import FormRegistrarAsiento2 from "../components/FormRegistrarAsiento2";
+import ConfirmarAsiento from "../components/ConfirmarAsiento";
 
 
 
@@ -80,14 +81,21 @@ const FormRegistrarAsiento = () => {
                                             datosUsuario = { datosUsuario }
                                             onNext = { handleNext }
                                             onPrev = { handlePrev }
-                                            onActualizarValores2 = { handleLlenarDatosUsuarioForm2} />,
+                                            onActualizarValores2 = { handleLlenarDatosUsuarioForm2 } />,
         },
         {
             title: 'Seleccionar puesto',
             content: <FormRegistrarAsiento3 current = {current}
                                             datosUsuario = { datosUsuario }
                                             onPrev = { handlePrev }
+                                            onNext = { handleNext }
                                             onActualizarValores3 = { handleLlenarDatosUsuarioForm3 }/>,
+        },
+        {
+            title: 'Confirmar datos',
+            content: <ConfirmarAsiento current = {current}
+                                            datosUsuario = { datosUsuario }
+                                            onPrev = { handlePrev }/>,
         },
     ];
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Button, Card, Col, Form, Input,  Row } from "antd";
+import  {Button, Card, Col, Form, Input,  Row, Tooltip } from "antd";
 import '../styles/registrarAsiento.css';
 
 
@@ -92,12 +92,13 @@ const FormRegistrarAsiento1 = (props) =>{
                                             <Input id="ra-telefono-usuario" placeholder="Ingrese su teléfono" />
                                     }
 
+
                                 </Form.Item>
                             </Col>
                         </Row>
 
 
-                        {props.current < 2 && (
+                        {props.current < 3 && (
                             <Form.Item >
                                 <Button type="primary" htmlType="submit" onClick={handleDevolverDatos}>
                                     Siguiente
