@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {Card, Col, Row, Input, Table} from 'antd';
+import {Card, Input, Table} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";

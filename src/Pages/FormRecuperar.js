@@ -1,7 +1,7 @@
 import React from "react";
 import {Button, Card, Form, Input} from "antd";
 import '../styles/login.css';
-import '../styles/cuenta.css';
+import '../styles/bill.css';
 import Foot from "../components/Foot";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import {Link} from "react-router-dom";

@@ -1,4 +1,4 @@
-import {Col, Row, Radio, Card, Button, Form} from "antd";
+import {Col, Row, Radio, Button} from "antd";
 import a1 from "../images/avatar1.jpg";
 import a2 from "../images/avatar2.jpg";
 import a3 from "../images/avatar3.jpg";
@@ -15,10 +15,9 @@ import a13 from  '../images/avatar13.jpg';
 import a14 from  '../images/avatar14.jpg';
 import a15 from  '../images/avatar15.jpg';
 import a16 from  '../images/avatar16.jpg';
-import '../styles/cuenta.css';
+import '../styles/bill.css';
 import React, {useEffect, useState} from "react";
 import Divider from "antd/es/divider";
-import {Link} from "react-router-dom";
 const avatars={
     a1,
     a2,
@@ -54,11 +53,21 @@ const getAvatar=()=> {
 
 const UserAvatar =( props )=>{
 
-    const [ datosUsuario, setDatosUsuario ] = useState( props.dataBill );
+    const [ dataAvatar, setDataAvatar ] = useState( props.dataBill );
 
     useEffect( () => {
-        console.log( 'Datos usuario1', props.dataBill);
+        console.log( 'Datos Avatar', props.dataBill);
     }, [ props.dataBill ] );
+
+    const handleChooseAvatar = (e) => {
+            setDataAvatar( prevState => {
+                dataAvatar.avatarUser = e.target.value;
+                return setDataAvatar(dataAvatar);
+            })
+            console.log("Avatar", dataAvatar);
+
+        }
+
 
     return (
         <>
@@ -68,28 +77,28 @@ const UserAvatar =( props )=>{
                             <Divider orientation="center">Elegir un avatar</Divider>
                             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                                 <Col span={24} >
-                                    <Radio.Group className='avatar-b' options={getAvatar()}
-                                                 optionType='button'/>
+                                    <Radio.Group className='avatar-b' options={getAvatar() }
+                                                 optionType='button' onChange={handleChooseAvatar}/>
                                 </Col>
                             </Row>
                         </Col>
                         <Divider orientation="center">
-                            <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
-                                <Link to="/Login">Aceptar</Link>
-                            </Button>
-                            <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                <Link to="/Login">Cancelar</Link>
-                            </Button>
+                            {
+                                props.current < 2 && (
+                                    <Button type="primary"  style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onNext }>
+                                        Registrar
+                                    </Button>
+                                )
+                            }
+                            {props.current > 0 && (
+                                <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onPrev }>
+                                    Regresar
+                                </Button>
+                            )}
                         </Divider>
 
 
-                        {
-                            props.current < 2 && (
-                                    <Button type="primary" htmlType="submit" >
-                                        Siguiente
-                                    </Button>
-                            )
-                        }
+
                     </Row>
 
         </>

@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Form, Input, Button} from "antd";
-import '../styles/cuenta.css';
+import '../styles/bill.css';
 
 const UserData = (props) => {
-    // eslint-disable-next-line
 
-    const [ dataBill] = useState( props.dataBill );
+    const [ dataBill, setDataBill] = useState( props.dataBill );
 
     useEffect( () => {
         console.log( 'DataBill1', props.dataBill );
@@ -13,17 +12,17 @@ const UserData = (props) => {
 
 
 
-    const handleKeepData= () =>{
+    const handleKeepData = () =>{
         const name = document.querySelector('#userName').value;
         const mail = document.querySelector('#userMail').value;
         const phone = document.querySelector('#userPhone').value;
-        const address=document.querySelector('#userAddres').value;
+        const address  = document.querySelector('#userAddress').value;
         props.onUpdateValues(name,mail,phone,address);
         props.onNext();
     }
     return(
         <>
-            <div >
+            <div className="form-User">
                 <Form
                     name="basic"
                     //onFinish={handleSubmit}
@@ -31,13 +30,13 @@ const UserData = (props) => {
                     <Form.Item
                         label="Email"
                         name="userMail"
-                        rules={[{required: true, message: 'Porfavor ingrese su correo!'},
+                        rules={[{required: true},
                             {
                                 type:"email",
-                                message: "Ingresa un correo valido"}]}
+                                message: "Ingresa un correo válido"}]}
                     >
                         {
-                            dataBill!== null ?
+                            dataBill !== null ?
                                 <Input  defaultValue={ dataBill.mailUser} id="userMail" placeholder="Ingrese su Correo" />
                                 :
                                 <Input  id="userMail" placeholder="Ingrese su Correo" />
@@ -89,12 +88,15 @@ const UserData = (props) => {
                     </Form.Item>
                         {props.current < 2 && (
                             <Form.Item >
-                                <Button type="primary" htmlType="submit" onClick={handleKeepData}>
+                                <Button type="primary" htmlType="submit" onClick={() => handleKeepData()}>
                                     Siguiente
                                 </Button>
                             </Form.Item>
                         )}
                 </Form>
+
+
+
             </div>
         </>
     )

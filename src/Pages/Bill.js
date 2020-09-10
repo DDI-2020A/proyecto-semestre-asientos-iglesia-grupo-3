@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card} from "antd";
-import '../styles/cuenta.css';
+import '../styles/bill.css';
 import Foot from "../components/Foot";
-import FormCuenta from "./FormCuenta";
+import FormBill from "./FormBill";
 
-const Cuenta = () => {
+const Bill = () => {
 
 
    /* const handleSubmit= async (values) => {
@@ -31,7 +31,7 @@ const Cuenta = () => {
                         <p>
                             Ingrese sus datos para crear una cuenta en Foros
                         </p>
-                        <FormCuenta/>
+                        <FormBill/>
                     </Card>
                 </Card>
             </div>
@@ -43,4 +43,4 @@ const Cuenta = () => {
 
 }
 
-export default Cuenta;
+export default Bill;

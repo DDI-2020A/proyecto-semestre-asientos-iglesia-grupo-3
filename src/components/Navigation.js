@@ -1,13 +1,13 @@
 import {Route, Switch} from "react-router-dom";
 import Inicio from "../Pages/Inicio";
-import Cuenta from "../Pages/Cuenta";
+import Bill from "../Pages/Bill";
 import Login from "../Pages/Login";
 import RegistrarAsiento from "../Pages/RegistrarAsiento";
 import React from "react";
 import RecuperarContrasenia from "../Pages/RecuperarContrasenia";
 import ForosPrincipal from "../Pages/ForosPrincipal";
 import Perfil from "../Pages/Perfil";
-import FormCuenta from "../Pages/FormCuenta";
+import FormBill from "../Pages/FormBill";
 import FormRecuperar from "../Pages/FormRecuperar";
 import NuevaContrasenia from "../Pages/NuevaContrasenia";
 import ConfirmarAsiento from "./ConfirmarAsiento";
@@ -22,8 +22,8 @@ const Navigation = () => {
             <Route exact path="/">
                 <Inicio />
             </Route>
-            <Route path="/Cuenta">
-                <Cuenta />
+            <Route path="/Bill">
+                <Bill />
             </Route>
             <Route path="/Login">
                 <Login />
@@ -40,8 +40,8 @@ const Navigation = () => {
             <Route path="/FormRecuperar">
                 <FormRecuperar/>
             </Route>
-            <Route path="/FormCuenta">
-                <FormCuenta/>
+            <Route path="/FormBill">
+                <FormBill/>
             </Route>
             <Route path="/ForosPrincipal">
                 <ForosPrincipal />

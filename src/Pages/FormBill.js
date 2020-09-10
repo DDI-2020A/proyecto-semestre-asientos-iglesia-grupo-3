@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {Button, Form, Steps} from "antd";
-import '../styles/cuenta.css';
+import { Steps} from "antd";
+import '../styles/bill.css';
 import UserAvatar from "../components/UserAvatar";
 import UserData from "../components/UserData";
+
 const { Step } = Steps;
 
-const FormCuenta = () => {
+const FormBill = () => {
     const [current, SetCurrent] = useState(0);
     const [dataBill, SetDataBill] = useState({
         nameUser: "",
@@ -14,7 +15,6 @@ const FormCuenta = () => {
         addressUser: "",
         avatarUser: "",
     });
-
 
     const handleAddUserData = (name,mail,phone,address) => {
         SetDataBill( prevState => {
@@ -46,9 +46,9 @@ const FormCuenta = () => {
         {
             title: 'Datos de usuario',
              content: <UserData current = {current}
-                                              dataBill= { dataBill}
+                                dataBill= { dataBill}
                                              onNext = { handleNext }
-                                             onUpdateValues= { ()=> handleAddUserData() } /> ,
+                                             onUpdateValues= { handleAddUserData } /> ,
         },
         {
             title: 'Seleccionar Avatar',
@@ -57,7 +57,7 @@ const FormCuenta = () => {
                                              onNext = { handleNext }
                                              onPrev = { handlePrev }
                                              onUpdateValues2 = { handleAddUserAvatar } />,
-        },
+        }
     ];
 
     return (
@@ -68,16 +68,8 @@ const FormCuenta = () => {
                 ))}
             </Steps>
             <div className="steps-content">{steps[current].content}</div>
-
-            { current < 2 && (
-                <Form.Item >
-                    <Button type="primary" htmlType="submit" onClick={ () => handleNext()}>
-                        Siguiente
-                    </Button>
-                </Form.Item>
-            )}
         </>
 
     );
 }
-export default FormCuenta;
+export default FormBill;

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form, Input, Button, Card} from "antd";
 import '../styles/login.css';
-import '../styles/cuenta.css';
+import '../styles/bill.css';
 import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
 

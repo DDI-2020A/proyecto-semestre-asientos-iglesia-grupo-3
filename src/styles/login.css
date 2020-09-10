@@ -12,8 +12,6 @@
 
 }
 .fondo-login {
-    padding: 30px;
     background-image: url("../images/FondoPagLog.jpg");
     background-size: cover;
-    height: 550px;
 }

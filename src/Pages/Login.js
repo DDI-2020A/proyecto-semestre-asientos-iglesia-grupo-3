@@ -1,14 +1,14 @@
 import React from 'react';
 import {Form, Input, Button, Card} from "antd";
 import '../styles/login.css';
-import '../styles/cuenta.css';
+import '../styles/bill.css';
 import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
 
 const Login = () => {
     return (
         <>
-            <div className=" fondo-login" align="center">
+            <div className=" site-card-border-less-wrapper fondo-login" align="center">
                 <Card className="BaseA cuadro-grande"  bordered={false}>
                     <Card className="BaseB cuadro-interno "  bordered={false}>
                     <h1>
@@ -38,7 +38,7 @@ const Login = () => {
                                 <Input.Password/>
                             </Form.Item>
                             <p><Link to="/RecuperarContrasenia">¿Haz olvidado tu contraseña?</Link></p>
-                            <p> <Link to="/Cuenta">Crear cuenta</Link></p>
+                            <p> <Link to="/Bill">Crear cuenta</Link></p>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit">
                                     <Link to="/ForosPrincipal">Iniciar Sesion</Link>

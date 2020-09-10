@@ -23,7 +23,7 @@ const Header = () => {
                     </Button>,
                     <Button key="1" type="primary">
 
-                        <Link to="/Cuenta">Registrarse</Link>
+                        <Link to="/Bill">Registrarse</Link>
 
                     </Button>,
                 ]}
