@@ -1,4 +1,4 @@
-import {Col, Row, Radio, Card, Button} from "antd";
+import {Col, Row, Radio, Card, Button, Form} from "antd";
 import a1 from "../images/avatar1.jpg";
 import a2 from "../images/avatar2.jpg";
 import a3 from "../images/avatar3.jpg";
@@ -15,11 +15,10 @@ import a13 from  '../images/avatar13.jpg';
 import a14 from  '../images/avatar14.jpg';
 import a15 from  '../images/avatar15.jpg';
 import a16 from  '../images/avatar16.jpg';
-import '../styles/formcuenta.css';
-import React from "react";
+import '../styles/cuenta.css';
+import React, {useEffect, useState} from "react";
 import Divider from "antd/es/divider";
 import {Link} from "react-router-dom";
-import Foot from "./Foot";
 const avatars={
     a1,
     a2,
@@ -53,12 +52,17 @@ const getAvatar=()=> {
 
 }
 
-const UserAvatar =()=>{
+const UserAvatar =( props )=>{
+
+    const [ datosUsuario, setDatosUsuario ] = useState( props.dataBill );
+
+    useEffect( () => {
+        console.log( 'Datos usuario1', props.dataBill);
+    }, [ props.dataBill ] );
 
     return (
         <>
-            <div className=" fondo-cuenta" align="center">
-                <Card className="BaseA cuadro-grande"  bordered={false}>
+
                     <Row align={'middle'}>
                         <Col span={24}>
                             <Divider orientation="center">Elegir un avatar</Divider>
@@ -78,11 +82,16 @@ const UserAvatar =()=>{
                             </Button>
                         </Divider>
 
-                    </Row>
-                </Card>
 
-            </div>
-            <Foot/>
+                        {
+                            props.current < 2 && (
+                                    <Button type="primary" htmlType="submit" >
+                                        Siguiente
+                                    </Button>
+                            )
+                        }
+                    </Row>
+
         </>
 
 );

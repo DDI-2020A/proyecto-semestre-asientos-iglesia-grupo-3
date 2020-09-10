@@ -24,7 +24,7 @@ const Cuenta = () => {
 
     return (
         <>
-            <div className=" fondo-cuenta" align="center">
+            <div className="site-card-border-less-wrapper fondo-cuenta" align="center">
                 <Card className="BaseA cuadro-grande"  bordered={false}>
                     <Card className="BaseB cuadro-interno "  bordered={false}>
                         <h2>Crear cuenta</h2>
@@ -32,11 +32,11 @@ const Cuenta = () => {
                             Ingrese sus datos para crear una cuenta en Foros
                         </p>
                         <FormCuenta/>
-
                     </Card>
                 </Card>
             </div>
-            <Foot />
+            <Foot/>
+
 
         </>
     );

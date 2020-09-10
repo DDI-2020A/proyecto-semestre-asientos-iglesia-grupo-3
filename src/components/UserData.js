@@ -4,10 +4,11 @@ import '../styles/cuenta.css';
 
 const UserData = (props) => {
     // eslint-disable-next-line
+
     const [ dataBill] = useState( props.dataBill );
 
     useEffect( () => {
-        console.log( 'DataBill', props.dataBill );
+        console.log( 'DataBill1', props.dataBill );
     }, [ props.dataBill ] );
 
 

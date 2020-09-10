@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Steps} from "antd";
+import {Button, Form, Steps} from "antd";
 import '../styles/cuenta.css';
 import UserAvatar from "../components/UserAvatar";
 import UserData from "../components/UserData";
@@ -45,18 +45,18 @@ const FormCuenta = () => {
     const steps = [
         {
             title: 'Datos de usuario',
-            content: <UserData current = {current}
-                                             dataBill= { dataBill}
-                                            onNext = { handleNext }
-                                            onUpdateValues= { handleAddUserData() } /> ,
+             content: <UserData current = {current}
+                                              dataBill= { dataBill}
+                                             onNext = { handleNext }
+                                             onUpdateValues= { ()=> handleAddUserData() } /> ,
         },
         {
             title: 'Seleccionar Avatar',
-            content: <UserAvatar current = {current}
-                                            dataBill = { dataBill}
-                                            onNext = { handleNext }
-                                            onPrev = { handlePrev }
-                                            onUpdateValues2 = { handleAddUserAvatar()} />,
+             content: <UserAvatar current = {current}
+                                             dataBill = { dataBill}
+                                             onNext = { handleNext }
+                                             onPrev = { handlePrev }
+                                             onUpdateValues2 = { handleAddUserAvatar } />,
         },
     ];
 
@@ -69,6 +69,13 @@ const FormCuenta = () => {
             </Steps>
             <div className="steps-content">{steps[current].content}</div>
 
+            { current < 2 && (
+                <Form.Item >
+                    <Button type="primary" htmlType="submit" onClick={ () => handleNext()}>
+                        Siguiente
+                    </Button>
+                </Form.Item>
+            )}
         </>
 
     );
