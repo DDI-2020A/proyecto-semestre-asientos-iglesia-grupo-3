@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Card, Col, Row, Button,} from 'antd';
 import '../styles/App.css';
 import '../styles/perfil.css'
@@ -6,9 +6,39 @@ import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
 import avatar4 from '../images/avatar4.jpg';
 import {Link} from "react-router-dom";
-
+import FIREBASE from "../firebase";
 
 const Perfil = () => {
+
+    const [dataProfile, setDataProfile] = useState({key: '',
+        address: '',
+        email: '',
+        name: '',
+        phone:''
+    });
+
+    useEffect( () => {
+        const getDataProfile  = async () => {
+            FIREBASE.db.ref('users/3').on('value', (snapshot) => {
+                //console.log('snapshot', snapshot.val());
+                const profile = snapshot.val();
+                const profileId = snapshot.key;
+                const profileData = {key: profileId,
+                    address: profile.address,
+                    email: profile.email,
+                    name: profile.name,
+                    phone:profile.phone
+                };
+                //console.log('forumdata', forumData);
+                setDataProfile(profileData);
+
+            });
+        };
+        getDataProfile();
+    }, []);
+
+    //console.log('dataprofile', dataProfile);
+
     return (
         <>
             <HeaderForos/>
@@ -30,7 +60,7 @@ const Perfil = () => {
                                             <p className="tam-titu2"><strong>Nombre:</strong></p>
                                         </Col>
                                         <Col xs={24} sm={24} md={10} lg={11} span={1}>
-                                            <div className="div-datos-titulos-perfil">Eddy Hipo</div>
+                                            <div className="div-datos-titulos-perfil">{ dataProfile.name }</div>
                                         </Col>
                                     </Row>
                                     <Row gutter={24}>
@@ -38,7 +68,7 @@ const Perfil = () => {
                                             <p className="tam-titu2"><strong>Correo Electrónico:</strong></p>
                                         </Col>
                                         <Col xs={24} sm={24} md={10} lg={11} span={1}>
-                                            <div className="div-datos-titulos-perfil">hipoeddy@gmail.com</div>
+                                            <div className="div-datos-titulos-perfil">{ dataProfile.email }</div>
                                         </Col>
                                     </Row>
                                     <Row gutter={24}>
@@ -46,7 +76,7 @@ const Perfil = () => {
                                             <p className="tam-titu2"><strong>Teléfono:</strong></p>
                                         </Col>
                                         <Col xs={24} sm={24} md={10} lg={11}span={1}>
-                                            <div className="div-datos-titulos-perfil">0992722138</div>
+                                            <div className="div-datos-titulos-perfil">{ dataProfile.phone }</div>
                                         </Col>
                                     </Row>
                                     <Row gutter={24}>
@@ -54,7 +84,7 @@ const Perfil = () => {
                                             <p className="tam-titu2"><strong>Dirección:</strong></p>
                                         </Col>
                                         <Col xs={24} sm={24} md={10} lg={11} span={1}>
-                                            <div className="div-datos-titulos-perfil">La Ferroviaria</div>
+                                            <div className="div-datos-titulos-perfil">{ dataProfile.address }</div>
                                         </Col>
                                     </Row>
                                     <Row gutter={24}>

@@ -10,34 +10,34 @@ import FIREBASE from "../firebase";
 
 const ForosPrincipal = () => {
 
-    const [dataForums, setDataForums] = useState([]);
+    const [dataListForums, setDataListForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect( () => {
-        const getDataComments  = async () => {
+        const getDataListForums  = async () => {
                 FIREBASE.db.ref('forums').on('value', (snapshot) => {
                 //console.log('snapshot', snapshot.val());
-                const forumsData = [];
+                const listForumsData = [];
                 snapshot.forEach( (data) => {
                     //  console.log('comment', data.val());
-                    const forum = data.val();
-                    const forumId = data.key;
+                    const forums = data.val();
+                    const forumsId = data.key;
 
-                    forumsData.push({
-                        key: forumId,
-                        Titulo: forum.title,
-                        Usuario: forum.name,
-                        Fecha: forum.date
+                    listForumsData.push({
+                        key: forumsId,
+                        Titulo: forums.title,
+                        Usuario: forums.name,
+                        Fecha: forums.date,
                     });
                 });
-                setDataForums(forumsData);
+                setDataListForums(listForumsData);
                 setIsLoading(false);
             });
         };
-        getDataComments();
+        getDataListForums();
     }, []);
 
-    console.log('dataForums',dataForums);
+    console.log('dataForums',dataListForums);
 
     const { Search } = Input;
 
@@ -48,7 +48,7 @@ const ForosPrincipal = () => {
             key: 'Titulo',
             render: text =>  <Link to={{
                 pathname: '/Foro',
-                state: { saludo: true }
+                data: {dataListForums}
             }}>
                 {text}
             </Link>,
@@ -78,7 +78,7 @@ const ForosPrincipal = () => {
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
                         <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="center">
-                            <Table dataSource={ dataForums } columns={ columns } loading={isLoading} />;
+                            <Table dataSource={ dataListForums } columns={ columns } loading={isLoading} />;
                         </Card>
                     </Card>
                 </div>
