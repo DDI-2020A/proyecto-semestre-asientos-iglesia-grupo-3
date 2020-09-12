@@ -100,14 +100,14 @@ const Foro = ( {dataForums}) => {
 
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Reseña</strong></p>
-                        <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="left">
+                        <Card className="colorBaseB internal-box-size " bordered={true} align="left">
                             <h3> { dataForum.message }</h3>
                         </Card>
                     </Card>
 
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Comentarios</strong></p>
-                        <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="left">
+                        <Card className="colorBaseB internal-box-size " bordered={true} align="left">
                             {
                                 dataForum.comments.map( ( comment ) => {
                                     return (
@@ -136,7 +136,7 @@ const Foro = ( {dataForums}) => {
 
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Agregar Comentario</strong></p>
-                        <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="left">
+                        <Card className="colorBaseB internal-box-size " bordered={true} align="left">
                             <Form  name="nest-messages" onFinish={onFinish} >
                                 <Form.Item name={['user', 'introduction']}>
                                     <Input.TextArea />

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Button, Card, Col, Divider, Form, Input, message, Radio, Row} from "antd";
+import {Button, Card, Col, Divider, Form,  Radio, Row} from "antd";
 import '../styles/registrarAsiento.css';
 import moment from 'moment';
 import FIREBASE from "../firebase";
@@ -17,15 +17,17 @@ const seats={
     E10: "E10",
 };
 
-const getSeats=( availableSeats)=> {
+const getSeats=( availableSeats )=> {
     const seatsOptions = [];
     let search = [];
     console.log("asientos disponibles", availableSeats);
     for (let seatkey in seats) {
-            // search = availableSeats.filter(seat => seat.equals(seatkey)).map(filteredName => (
-            //         { filteredName }
-            // )) ;
-            search = "E1";
+
+        search = availableSeats.filter( ( item, index ) => item.key  === seatkey ).map((item, i) =>{
+            return seatkey;
+            }
+        );
+
         seatkey == search ?
         seatsOptions.push(
             {
@@ -50,27 +52,26 @@ const getSeats=( availableSeats)=> {
 
 
 
-const FormRegistrarAsiento2 = (props) =>{
-    // eslint-disable-next-line
-    const [ datosUsuario, setDatosUsuario ] = useState( props.datosUsuario );
+const FormRegisterSeat3 = (props) =>{
+
+    const [ dataUser, setDataUSer] = useState( props.dataUser );
+    const massDate = moment( (dataUser.dayMass + dataUser.scheduleMass) , "YYYY-MM-DD h:mm:ss ").unix();
+    const [ dataMasses, setDataMasses] = useState([]);
+    const [ positionSeat, setPositionSeat ] = useState(null);
 
     useEffect( () => {
-        console.log( 'Datos usuario3', props.datosUsuario );
-    }, [ props.datosUsuario ] );
-
-    const massDate = moment( (datosUsuario.DiaMisa + datosUsuario.HorarioMisaUsuario) , "YYYY-MM-DD h:mm:ss ").unix();
+        console.log( 'Datos usuario3', props.dataUser );
+    }, [ props.dataUser ] );
 
 
-    const [dataMasses, setDataMasses] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect( () => {
         const getMassess  = async () => {
-            FIREBASE.db.ref('masses/1234567890/').on('value', (snapshot) => {
+            FIREBASE.db.ref('masses/' + massDate + '/').on('value', (snapshot) => {
                 console.log('snapshot', snapshot.val());
                 const massesData = [];
                 snapshot.forEach( (data) => {
-                    //  console.log('comment', data.val());
                     const mass = data.val();
                     const massId = data.key;
 
@@ -79,45 +80,37 @@ const FormRegistrarAsiento2 = (props) =>{
                     });
                 });
                 setDataMasses(massesData);
-                setIsLoading(false);
+
             });
         };
         getMassess();
-    }, []);
-
-    console.log('dataForums',dataMasses);
+    }, [ ]);
 
 
-
-
-
-    const handleDevolverDatos = (value) =>{
-        const fila = "fila";
-        const columna = "columna";
-        props.onActualizarValores3(fila, columna);
-
-        {
+    const handleReturnData = (value ) =>{
+        props.onUpdateValues3( positionSeat );
             value && true ?
                 props.onNext()
                 :
                 props.onPrev();
-        }
     }
 
+    const handleChooseSeat = (e) => {
+        setPositionSeat(e.target.value);
+    }
+
+
     return (
-
         <>
-            {/*Ultima ventana Elegir asiento*/}
-
             <div  align="center">
-                <Card className="tamanio-formularios "  bordered={true}>
+                <Card className="form-sizes " bordered={true}>
 
-                    <p> Usted ha seleccionado la siguiente fecha {datosUsuario.DiaMisa} en el siguiente horario {datosUsuario.HorarioMisaUsuario} </p>
+                    <p> Usted ha seleccionado la siguiente fecha {dataUser.DiaMisa} en el siguiente horario {dataUser.HorarioMisaUsuario} </p>
                     <p> El timestamp es  {massDate}  </p>
 
                     <div>
                         <Form
-                            name="registrar-asiento"
+                            name="register-seat"
                             initialValues={{remember: true}}
                         >
 
@@ -127,7 +120,8 @@ const FormRegistrarAsiento2 = (props) =>{
                                     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                                         <Col span={24} >
                                             <Radio.Group  options={ getSeats( dataMasses)}
-                                                          optionType='button'/>
+                                                          optionType='button'
+                                                          onChange={ handleChooseSeat }/>
                                         </Col>
                                     </Row>
                                 </Col>
@@ -135,14 +129,14 @@ const FormRegistrarAsiento2 = (props) =>{
 
                             {props.current < 3 && (
                                 <Form.Item >
-                                    <Button type="primary" htmlType="submit"  onClick={()=> handleDevolverDatos(true)}>
+                                    <Button type="primary" htmlType="submit"  onClick={()=> handleReturnData(true)}>
                                         Siguiente
                                     </Button>
                                 </Form.Item >
                             )}
                             {props.current > 0 && (
                                 <Form.Item >
-                                    <Button style={{ margin: '0 8px' }} onClick={ ()=> handleDevolverDatos(false)}>
+                                    <Button style={{ margin: '0 8px' }} onClick={ ()=> handleReturnData(false)}>
                                         Regresar
                                     </Button>
                                 </Form.Item >
@@ -157,5 +151,5 @@ const FormRegistrarAsiento2 = (props) =>{
     );
 }
 
-export default FormRegistrarAsiento2;
+export default FormRegisterSeat3;
 

@@ -2,7 +2,7 @@ import {Route, Switch} from "react-router-dom";
 import Inicio from "../Pages/Inicio";
 import Bill from "../Pages/Bill";
 import Login from "../Pages/Login";
-import RegistrarAsiento from "../Pages/RegistrarAsiento";
+import RegisterSeat from "../Pages/RegisterSeat";
 import React from "react";
 import RecuperarContrasenia from "../Pages/RecuperarContrasenia";
 import ForosPrincipal from "../Pages/ForosPrincipal";
@@ -10,7 +10,6 @@ import Perfil from "../Pages/Perfil";
 import FormBill from "../Pages/FormBill";
 import FormRecuperar from "../Pages/FormRecuperar";
 import NuevaContrasenia from "../Pages/NuevaContrasenia";
-import ConfirmarAsiento from "./ConfirmarAsiento";
 import MisForos from "../Pages/MisForos";
 import CrearForos from "../Pages/CrearForos";
 import Foro from "../Pages/Foro";
@@ -28,8 +27,8 @@ const Navigation = () => {
             <Route path="/Login">
                 <Login />
             </Route>
-            <Route path="/RegistrarAsiento">
-                <RegistrarAsiento />
+            <Route path="/RegisterSeat">
+                <RegisterSeat />
             </Route>
             <Route path="/RecuperarContrasenia">
                 <RecuperarContrasenia/>
@@ -48,9 +47,6 @@ const Navigation = () => {
             </Route>
             <Route path="/Perfil">
                 <Perfil/>
-            </Route>
-            <Route path="/ConfirmarAsiento">
-                <ConfirmarAsiento />
             </Route>
             <Route path="/MisForos">
                 <MisForos/>

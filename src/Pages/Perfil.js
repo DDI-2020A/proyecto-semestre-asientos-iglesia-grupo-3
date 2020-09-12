@@ -52,7 +52,7 @@ const Perfil = () => {
                     <p className="tam-titu"><strong>Perfil</strong></p>
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Datos</strong></p>
-                        <Card className="colorBaseB tamanio-cuadro-interno " bordered={true}>
+                        <Card className="colorBaseB internal-box-size " bordered={true}>
                             <Row gutter={24}>
                                 <Col xs={24} sm={24} md={18} lg={18} span={1}>
                                     <Row gutter={24}>

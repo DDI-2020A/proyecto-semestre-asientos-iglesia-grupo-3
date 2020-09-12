@@ -65,7 +65,6 @@ const UserAvatar =( props )=>{
                 return setDataAvatar(dataAvatar);
             })
             console.log("Avatar", dataAvatar);
-
         }
 
 

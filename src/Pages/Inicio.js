@@ -36,7 +36,7 @@ const Inicio = () => {
                                     <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia X,
                                         desde la comodidad de tu casa  </p>
                                     <Button className="separa-boton" type="primary" shape="round"  >
-                                        <Link to="/RegistrarAsiento">Registrar Asiento</Link>
+                                        <Link to="/RegisterSeat">Registrar Asiento</Link>
                                     </Button>
                                     <Button type="primary" shape="round"  >
                                         <Link to="/Login">Ingresar Foro</Link>

@@ -3,30 +3,27 @@ import { Card} from "antd";
 import '../styles/registrarAsiento.css';
 
 import Foot from "../components/Foot";
-import FormRegistrarAsiento from "./FormRegistrarAsiento";
+import FormRegisterSeat from "../components/FormRegisterSeat";
 
 
-const RegistrarAsiento = () => {
-
-
+const RegisterSeat = () => {
 
     return (
         <>
-            <div className="site-card-border-less-wrapper fondo-registrar-asiento" align="center">
-                <Card className="colorBaseA tamanio-card-grande"  bordered={true}>
+            <div className="site-card-border-less-wrapper background-register-seat" align="center">
+                <Card className="colorBaseA big-card-size" bordered={true}>
                     <h2>Registrar Asiento</h2>
-                    <Card className="colorBaseB tamanio-cuadro-interno "  bordered={true}>
+                    <Card className="colorBaseB internal-box-size " bordered={true}>
                         <p>
                             Ingrese sus datos para asignarle un asiento para la ceremonia en la Iglesia X, según
                             su disponibilidad de horario
                         </p>
 
-                        <FormRegistrarAsiento />
+                        <FormRegisterSeat />
 
                     </Card>
                 </Card>
             </div>
-
 
             <Foot />
 
@@ -35,4 +32,4 @@ const RegistrarAsiento = () => {
 
 }
 
-export default RegistrarAsiento;
+export default RegisterSeat;

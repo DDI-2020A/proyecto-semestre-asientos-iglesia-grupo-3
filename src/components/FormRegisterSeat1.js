@@ -1,23 +1,22 @@
 import React, {useEffect, useState} from "react";
-import  {Button, Card, Col, Form, Input,  Row, Tooltip } from "antd";
+import  {Button, Card, Col, Form, Input,  Row } from "antd";
 import '../styles/registrarAsiento.css';
 
 
-const FormRegistrarAsiento1 = (props) =>{
-    // eslint-disable-next-line
-    const [ datosUsuario, setDatosUsuario ] = useState( props.datosUsuario );
+const FormRegisterSeat1 = (props) =>{
+
+    const [ dataUser, setDataUser ] = useState( props.dataUser );
 
     useEffect( () => {
-        console.log( 'Datos usuario1', props.datosUsuario );
-    }, [ props.datosUsuario ] );
+        console.log( 'Datos usuario', props.dataUser );
+    }, [ props.dataUser ] );
 
 
-
-    const handleDevolverDatos = () =>{
-        const nombreUsuario = document.querySelector('#ra-nombre-usuario').value;
-        const cedulaUsuario = document.querySelector('#ra-cedula-pasaporte').value;
-        const telefonoUsuario = document.querySelector('#ra-telefono-usuario').value;
-        props.onActualizarValores(nombreUsuario, telefonoUsuario, cedulaUsuario);
+    const handleReturnData = () =>{
+        const nameUser = document.querySelector('#ra-name-user').value;
+        const identificationCardUser = document.querySelector('#ra-identification-card').value;
+        const phoneUser = document.querySelector('#ra-phone-user').value;
+        props.onUpdateValues( nameUser, phoneUser, identificationCardUser);
         props.onNext();
     }
 
@@ -26,9 +25,9 @@ const FormRegistrarAsiento1 = (props) =>{
         <>
 
             <div   align="center">
-                <Card className="tamanio-formularios "  bordered={true}>
+                <Card className="form-sizes " bordered={true}>
                     <Form
-                        name="registrar-asiento"
+                        name="register-seat"
                         initialValues={{remember: true}}
 
                     >
@@ -37,7 +36,7 @@ const FormRegistrarAsiento1 = (props) =>{
                             <Col xs={24} sm={24} md={16} lg={16}  span={8}>
 
                                 <Form.Item
-                                    name="ra-cedula-pasaporte"
+                                    name="ra-identification-card"
                                     label="Cédula / Pasaporte"
                                     rules={[
                                         {
@@ -47,14 +46,14 @@ const FormRegistrarAsiento1 = (props) =>{
                                     ]}
                                 >
                                     {
-                                        datosUsuario !== null ?
-                                            <Input  defaultValue={ datosUsuario.CedulaPasUsuario} id="ra-cedula-pasaporte" placeholder="Ingrese su Cédula o Pasaporte" />
+                                        dataUser !== null ?
+                                            <Input  defaultValue={ dataUser.CedulaPasUsuario} id="ra-identification-card" placeholder="Ingrese su Cédula o Pasaporte" />
                                             :
-                                            <Input  id="ra-cedula-pasaporte" placeholder="Ingrese su Cédula o Pasaporte" />
+                                            <Input  id="ra-identification-card" placeholder="Ingrese su Cédula o Pasaporte" />
                                     }
                                     </Form.Item>
                                 <Form.Item
-                                    name="ra-nombre-usuario"
+                                    name="ra-name-user"
                                     label="Nombre"
                                     rules={[
                                         {
@@ -64,17 +63,17 @@ const FormRegistrarAsiento1 = (props) =>{
                                     ]}
                                 >
                                     {
-                                        datosUsuario !== null ?
-                                            <Input defaultValue={ datosUsuario.nombreUsuario } id="ra-nombre-usuario" placeholder="Ingrese su nombre" />
+                                        dataUser !== null ?
+                                            <Input defaultValue={ dataUser.nombreUsuario } id="ra-name-user" placeholder="Ingrese su nombre" />
                                             :
-                                            <Input id="ra-nombre-usuario" placeholder="Ingrese su nombre" />
+                                            <Input id="ra-name-user" placeholder="Ingrese su nombre" />
                                     }
 
 
 
                                 </Form.Item>
                                 <Form.Item
-                                    name="ra-telefono-usuario"
+                                    name="ra-phone-user"
                                     label="Teléfono"
                                     rules={[
                                         {
@@ -86,10 +85,10 @@ const FormRegistrarAsiento1 = (props) =>{
                                 >
 
                                     {
-                                        datosUsuario !== null ?
-                                            <Input  defaultValue={ datosUsuario.telefonoUsuario}  id="ra-telefono-usuario" placeholder="Ingrese su teléfono" />
+                                        dataUser !== null ?
+                                            <Input  defaultValue={ dataUser.telefonoUsuario}  id="ra-phone-user" placeholder="Ingrese su teléfono" />
                                             :
-                                            <Input id="ra-telefono-usuario" placeholder="Ingrese su teléfono" />
+                                            <Input id="ra-phone-user" placeholder="Ingrese su teléfono" />
                                     }
 
 
@@ -100,7 +99,7 @@ const FormRegistrarAsiento1 = (props) =>{
 
                         {props.current < 3 && (
                             <Form.Item >
-                                <Button type="primary" htmlType="submit" onClick={handleDevolverDatos}>
+                                <Button type="primary" htmlType="submit" onClick={handleReturnData}>
                                     Siguiente
                                 </Button>
                             </Form.Item>
@@ -125,4 +124,4 @@ const FormRegistrarAsiento1 = (props) =>{
 
 }
 
-export default FormRegistrarAsiento1;
+export default FormRegisterSeat1;

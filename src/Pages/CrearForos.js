@@ -33,7 +33,7 @@ const CrearForos = () =>{
 
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
 
-                        <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="center">
+                        <Card className="colorBaseB internal-box-size " bordered={true} align="center">
                             <Form name="nest-messages"  >
                                 <Form.Item name={['user', 'text']} label="Titulo" rules={[{ type: 'text' }]}>
                                     <Input />

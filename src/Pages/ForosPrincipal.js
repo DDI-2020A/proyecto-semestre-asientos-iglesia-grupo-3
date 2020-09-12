@@ -77,7 +77,7 @@ const ForosPrincipal = () => {
                             enterButton/>
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
-                        <Card className="colorBaseB tamanio-cuadro-interno " bordered={true} align="center">
+                        <Card className="colorBaseB internal-box-size " bordered={true} align="center">
                             <Table dataSource={ dataListForums } columns={ columns } loading={isLoading} />;
                         </Card>
                     </Card>
