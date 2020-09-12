@@ -6,22 +6,6 @@ import FormBill from "./FormBill";
 
 const Bill = () => {
 
-
-   /* const handleSubmit= async (values) => {
-
-        try {
-            const user = await FIREBASE.auth.createUserWithEmailAndPassword(values.email, values.password);
-            delete values.password;
-            await FIREBASE.db.ref(`users/${user.uid}`).push(values);
-            console.log('valores', values);
-            message.success('Datos guardados')
-        } catch (error) {
-            message.error(error.message);
-        }
-
-    }*/
-
-
     return (
         <>
             <div className="site-card-border-less-wrapper fondo-cuenta" align="center">

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {Form, Input, Button, Card, Modal, Alert} from "antd";
+import {Form, Input, Button, Card, Modal, Alert, message} from "antd";
 import '../styles/login.css';
 import '../styles/bill.css';
 import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
+import FIREBASE from "../firebase";
 
 
 
@@ -11,9 +12,17 @@ const RecuperarContrasenia = () => {
 
     const [ ViewModalCod, setViewModalCod] = useState( false );
 
-    const handleOpenModal =() =>{
+   /* const handleOpenModal =() =>{
         setViewModalCod(true);
-    };
+    };*/
+    const handleChangePassword=({usermail})=>{
+        FIREBASE.auth.sendPasswordResetEmail(usermail).then(function() {
+            message.success('Correo enviado')
+        }).catch(function(error) {
+            message.error(error.message);
+        });
+
+    }
     return (
         <>
             <div className="site-card-border-less-wrapper fondo-login" align="center">
@@ -26,24 +35,20 @@ const RecuperarContrasenia = () => {
                             <Form
                                 name="basic"
                                 initialValues={{remember: true}}
-                                onFinish={()=> handleOpenModal()}
+                                onFinish={handleChangePassword}
 
                             >
                                 <Form.Item
                                     label="Email"
                                     name="usermail"
-                                    rules={[{required: true, message: 'Porfavor ingrese sus datos'}]}
+                                    rules={[{required: true, message: 'Porfavor ingrese sus datos'},{
+
+                                        type:'email',message: 'Porfavor ingrese un correo válido'
+                                    }]
+                                    }
                                 >
                                     <Input/>
                                 </Form.Item>
-                                <p>Confirmar Correo</p>
-                                    <Form.Item
-                                        label="Email"
-                                        name="usermail1"
-                                        rules={[{required: true, message: 'Porfavor ingrese sus datos'}]}
-                                    >
-                                        <Input/>
-                                    </Form.Item>
                                     <Form.Item>
                                         <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                             Aceptar
