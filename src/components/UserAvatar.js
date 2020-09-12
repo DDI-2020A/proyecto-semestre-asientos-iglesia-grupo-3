@@ -1,4 +1,4 @@
-import {Col, Row, Radio, Button} from "antd";
+import {Col, Row, Radio, Button,message} from "antd";
 import a1 from "../images/avatar1.jpg";
 import a2 from "../images/avatar2.jpg";
 import a3 from "../images/avatar3.jpg";
@@ -18,6 +18,7 @@ import a16 from  '../images/avatar16.jpg';
 import '../styles/bill.css';
 import React, {useEffect, useState} from "react";
 import Divider from "antd/es/divider";
+import FIREBASE from "../firebase";
 const avatars={
     a1,
     a2,
@@ -86,15 +87,11 @@ const UserAvatar =( props )=>{
                             {
                                 props.current < 2 && (
                                     <Button type="primary"  style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onNext }>
-                                        Registrar
+                                        Siguiente
                                     </Button>
                                 )
                             }
-                            {props.current > 0 && (
-                                <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onPrev }>
-                                    Regresar
-                                </Button>
-                            )}
+
                         </Divider>
 
 

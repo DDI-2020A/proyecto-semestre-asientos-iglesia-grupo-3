@@ -44,19 +44,19 @@ const FormBill = () => {
     }
     const steps = [
         {
-            title: 'Datos de usuario',
-             content: <UserData current = {current}
-                                dataBill= { dataBill}
-                                             onNext = { handleNext }
-                                             onUpdateValues= { handleAddUserData } /> ,
-        },
-        {
             title: 'Seleccionar Avatar',
              content: <UserAvatar current = {current}
                                              dataBill = { dataBill}
                                              onNext = { handleNext }
-                                             onPrev = { handlePrev }
-                                             onUpdateValues2 = { handleAddUserAvatar } />,
+                                             onUpdateValues = { handleAddUserAvatar } />,
+        },
+        {
+            title: 'Datos de usuario',
+            content: <UserData current = {current}
+                               dataBill= { dataBill}
+                               onNext = { handleNext }
+                               onPrev = { handlePrev }
+                               onUpdateValues= { handleAddUserData } /> ,
         }
     ];
 
