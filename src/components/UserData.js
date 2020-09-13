@@ -1,38 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Form, Input, Button, message} from "antd";
 import '../styles/bill.css';
 import FIREBASE from "../firebase";
 
 const UserData = (props) => {
 
-    const [ dataBill, setDataBill] = useState( props.dataBill );
-
-    useEffect( () => {
-        console.log( 'DataBill1', props.dataBill );
-    }, [ props.dataBill ] );
-
-
-
     const handleKeepData = () =>{
-        setDataBill( prevState => {
         const name = document.querySelector('#userName').value;
         const mail = document.querySelector('#userMail').value;
         const phone = document.querySelector('#userPhone').value;
         const address  = document.querySelector('#userAddress').value;
         props.onUpdateValues(name,mail,phone,address);
-        })
     }
-    const handleSubmit= async ({userMail,userPassword}) => {
-
+    const handleSubmit = async (values) => {
         try {
-            const user = await FIREBASE.auth.createUserWithEmailAndPassword(userMail,userPassword);
-            await FIREBASE.db.ref(`users/${user.uid}`).push(dataBill);
-            console.log('valores', dataBill);
-            message.success('Datos guardados')
-        } catch (error) {
-            message.error(error.message);
+            const user = await FIREBASE.auth.createUserWithEmailAndPassword(values.userMail, values.userPassword);
+            await FIREBASE.db.ref(`users/${user.uid}`).push({
+                address: values.userAddress,
+                avatar: props.avatarUser,
+                email: values.userMail,
+                name: values.userName,
+                phone: values.userPhone,
+            });
+            message.success('Datos Guardados')
+        } catch(error) {
+            message.error(error.message)
         }
-
     }
 
     return(

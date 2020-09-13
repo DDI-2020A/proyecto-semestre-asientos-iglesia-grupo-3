@@ -1,4 +1,4 @@
-import {Col, Row, Radio, Button,message} from "antd";
+import {Col, Row, Radio, Button} from "antd";
 import a1 from "../images/avatar1.jpg";
 import a2 from "../images/avatar2.jpg";
 import a3 from "../images/avatar3.jpg";
@@ -67,11 +67,8 @@ const UserAvatar =( props )=>{
             })
             console.log("Avatar", dataAvatar);
         }
-
-
     return (
         <>
-
                     <Row align={'middle'}>
                         <Col span={24}>
                             <Divider orientation="center">Elegir un avatar</Divider>
@@ -90,11 +87,7 @@ const UserAvatar =( props )=>{
                                     </Button>
                                 )
                             }
-
                         </Divider>
-
-
-
                     </Row>
 
         </>
