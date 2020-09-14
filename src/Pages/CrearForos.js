@@ -1,28 +1,36 @@
 import React, { useState, useEffect} from 'react';
-import {Card,Input, Form, Button} from 'antd';
+import {Card, Input, Form, Button, message} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
 import {Link} from "react-router-dom";
+import { useHistory } from 'react-router-dom';
+import FIREBASE from "../firebase";
 
 const CrearForos = () =>{
     const [ comments, setComments ] = useState( [] );
 
-    useEffect( () => {
-        const getComments = async() => {
-            const dataComments = await fetch( `https://run.mocky.io/v3/160b5ee4-3da0-4d86-80cd-5253856fa269` );
-            const jsonComments = await dataComments.json();
-            console.log( 'user', jsonComments );
 
-            setComments( jsonComments );
-        };
-        getComments();
+    const history = useHistory();
+    const handleLogin = async (values) => {
+        try {
+            await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
+            history.push("/ForosPrincipal")
+        } catch(error) {
+            message.error(error.message)
+        }
+    }
 
-    },[] );
-    // eslint-disable-next-line
-  const { Search } = Input;
 
+  const [ setTodos ] = useState( [] );
+
+const handleAddTask = () => {
+    const task = document.querySelector( '#task' ).value;
+    setTodos( prevState => [ ...prevState, task ] );
+    document.querySelector( '#task' ).value = '';
+
+};
     return (
         <>
             <HeaderForos/>
@@ -35,14 +43,14 @@ const CrearForos = () =>{
 
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
                             <Form name="nest-messages"  >
-                                <Form.Item name={['user', 'text']} label="Titulo" rules={[{ type: 'text' }]}>
-                                    <Input />
+                                <Form.Item name={['user', 'text']} label="Titulo" >
+                                    <Input id='task'/>
                                 </Form.Item>
                                 <Form.Item name={['user', 'introduction']} label="Comentario">
                                     <Input.TextArea />
                                 </Form.Item>
                                 <Form.Item >
-                                    <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
+                                    <Button onClick={ handleAddTask } type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                         <Link to="/ForosPrincipal">Crear Foro</Link>
                                     </Button>
                                     <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
@@ -51,15 +59,6 @@ const CrearForos = () =>{
                                 </Form.Item>
                             </Form>
 
-
-
-                            { // eslint-disable-next-line
-                                comments && comments.Foros // eslint-disable-next-line
-                                    ? comments.Foros.map((comment, index) => {
-
-                                    })
-                                    : '.....'
-                            }
                         </Card>
                     </Card>
                 </div>

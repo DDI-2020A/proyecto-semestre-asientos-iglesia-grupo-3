@@ -6,6 +6,7 @@ import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
 import FIREBASE from "../firebase";
 import {Link} from "react-router-dom";
+import Perfil from "../Pages/Perfil";
 
 
 const MisForos = () => {
@@ -40,6 +41,12 @@ const MisForos = () => {
     console.log('dataForums',dataForums);
 
     const { Search } = Input;
+
+    if(Perfil()){
+
+    }
+
+    //console.log(Perfil(name) );
 
     const columns = [
         {
@@ -89,6 +96,7 @@ const MisForos = () => {
             <Foot/>
         </>
     );
+
 
 }
 

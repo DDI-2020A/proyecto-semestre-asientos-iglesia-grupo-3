@@ -17,6 +17,7 @@ const Perfil = () => {
         phone:''
     });
 
+
     useEffect( () => {
         const getDataProfile  = async () => {
             FIREBASE.db.ref('users/3').on('value', (snapshot) => {
