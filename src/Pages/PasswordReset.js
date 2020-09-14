@@ -3,21 +3,18 @@ import {Form, Input, Button, Card, Modal, Alert, message} from "antd";
 import '../styles/login.css';
 import '../styles/bill.css';
 import Foot from "../components/Foot";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import FIREBASE from "../firebase";
 
 
 
-const RecuperarContrasenia = () => {
+const PasswordReset = () => {
 
-    const [ ViewModalCod, setViewModalCod] = useState( false );
-
-   /* const handleOpenModal =() =>{
-        setViewModalCod(true);
-    };*/
+    const history=useHistory();
     const handleChangePassword=({usermail})=>{
         FIREBASE.auth.sendPasswordResetEmail(usermail).then(function() {
-            message.success('Correo enviado')
+            message.success('Correo enviado, en caso de no encontrarlo en la bandeja de entrada. Por favor revisé en correos no deseados')
+            history.push("/Login")
         }).catch(function(error) {
             message.error(error.message);
         });
@@ -62,22 +59,6 @@ const RecuperarContrasenia = () => {
                     </Card>
                 </Card>
             </div>
-            <Modal
-                title={"Código"}
-                visible={ ViewModalCod}
-                onCancel={ () => setViewModalCod( false ) }
-                footer={null}
-                width={500}
-            >
-                <Alert
-                    message="Información"
-                    description="Se ha enviado un código de seguridad al correo registrado"
-                    type="info"
-                    showIcon
-                />
-                <div className="modalLink"><Link to="/FormRecuperar">OK</Link></div>
-
-            </Modal>
             <Foot/>
 
         </>
@@ -85,4 +66,4 @@ const RecuperarContrasenia = () => {
 
 }
 
-export default RecuperarContrasenia;
+export default PasswordReset;

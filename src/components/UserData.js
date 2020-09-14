@@ -1,9 +1,11 @@
 import React from 'react';
-import {Form, Input, Button, message} from "antd";
+import {Form, Input, Button, message,Alert} from "antd";
 import '../styles/bill.css';
 import FIREBASE from "../firebase";
+import {useHistory} from 'react-router-dom';
 
 const UserData = (props) => {
+    const history=useHistory();
 
     const handleKeepData = () =>{
         const name = document.querySelector('#userName').value;
@@ -14,15 +16,17 @@ const UserData = (props) => {
     }
     const handleSubmit = async (values) => {
         try {
-            const user = await FIREBASE.auth.createUserWithEmailAndPassword(values.userMail, values.userPassword);
-            await FIREBASE.db.ref(`users/${user.uid}`).push({
+            const usercount = await FIREBASE.auth.createUserWithEmailAndPassword(values.userMail, values.userPassword);
+            console.log('usuario',usercount)
+            await FIREBASE.db.ref(`users/${usercount.user.uid}/`).set({
                 address: values.userAddress,
-                avatar: props.avatarUser,
+                avatar: props.dataBill.avatarUser,
                 email: values.userMail,
                 name: values.userName,
                 phone: values.userPhone,
             });
             message.success('Datos Guardados')
+            history.push("/Login")
         } catch(error) {
             message.error(error.message)
         }

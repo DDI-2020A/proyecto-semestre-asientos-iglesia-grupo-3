@@ -4,12 +4,10 @@ import Bill from "../Pages/Bill";
 import Login from "../Pages/Login";
 import RegisterSeat from "../Pages/RegisterSeat";
 import React from "react";
-import RecuperarContrasenia from "../Pages/RecuperarContrasenia";
+import PasswordReset from "../Pages/PasswordReset";
 import ForosPrincipal from "../Pages/ForosPrincipal";
 import Perfil from "../Pages/Perfil";
 import FormBill from "../Pages/FormBill";
-import FormRecuperar from "../Pages/FormRecuperar";
-import NuevaContrasenia from "../Pages/NuevaContrasenia";
 import MisForos from "../Pages/MisForos";
 import CrearForos from "../Pages/CrearForos";
 import Foro from "../Pages/Foro";
@@ -30,14 +28,8 @@ const Navigation = () => {
             <Route path="/RegisterSeat">
                 <RegisterSeat />
             </Route>
-            <Route path="/RecuperarContrasenia">
-                <RecuperarContrasenia/>
-            </Route>
-            <Route path="/NuevaContrasenia">
-                <NuevaContrasenia/>
-            </Route>
-            <Route path="/FormRecuperar">
-                <FormRecuperar/>
+            <Route path="/PasswordReset">
+                <PasswordReset/>
             </Route>
             <Route path="/FormBill">
                 <FormBill/>

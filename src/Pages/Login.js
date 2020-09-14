@@ -1,11 +1,24 @@
 import React from 'react';
-import {Form, Input, Button, Card} from "antd";
+import {Form, Input, Button, Card, message} from "antd";
 import '../styles/login.css';
 import '../styles/bill.css';
 import Foot from "../components/Foot";
 import {Link} from "react-router-dom";
+import FIREBASE from "../firebase";
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+
+    const history = useHistory();
+    const handleLogin = async (values) => {
+        try {
+            await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
+            history.push("/ForosPrincipal")
+        } catch(error) {
+            message.error(error.message)
+        }
+    }
+
     return (
         <>
             <div className=" site-card-border-less-wrapper fondo-login" align="center">
@@ -20,11 +33,12 @@ const Login = () => {
                         <Form
                             name="basic"
                             initialValues={{remember: true}}
+                            onFinish={handleLogin}
 
                         >
                             <Form.Item
                                 label="Email"
-                                name="username"
+                                name="userMail"
                                 rules={[{required: true, message: 'Please input your username!'}]}
                             >
                                 <Input/>
@@ -32,16 +46,16 @@ const Login = () => {
 
                             <Form.Item
                                 label="Contraseña"
-                                name="password"
+                                name="userPassword"
                                 rules={[{required: true, message: 'Please input your password!'}]}
                             >
                                 <Input.Password/>
                             </Form.Item>
-                            <p><Link to="/RecuperarContrasenia">¿Haz olvidado tu contraseña?</Link></p>
+                            <p><Link to="/PasswordReset">¿Haz olvidado tu contraseña?</Link></p>
                             <p> <Link to="/Bill">Crear cuenta</Link></p>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit">
-                                    <Link to="/ForosPrincipal">Iniciar Sesion</Link>
+                                    Iniciar Sesion
                                 </Button>
                             </Form.Item>
                         </Form>
