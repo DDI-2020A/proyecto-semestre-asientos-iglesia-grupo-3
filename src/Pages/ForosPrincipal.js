@@ -46,9 +46,8 @@ const ForosPrincipal = () => {
             title: 'Tema',
             dataIndex: 'Titulo',
             key: 'Titulo',
-            render: text =>  <Link to={{
-                pathname: '/Foro',
-                data: {dataListForums}
+            render: (text, foro) =>  <Link to={{
+                pathname: `/Foro/${foro.key}`
             }}>
                 {text}
             </Link>,

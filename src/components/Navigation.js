@@ -46,7 +46,7 @@ const Navigation = () => {
             <Route path="/CrearForos">
                 <CrearForos/>
             </Route>
-            <Route path="/Foro">
+            <Route path="/Foro/:id">
                 <Foro/>
             </Route>
         </Switch>
