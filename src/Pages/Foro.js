@@ -90,13 +90,6 @@ const Foro = () => {
         //console.log('valores pasados al click ', values);
         const today = new Date();
         const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
-        console.log('comentario: ', values.comment);
-        console.log('llave del foro: ', dataForum.key);
-        console.log('usuario: ', dataProfile.name);
-        console.log('Fecha: ', date);
-        console.log('usuario id: ',  dataProfile.key);
-
         await FIREBASE.db.ref(`forums/${dataForum.key}/comments/`).push({
             comment: values.comment,
             date: date,
@@ -104,6 +97,7 @@ const Foro = () => {
             userid: dataProfile.key
         });
         message.success('Los datos se actualizarón corectamente');
+        document.querySelector('#contenedor-comen').value = "";
     };
 
     return (
@@ -180,7 +174,7 @@ const Foro = () => {
                         <Card className="colorBaseB internal-box-size " bordered={true} align="left">
                             <Form  name="nest-messages" onFinish={onFinish} >
                                 <Form.Item name={['comment']}>
-                                    <Input.TextArea />
+                                    <Input.TextArea id="contenedor-comen" />
                                 </Form.Item>
                                 <Form.Item >
                                     <Button type="primary" htmlType="submit">
