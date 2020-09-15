@@ -26,23 +26,56 @@ const Foro = ( {dataForums}) => {
         phone:''
     });
 
+    const [dataListComments, setDataListComments] = useState([]);
+
     /*const { Search } = Input;*/
     //console.log('dataForums-foro-pasados', {location});
     //const {data} = this.props.location.state;
 
     useEffect( () => {
+        const getDataComments  = async () => {
+            FIREBASE.db.ref('forums/5/comments/').on('value', (snapshot) => {
+
+                const commentsData = [];
+                snapshot.forEach((data) => {
+                    //console.log('data', data.val());
+                    const comment = data.val();
+                    const commentId = data.key;
+                    commentsData.push({
+                        key: commentId,
+                        comment: comment.comment,
+                        date: comment.date,
+                        name: comment.name,
+                        userId: comment.userid
+                    });
+                });
+                console.log('commentsData: ', commentsData);
+                setDataListComments(commentsData);
+                console.log('dataListComments: ', dataListComments);
+            });
+        };
+        console.log('dataListComments000: ', dataListComments);
+
+        getDataComments();
+    }, []);
+    console.log('dataListComments1111: ', dataListComments);
+
+    useEffect( () => {
+
         const getDataForum  = async () => {
-            FIREBASE.db.ref('forums/5').on('value', (snapshot) => {
+            console.log('dataListComments111: ', dataListComments);
+            FIREBASE.db.ref('forums/5/').on('value', (snapshot) => {
                 console.log('snapshot', snapshot.val());
                 const forum = snapshot.val();
                 const forumId = snapshot.key;
-                const listCommentsData = [];
-
+                console.log('snapshot.key: ', snapshot.key);
+                /*const listCommentsData = [];
                 forum.comments.forEach( (data) => {
                     //console.log('datos de comentarios', data);
                     const comment = data;
                     const commentId = data.key;
-
+                    console.log('data total: ', data);
+                    console.log('data key: ', data.key);
                     listCommentsData.push({
                         key: commentId,
                         commentC: comment.comment,
@@ -50,24 +83,24 @@ const Foro = ( {dataForums}) => {
                         dateC: comment.date,
                         userIdC: comment.userid,
                     });
-                });
-
+                });*/
+                console.log('dataListComments222: ', dataListComments);
                 const forumData = {key: forumId,
                     title: forum.title,
                     user: forum.name,
                     date: forum.date,
                     message:forum.message,
                     userId: forum.userid,
-                    comments: listCommentsData,
+                    comments: dataListComments,
                 };
-                //console.log('forumdata', forumData);
+                console.log('forumdata', forumData);
                 setDataForum(forumData);
 
             });
         };
 
         const getDataProfile  = async () => {
-            FIREBASE.db.ref('users/3').on('value', (snapshot) => {
+            FIREBASE.db.ref('users/3/').on('value', (snapshot) => {
                 //console.log('snapshot', snapshot.val());
                 const profile = snapshot.val();
                 const profileId = snapshot.key;
@@ -98,12 +131,12 @@ const Foro = ( {dataForums}) => {
         console.log('Fecha: ', date);
         console.log('usuario id: ',  dataProfile.key);
 
-        await FIREBASE.db.ref(`forums/${dataForum.key}/comments/`).push({
+        /*await FIREBASE.db.ref(`forums/${dataForum.key}/comments/`).push({
             comment: values.comment,
             date: date,
             name: dataProfile.name,
             userid: dataProfile.key
-        });
+        });*/
         message.success('Los datos se actualizarón corectamente');
     };
 

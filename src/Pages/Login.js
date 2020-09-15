@@ -64,6 +64,7 @@ const Login = () => {
                     </Card>
                 </Card>
             </div>
+            <Button><Link to="/ForosPrincipal">ir directo</Link></Button>
             <Foot/>
 
         </>
