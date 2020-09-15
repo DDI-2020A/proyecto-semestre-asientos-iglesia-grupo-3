@@ -18,7 +18,6 @@ const PasswordReset = () => {
         }).catch(function(error) {
             message.error(error.message);
         });
-
     }
     return (
         <>

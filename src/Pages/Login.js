@@ -59,11 +59,11 @@ const Login = () => {
                                 </Button>
                             </Form.Item>
                         </Form>
-
                     </div>
                     </Card>
                 </Card>
             </div>
+            <Button><Link to="/ForosPrincipal">ir directo</Link></Button>
             <Foot/>
 
         </>
