@@ -3,17 +3,15 @@ import { Button, PageHeader} from 'antd';
 import { Link} from "react-router-dom";
 import avatar4 from  '../images/avatar4.jpg';
 import '../styles/headerforos.css';
+import FIREBASE from "../firebase";
 
 const HeaderForos = () => {
 
     return (
-
-
         <div className='header2'>
            <PageHeader
                 title='Un Lugar Juntos'
                 extra={[
-
                     <Button key="1" type="primary">
                         <Link to="/MisForos">
                             <p>Mis Foros</p>
@@ -33,12 +31,14 @@ const HeaderForos = () => {
                                 /></p>
                         </Link>
                     </Button>,
-                    <Button key="4" type="danger">
-                        <Link to="/">Salir</Link>
+                    <Button key="4" type="danger" onClick={()=>FIREBASE.auth.signOut()}>
+                       Salir
                     </Button>,
+                    <Button key="4" type="danger" >
+                        <Link to="/">Salir momentaneo</Link>
+                    </Button>
                 ]}
             >
-
             </PageHeader>
 
         </div>

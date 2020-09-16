@@ -18,7 +18,6 @@ import a16 from  '../images/avatar16.jpg';
 import '../styles/bill.css';
 import React, {useEffect, useState} from "react";
 import Divider from "antd/es/divider";
-import FIREBASE from "../firebase";
 const avatars={
     a1,
     a2,

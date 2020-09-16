@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Input, Button, message,Alert} from "antd";
+import {Form, Input, Button, message} from "antd";
 import '../styles/bill.css';
 import FIREBASE from "../firebase";
 import {useHistory} from 'react-router-dom';

@@ -19,22 +19,22 @@ const Navigation = () => {
             <Route exact path="/">
                 <Inicio />
             </Route>
-            <Route path="/Bill">
+            <Route path="/bill">
                 <Bill />
             </Route>
-            <Route path="/Login">
+            <Route path="/login">
                 <Login />
             </Route>
             <Route path="/RegisterSeat">
                 <RegisterSeat />
             </Route>
-            <Route path="/PasswordReset">
+            <Route path="/passwordreset">
                 <PasswordReset/>
             </Route>
-            <Route path="/FormBill">
+            <Route path="/formBill">
                 <FormBill/>
             </Route>
-            <Route path="/ForosPrincipal">
+            <Route path="/ForosPrincipal/:uid">
                 <ForosPrincipal />
             </Route>
             <Route path="/Perfil">

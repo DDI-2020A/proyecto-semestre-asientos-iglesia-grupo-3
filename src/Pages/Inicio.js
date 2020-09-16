@@ -39,7 +39,7 @@ const Inicio = () => {
                                         <Link to="/RegisterSeat">Registrar Asiento</Link>
                                     </Button>
                                     <Button type="primary" shape="round"  >
-                                        <Link to="/Login">Ingresar Foro</Link>
+                                        <Link to="/login">Ingresar Foro</Link>
                                     </Button>
                                 </div>
                             </Card>

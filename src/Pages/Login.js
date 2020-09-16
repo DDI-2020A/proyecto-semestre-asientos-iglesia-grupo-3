@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Form, Input, Button, Card, message} from "antd";
 import '../styles/login.css';
 import '../styles/bill.css';
@@ -8,12 +8,24 @@ import FIREBASE from "../firebase";
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {
-
     const history = useHistory();
+    const [userId,setUserId]=useState(null);
+
     const handleLogin = async (values) => {
         try {
             await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
-            history.push("/ForosPrincipal")
+            await FIREBASE.auth.onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+                    let uid = user.uid;
+                    console.log('Pasar uid', uid);
+                    history.push(`/ForosPrincipal/${uid}`);
+                } else {
+                    // User is signed out.
+                    console.log('user loggedOut');
+                    history.replace("/");
+                }
+            });
         } catch(error) {
             message.error(error.message)
         }
@@ -51,8 +63,8 @@ const Login = () => {
                             >
                                 <Input.Password/>
                             </Form.Item>
-                            <p><Link to="/PasswordReset">¿Haz olvidado tu contraseña?</Link></p>
-                            <p> <Link to="/Bill">Crear cuenta</Link></p>
+                            <p><Link to="/passwordreset">¿Haz olvidado tu contraseña?</Link></p>
+                            <p> <Link to="/bill">Crear cuenta</Link></p>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit">
                                     Iniciar Sesion

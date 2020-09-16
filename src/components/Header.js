@@ -19,11 +19,11 @@ const Header = () => {
                     <a href="#id-contact"><Button type="link" ghost>Contáctanos</Button></a>,
 
                     <Button key="2">
-                        <Link to="/Login">Login</Link>
+                        <Link to="/login">Login</Link>
                     </Button>,
                     <Button key="1" type="primary">
 
-                        <Link to="/Bill">Registrarse</Link>
+                        <Link to="/bill">Registrarse</Link>
 
                     </Button>,
                 ]}

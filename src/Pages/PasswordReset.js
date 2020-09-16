@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Form, Input, Button, Card, Modal, Alert, message} from "antd";
+import React from 'react';
+import {Form, Input, Button, Card,message} from "antd";
 import '../styles/login.css';
 import '../styles/bill.css';
 import Foot from "../components/Foot";
