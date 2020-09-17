@@ -7,10 +7,10 @@ import avatar4 from  '../images/avatar4.jpg';
 import '../styles/headerforos.css';
 import FIREBASE from "../firebase";
 
-const HeaderForos = ( { user } ) => {
+const HeaderForos = ( { uid } ) => {
 
     //const [userUid, setUserUid] = useState( user.uid );
-    console.log('uid del usuario pasado a headerforos. Varable useestate:', user);
+    console.log('uid del usuario pasado a headerforos. Varable useestate:', uid);
 
     return (
         <div className='header2'>
@@ -29,7 +29,7 @@ const HeaderForos = ( { user } ) => {
                     </Button>,
                     <Button key="3" type="primary">
                         <Link to={{
-                            pathname: `/perfil/${user}`
+                            pathname: `/perfil/${uid}`
                         }}>
                             <p className="tam-text">Perfil
                                 <img

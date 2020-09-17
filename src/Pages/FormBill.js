@@ -10,17 +10,17 @@ const FormBill = () => {
     const [current, SetCurrent] = useState(0);
     const [dataBill, SetDataBill] = useState({
         nameUser: "",
-        mailUser: "",
+        emailUser: "",
         phoneUser: "",
         addressUser: "",
         avatarUser: "",
     });
 
-    const handleAddUserData = (name,mail,phone,address) => {
+    const handleAddUserData = (name,email,phone,address) => {
         SetDataBill( prevState => {
             const newUserDataBill = {...prevState};
             newUserDataBill.nameUser = name;
-            newUserDataBill.mailUser = mail;
+            newUserDataBill.emailUser = email;
             newUserDataBill.phoneUser = phone;
             newUserDataBill.addressUser = address;
             return newUserDataBill;

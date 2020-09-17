@@ -69,7 +69,7 @@ const ForosPrincipal = () => {
 
     return (
         <>
-            <HeaderForos user = {uid}/>
+            <HeaderForos uid = {uid}/>
 
             <div className="fondo-foros">
                 <div align="center">

@@ -5,10 +5,9 @@ import '../styles/App.css';
 import '../styles/perfil.css'
 import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
-import avatar4 from '../images/avatar4.jpg';
 import {Link} from "react-router-dom";
 import FIREBASE from "../firebase";
-import UserAvatar, {avatars} from "../components/UserAvatar";
+import  {avatars} from "../components/UserAvatar";
 
 const Perfil = () => {
 

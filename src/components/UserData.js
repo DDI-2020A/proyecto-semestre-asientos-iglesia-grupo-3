@@ -9,10 +9,10 @@ const UserData = (props) => {
 
     const handleKeepData = () =>{
         const name = document.querySelector('#userName').value;
-        const mail = document.querySelector('#userMail').value;
+        const email = document.querySelector('#userMail').value;
         const phone = document.querySelector('#userPhone').value;
         const address  = document.querySelector('#userAddress').value;
-        props.onUpdateValues(name,mail,phone,address);
+        props.onUpdateValues(name,email,phone,address);
     }
     const handleSubmit = async (values) => {
         try {
