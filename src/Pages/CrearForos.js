@@ -4,36 +4,52 @@ import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
-import {Link} from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+import {Link, useHistory, useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
 
 const CrearForos = () =>{
-    const [ comments, setComments ] = useState( [] );
+    const history=useHistory();
+    const { uid } = useParams();
+    console.log('pasar a crear foro',uid);
+    const [userData,setUserData]=useState(null);
+    console.log('uid pasado a perfil: ',uid);
 
-
-    const history = useHistory();
-    const handleLogin = async (values) => {
-        try {
-            await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
-            history.push("/ForosPrincipal")
-        } catch(error) {
+    useEffect( () => {
+        const getDataForum  = async () => {
+            await FIREBASE.db.ref(`users/${ uid }`).on('value', (snapshot) => {
+                console.log('snapshot', snapshot.val());
+                const user=snapshot.val();
+                const dataUser = {key: uid,
+                    name: user.name,
+                };
+                console.log('userdata', dataUser);
+                setUserData(dataUser);
+            });
+        };
+        getDataForum();
+    }, []);
+    const handleAddForum= async ()=>{
+        try{
+            const today = new Date();
+            const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            await FIREBASE.db.ref(`forums/`).push({
+                date:date,
+                message:document.querySelector('#text').value,
+                name: userData.name,
+                title:document.querySelector('#title').value,
+                userId:uid,
+            });
+            message.success('Foro creado')
+            history.push(`/forosprincipal/${uid}`)
+        }catch (error) {
             message.error(error.message)
         }
+
+
     }
-
-
-  const [ setTodos ] = useState( [] );
-
-const handleAddTask = () => {
-    const task = document.querySelector( '#task' ).value;
-    setTodos( prevState => [ ...prevState, task ] );
-    document.querySelector( '#task' ).value = '';
-
-};
     return (
         <>
-            <HeaderForos/>
+            <HeaderForos uid={uid}/>
 
             <div className="fondo-foros">
                 <div align="center">
@@ -44,17 +60,19 @@ const handleAddTask = () => {
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
                             <Form name="nest-messages"  >
                                 <Form.Item name={['user', 'text']} label="Titulo" >
-                                    <Input id='task'/>
+                                    <Input id='title'/>
                                 </Form.Item>
                                 <Form.Item name={['user', 'introduction']} label="Comentario">
-                                    <Input.TextArea />
+                                    <Input.TextArea id='text'/>
                                 </Form.Item>
                                 <Form.Item >
-                                    <Button onClick={ handleAddTask } type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                        <Link to="/ForosPrincipal">Crear Foro</Link>
+                                    <Button onClick={ handleAddForum } type="primary" style={{ margin: '0 8px' }} htmlType="submit">
+                                        Crear Foro
                                     </Button>
-                                    <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit">
-                                        <Link to="/MisForos">Cancelar</Link>
+                                    <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
+                                        <Link to={{
+                                            pathname: `/misforos/${uid}`
+                                        }}>Regresar</Link>
                                     </Button>
                                 </Form.Item>
                             </Form>

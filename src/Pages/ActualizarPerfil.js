@@ -12,8 +12,8 @@ import UserAvatar, {avatars} from "../components/UserAvatar";
 
 const ActualizarPerfil = () => {
 
-    const { userUid } = useParams();
-    console.log('uid pasado a actualiar perfil: ',userUid);
+    const { uid } = useParams();
+    console.log('uid pasado a actualiar perfil: ',uid);
 
     const [showModal, setShowModal] = useState(false);
     const [dataProfile, setDataProfile] = useState(null);
@@ -21,7 +21,7 @@ const ActualizarPerfil = () => {
 
     useEffect( () => {
         const getDataProfile  = async () => {
-            FIREBASE.db.ref(`users/${ userUid }`).on('value', (snapshot) => {
+            FIREBASE.db.ref(`users/${ uid }`).on('value', (snapshot) => {
                 console.log('snapshot', snapshot.val());
                 const profile = snapshot.val();
                 const profileId = snapshot.key;
@@ -50,8 +50,8 @@ const ActualizarPerfil = () => {
 
     const onFinish = async (values) => {
         console.log('valores pasados al click perfil ', values);
-        console.log('id usuaruip perfil ', userUid);
-        await FIREBASE.db.ref(`users/${ userUid }`).set({
+        console.log('id usuaruip perfil ', uid);
+        await FIREBASE.db.ref(`users/${ uid }`).set({
             address: values.address,
             name: values.name,
             phone: values.phone,
@@ -66,7 +66,7 @@ const ActualizarPerfil = () => {
 
     return (
         <>
-            <HeaderForos user={userUid}/>
+            <HeaderForos uid = {uid}/>
             <div className="fondo-foros">
                 {
                     dataProfile
@@ -134,7 +134,7 @@ const ActualizarPerfil = () => {
                                 <div align="center">
                                     <Button key="1" type="primary" className="posicion-btns">
                                         <Link to={{
-                                            pathname: `/perfil/${userUid}`
+                                            pathname: `/perfil/${uid}`
                                         }}>Regresar</Link>
                                     </Button>
                                 </div>

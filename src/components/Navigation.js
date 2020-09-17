@@ -38,19 +38,19 @@ const Navigation = () => {
             <Route path="/forosprincipal/:uid">
                 <ForosPrincipal />
             </Route>
-            <Route path="/perfil/:userUid">
+            <Route path="/perfil/:uid">
                 <Perfil/>
             </Route>
-            <Route path="/MisForos">
+            <Route path="/misforos/:uid">
                 <MisForos/>
             </Route>
-            <Route path="/CrearForos">
+            <Route path="/crearforos/:uid">
                 <CrearForos/>
             </Route>
             <Route path="/foro/:id/:uid">
                 <Foro/>
             </Route>
-            <Route path="/actualizarperfil/:userUid">
+            <Route path="/actualizarperfil/:uid">
                 <ActualizarPerfil/>
             </Route>
         </Switch>

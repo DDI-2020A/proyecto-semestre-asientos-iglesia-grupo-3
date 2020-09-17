@@ -11,8 +11,8 @@ import  {avatars} from "../components/UserAvatar";
 
 const Perfil = () => {
 
-    const { userUid } = useParams();
-    console.log('uid pasado a perfil: ',userUid);
+    const { uid } = useParams();
+    console.log('uid pasado a perfil: ',uid);
 
     const [dataProfile, setDataProfile] = useState({key: '',
         address: '',
@@ -25,7 +25,7 @@ const Perfil = () => {
 
     useEffect( () => {
         const getDataProfile  = async () => {
-            FIREBASE.db.ref(`users/${ userUid }`).on('value', (snapshot) => {
+            FIREBASE.db.ref(`users/${ uid }`).on('value', (snapshot) => {
                 console.log('snapshot', snapshot.val());
                 const profile = snapshot.val();
                 const profileId = snapshot.key;
@@ -48,7 +48,7 @@ const Perfil = () => {
 
     return (
         <>
-            <HeaderForos user = {userUid}/>
+            <HeaderForos uid = {uid}/>
             <div className="fondo-foros">
                 <div align="center">
                     <img
@@ -107,7 +107,7 @@ const Perfil = () => {
                                         <Col xs={24} sm={24} md={24} lg={24} span={1}>
                                             <Button key="2" type="primary" className="posicion-btns">
                                                 <Link to={{
-                                                    pathname: `/actualizarperfil/${userUid}`
+                                                    pathname: `/actualizarperfil/${uid}`
                                                 }}>Actualizar Datos</Link>
                                             </Button>
                                         </Col>
@@ -116,7 +116,7 @@ const Perfil = () => {
                                         <Col xs={24} sm={24} md={24} lg={24} span={1}>
                                             <Button key="1" type="primary" className="posicion-btns">
                                                 <Link to={{
-                                                    pathname: `/forosprincipal/${userUid}`
+                                                    pathname: `/forosprincipal/${uid}`
                                                 }}>Regresar</Link>
                                             </Button>
                                         </Col>

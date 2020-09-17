@@ -18,12 +18,12 @@ const HeaderForos = ( { uid } ) => {
                 title='Un Lugar Juntos'
                 extra={[
                     <Button key="1" type="primary">
-                        <Link to="/MisForos">
+                        <Link to={{pathname: `/misforos/${uid}`}}>
                             <p>Mis Foros</p>
                         </Link>
                     </Button>,
                     <Button key="2" type="primary">
-                        <Link to="/CrearForos">
+                        <Link to= {{pathname: `/crearforos/${uid}`}}>
                             <p>Crear Foro</p>
                         </Link>
                     </Button>,

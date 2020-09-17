@@ -26,7 +26,7 @@ const UserData = (props) => {
                 phone: values.userPhone,
             });
             message.success('Datos Guardados')
-            history.push("/Login")
+            history.push("/login")
         } catch(error) {
             message.error(error.message)
         }
@@ -58,7 +58,7 @@ const UserData = (props) => {
                         <Input.Password id="password"/>
                     </Form.Item>
                     <Form.Item
-                        label="Nombre"
+                        label="Nombre y Apellido"
                         name="userName"
                         rules={[{required: true, message: 'Porfavor ingese su nombre !'}]}
                     >

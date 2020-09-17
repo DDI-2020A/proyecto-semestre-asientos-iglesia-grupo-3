@@ -1,16 +1,17 @@
 import React, { useState, useEffect} from 'react';
-import {Card, Input, Table} from 'antd';
+import {Button, Card, Input, Table} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
 import FIREBASE from "../firebase";
-import {Link} from "react-router-dom";
-import Perfil from "../Pages/Perfil";
+import {Link, useParams} from "react-router-dom";
+//import Perfil from "../Pages/Perfil";
 
 
 const MisForos = () => {
-
+    const { uid } = useParams();
+    console.log('pasar a mis foros',uid);
     const [dataForums, setDataForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -42,11 +43,6 @@ const MisForos = () => {
 
     const { Search } = Input;
 
-    if(Perfil()){
-
-    }
-
-    //console.log(Perfil(name) );
 
     const columns = [
         {
@@ -75,7 +71,7 @@ const MisForos = () => {
 
     return (
         <>
-            <HeaderForos/>
+            <HeaderForos uid = {uid}/>
 
             <div className="fondo-foros">
                 <div align="center">
@@ -88,6 +84,11 @@ const MisForos = () => {
 
 
                             <Table dataSource={ dataForums } columns={ columns } loading={isLoading} />
+                            <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
+                                <Link to={{
+                                    pathname: `/forosprincipal/${uid}`
+                                }}>Regresar</Link>
+                            </Button>
 
                         </Card>
                     </Card>

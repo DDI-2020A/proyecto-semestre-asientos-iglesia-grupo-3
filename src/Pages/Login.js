@@ -12,7 +12,7 @@ const Login = () => {
 
     const handleLogin = async (values) => {
         try {
-            const userCredential = await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
+            await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
         } catch(error) {
             message.error(error.message)
         }
@@ -62,7 +62,6 @@ const Login = () => {
                     </Card>
                 </Card>
             </div>
-            <Button><Link to="/forosprincipal">ir directo</Link></Button>
             <Foot/>
 
         </>
