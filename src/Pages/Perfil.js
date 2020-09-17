@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Card, Col, Row, Button,} from 'antd';
+import { Card, Col, Row, Button } from 'antd';
+import { useParams } from "react-router-dom";
 import '../styles/App.css';
 import '../styles/perfil.css'
 import Foot from "../components/Foot";
@@ -7,28 +8,34 @@ import HeaderForos from "../components/HeaderForos";
 import avatar4 from '../images/avatar4.jpg';
 import {Link} from "react-router-dom";
 import FIREBASE from "../firebase";
+import UserAvatar from "../components/UserAvatar";
 
 const Perfil = () => {
+
+    const { userUid } = useParams();
+    console.log('uid pasado a perfil: ',userUid);
 
     const [dataProfile, setDataProfile] = useState({key: '',
         address: '',
         email: '',
         name: '',
-        phone:''
+        phone:'',
+        avatar:''
     });
 
 
     useEffect( () => {
         const getDataProfile  = async () => {
-            FIREBASE.db.ref('users/3').on('value', (snapshot) => {
-                //console.log('snapshot', snapshot.val());
+            FIREBASE.db.ref(`users/${ userUid }`).on('value', (snapshot) => {
+                console.log('snapshot', snapshot.val());
                 const profile = snapshot.val();
                 const profileId = snapshot.key;
                 const profileData = {key: profileId,
                     address: profile.address,
                     email: profile.email,
                     name: profile.name,
-                    phone:profile.phone
+                    phone:profile.phone,
+                    avatar:profile.avatar
                 };
                 //console.log('forumdata', forumData);
                 setDataProfile(profileData);
@@ -42,13 +49,12 @@ const Perfil = () => {
 
     return (
         <>
-            <HeaderForos/>
-
+            <HeaderForos user = {userUid}/>
             <div className="fondo-foros">
                 <div align="center">
                     <img
                         alt="example"
-                        src={avatar4} className="tam-imagen-perfil"
+                        src={dataProfile.avatar} className="tam-imagen-perfil"
                     />
                     <p className="tam-titu"><strong>Perfil</strong></p>
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
@@ -108,7 +114,9 @@ const Perfil = () => {
                                     <Row gutter={24}>
                                         <Col xs={24} sm={24} md={24} lg={24} span={1}>
                                             <Button key="1" type="primary" className="posicion-btns">
-                                                <Link to="/ForosPrincipal">Regresar</Link>
+                                                <Link to={{
+                                                    pathname: `/forosprincipal/${userUid}`
+                                                }}>Regresar</Link>
                                             </Button>
                                         </Col>
                                     </Row>

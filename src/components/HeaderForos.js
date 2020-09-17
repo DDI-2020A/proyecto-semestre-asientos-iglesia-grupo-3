@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { Button, PageHeader} from 'antd';
 import { Link} from "react-router-dom";
 import avatar4 from  '../images/avatar4.jpg';
 import '../styles/headerforos.css';
 import FIREBASE from "../firebase";
 
-const HeaderForos = () => {
+const HeaderForos = ( { user } ) => {
+
+    const [userUid, setUserUid] = useState( user.uid );
+    console.log('uid del usuario pasado a headerforos. Varable useestate:', userUid);
 
     return (
         <div className='header2'>
@@ -23,7 +26,9 @@ const HeaderForos = () => {
                         </Link>
                     </Button>,
                     <Button key="3" type="primary">
-                        <Link to="/Perfil">
+                        <Link to={{
+                            pathname: `/perfil/${userUid}`
+                        }}>
                             <p className="tam-text">Perfil
                                 <img
                                     alt="example"

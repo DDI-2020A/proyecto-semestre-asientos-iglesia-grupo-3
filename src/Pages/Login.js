@@ -19,7 +19,7 @@ const Login = () => {
                     // User is signed in.
                     let uid = user.uid;
                     console.log('Pasar uid', uid);
-                    history.push(`/ForosPrincipal/${uid}`);
+                    history.push(`/forosprincipal/${uid}`);
                 } else {
                     // User is signed out.
                     console.log('user loggedOut');
@@ -75,7 +75,7 @@ const Login = () => {
                     </Card>
                 </Card>
             </div>
-            <Button><Link to="/ForosPrincipal">ir directo</Link></Button>
+            <Button><Link to="/forosprincipal">ir directo</Link></Button>
             <Foot/>
 
         </>

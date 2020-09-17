@@ -11,7 +11,7 @@ import FIREBASE from "../firebase";
 const Foro = () => {
 
     const {id} = useParams();
-    //console.log('id', id);
+    console.log('id', id);
 
     const [dataForum, setDataForum] = useState({key: '',
         title: '',
@@ -102,7 +102,7 @@ const Foro = () => {
 
     return (
         <>
-            <HeaderForos/>
+            <HeaderForos />
 
             <div className="fondo-foros">
                 <div align="center">

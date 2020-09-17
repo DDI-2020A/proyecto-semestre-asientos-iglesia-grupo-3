@@ -34,10 +34,10 @@ const Navigation = () => {
             <Route path="/formBill">
                 <FormBill/>
             </Route>
-            <Route path="/ForosPrincipal/:uid">
+            <Route path="/forosprincipal/:uid">
                 <ForosPrincipal />
             </Route>
-            <Route path="/Perfil">
+            <Route path="/perfil/:userUid">
                 <Perfil/>
             </Route>
             <Route path="/MisForos">
@@ -46,7 +46,7 @@ const Navigation = () => {
             <Route path="/CrearForos">
                 <CrearForos/>
             </Route>
-            <Route path="/Foro/:id">
+            <Route path="/foro/:id">
                 <Foro/>
             </Route>
         </Switch>
