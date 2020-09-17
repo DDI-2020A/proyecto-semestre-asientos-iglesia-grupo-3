@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Button, PageHeader} from 'antd';
 import { Link} from "react-router-dom";
 import avatar4 from  '../images/avatar4.jpg';
@@ -9,7 +9,7 @@ const HeaderForos = () => {
 
     return (
         <div className='header2'>
-           <PageHeader
+            <PageHeader
                 title='Un Lugar Juntos'
                 extra={[
                     <Button key="1" type="primary">
@@ -32,7 +32,7 @@ const HeaderForos = () => {
                         </Link>
                     </Button>,
                     <Button key="4" type="danger" onClick={()=>FIREBASE.auth.signOut()}>
-                       Salir
+                        Salir
                     </Button>,
                     <Button key="4" type="danger" >
                         <Link to="/">Salir momentaneo</Link>
