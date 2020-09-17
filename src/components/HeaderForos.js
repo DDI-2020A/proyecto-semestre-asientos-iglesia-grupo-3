@@ -1,8 +1,7 @@
-<<<<<<< HEAD
+
 import React, {useEffect} from 'react';
-=======
 import React, { useState, useEffect} from 'react';
->>>>>>> b72e41dd0ffc297599f2e96da2cf95b685ab1932
+
 import { Button, PageHeader} from 'antd';
 import { Link} from "react-router-dom";
 import avatar4 from  '../images/avatar4.jpg';
