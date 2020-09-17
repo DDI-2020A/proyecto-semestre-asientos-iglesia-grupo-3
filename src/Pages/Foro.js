@@ -11,9 +11,9 @@ import FIREBASE from "../firebase";
 const Foro = () => {
 
     const {id} = useParams();
-    //const {uid} = useParams();
+    const {uid} = useParams();
     console.log('id foro: ', id);
-    //console.log('id usuario: ', uid);
+    console.log('id usuario: ', uid);
 
     const [dataForum, setDataForum] = useState({key: '',
         title: '',
@@ -98,13 +98,13 @@ const Foro = () => {
             name: dataProfile.name,
             userid: dataProfile.key
         });
-        message.success('Los datos se actualizarón corectamente');
+        message.success('Los datos se actualizaron corectamente');
         document.querySelector('#contenedor-comen').value = "";
     };
 
     return (
         <>
-            <HeaderForos/>
+            <HeaderForos user = {uid}/>
 
             <div className="fondo-foros">
                 <div align="center">

@@ -11,6 +11,7 @@ import FormBill from "../Pages/FormBill";
 import MisForos from "../Pages/MisForos";
 import CrearForos from "../Pages/CrearForos";
 import Foro from "../Pages/Foro";
+import ActualizarPerfil from "../Pages/ActualizarPerfil";
 
 const Navigation = () => {
 
@@ -46,8 +47,11 @@ const Navigation = () => {
             <Route path="/CrearForos">
                 <CrearForos/>
             </Route>
-            <Route path="/foro/:id">
+            <Route path="/foro/:id/:uid">
                 <Foro/>
+            </Route>
+            <Route path="/actualizarperfil/:userUid">
+                <ActualizarPerfil/>
             </Route>
         </Switch>
     )

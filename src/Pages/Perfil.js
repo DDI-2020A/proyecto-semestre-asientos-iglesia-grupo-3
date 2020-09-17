@@ -107,7 +107,9 @@ const Perfil = () => {
                                     <Row gutter={24}>
                                         <Col xs={24} sm={24} md={24} lg={24} span={1}>
                                             <Button key="2" type="primary" className="posicion-btns">
-                                                <p>Actualizar Datos</p>
+                                                <Link to={{
+                                                    pathname: `/actualizarperfil/${userUid}`
+                                                }}>Actualizar Datos</Link>
                                             </Button>
                                         </Col>
                                     </Row>

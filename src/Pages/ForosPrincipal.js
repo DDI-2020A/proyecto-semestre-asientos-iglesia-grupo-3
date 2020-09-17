@@ -51,7 +51,7 @@ const ForosPrincipal = () => {
             dataIndex: 'Titulo',
             key: 'Titulo',
             render: (text, foro) =>  <Link to={{
-                pathname: `/Foro/${foro.key}`
+                pathname: `/Foro/${foro.key}/${uid}`
             }}>
                 {text}
             </Link>,
