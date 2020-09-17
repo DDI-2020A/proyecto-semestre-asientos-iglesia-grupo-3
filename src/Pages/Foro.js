@@ -11,7 +11,9 @@ import FIREBASE from "../firebase";
 const Foro = () => {
 
     const {id} = useParams();
-    console.log('id', id);
+    //const {uid} = useParams();
+    console.log('id foro: ', id);
+    //console.log('id usuario: ', uid);
 
     const [dataForum, setDataForum] = useState({key: '',
         title: '',
@@ -102,7 +104,7 @@ const Foro = () => {
 
     return (
         <>
-            <HeaderForos />
+            <HeaderForos/>
 
             <div className="fondo-foros">
                 <div align="center">
@@ -185,7 +187,9 @@ const Foro = () => {
                         </Card>
                     </Card>
                     <Button key="1" type="primary" className="posicion-btns">
-                        <Link to="/ForosPrincipal">Regresar</Link>
+                        <Link to={{
+                            pathname: `/forosprincipal`
+                        }}>Regresar</Link>
                     </Button>
                 </div>
             </div>
