@@ -9,9 +9,7 @@ import FIREBASE from "../firebase";
 
 
 const ForosPrincipal = () => {
-
-    const [uid, setUid] = useState(useParams());
-    //const { uid } = useParams();
+    const { uid } = useParams();
     console.log('pruebapasar',uid);
 
     const [dataListForums, setDataListForums] = useState([]);

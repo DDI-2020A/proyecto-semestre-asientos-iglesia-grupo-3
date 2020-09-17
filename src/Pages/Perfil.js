@@ -8,7 +8,7 @@ import HeaderForos from "../components/HeaderForos";
 import avatar4 from '../images/avatar4.jpg';
 import {Link} from "react-router-dom";
 import FIREBASE from "../firebase";
-import UserAvatar from "../components/UserAvatar";
+import UserAvatar, {avatars} from "../components/UserAvatar";
 
 const Perfil = () => {
 
@@ -54,7 +54,7 @@ const Perfil = () => {
                 <div align="center">
                     <img
                         alt="example"
-                        src={dataProfile.avatar} className="tam-imagen-perfil"
+                        src={avatars[dataProfile.avatar]} className="tam-imagen-perfil"
                     />
                     <p className="tam-titu"><strong>Perfil</strong></p>
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">

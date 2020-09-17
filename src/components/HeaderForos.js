@@ -9,8 +9,8 @@ import FIREBASE from "../firebase";
 
 const HeaderForos = ( { user } ) => {
 
-    const [userUid, setUserUid] = useState( user.uid );
-    console.log('uid del usuario pasado a headerforos. Varable useestate:', userUid);
+    //const [userUid, setUserUid] = useState( user.uid );
+    console.log('uid del usuario pasado a headerforos. Varable useestate:', user);
 
     return (
         <div className='header2'>
@@ -29,7 +29,7 @@ const HeaderForos = ( { user } ) => {
                     </Button>,
                     <Button key="3" type="primary">
                         <Link to={{
-                            pathname: `/perfil/${userUid}`
+                            pathname: `/perfil/${user}`
                         }}>
                             <p className="tam-text">Perfil
                                 <img

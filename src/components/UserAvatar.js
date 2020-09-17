@@ -18,7 +18,7 @@ import a16 from  '../images/avatar16.jpg';
 import '../styles/bill.css';
 import React, {useEffect, useState} from "react";
 import Divider from "antd/es/divider";
-const avatars={
+export const avatars={
     a1,
     a2,
     a3,

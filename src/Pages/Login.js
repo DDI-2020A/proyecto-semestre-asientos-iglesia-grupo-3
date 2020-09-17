@@ -13,7 +13,7 @@ const Login = () => {
 
     const handleLogin = async (values) => {
         try {
-            await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
+            const userCredential = await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
             await FIREBASE.auth.onAuthStateChanged(function (user) {
                 if (user) {
                     // User is signed in.
