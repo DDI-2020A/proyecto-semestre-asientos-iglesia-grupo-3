@@ -3,9 +3,10 @@ import {Button, Card, Col, Divider, Form,  Radio, Row} from "antd";
 import '../styles/registrarAsiento.css';
 import moment from 'moment';
 import FIREBASE from "../firebase";
+import { RightOutlined, LeftOutlined} from "@ant-design/icons";
 
 const seats={
-    A1: "A1", A2: "A2", A3: "A3", A4: "A4", A5: "A5", A6: "A6", A7: "A7", A8: "A8", A9: "A9",
+    A1: "A1", A2:"A2", A3: "A3", A4: "A4", A5: "A5", A6: "A6", A7: "A7", A8: "A8", A9: "A9",
     A10: "A10",
     B1: "B1", B2: "B2", B3: "B3", B4: "B4", B5: "B5", B6: "B6", B7: "B7", B8: "B8", B9: "B9",
     B10: "B10",
@@ -19,80 +20,62 @@ const seats={
 
 const getSeats=( availableSeats )=> {
     const seatsOptions = [];
-    let search = [];
-    console.log("asientos disponibles", availableSeats);
+    let search = null;
     for (let seatkey in seats) {
-
-        search = availableSeats.filter( ( item, index ) => item.key  === seatkey ).map((item, i) =>{
+        search = availableSeats.filter( ( item ) => item.key  === seatkey ).map(() =>{
             return seatkey;
             }
         );
-
         seatkey == search ?
         seatsOptions.push(
             {
                 label: seatkey ,
                 value: seatkey,
                 disabled: true,
+                style: { margin: '8px' },
             }
             ):
             seatsOptions.push(
                 {
                     label: seatkey ,
                     value: seatkey,
-                    //disabled: true,
+                    style: { margin: '8px' },
                 }
             )
     }
     return seatsOptions;
-
 }
 
+const FormRegisterSeatChooseSeat = (props) =>{
 
-
-
-
-const FormRegisterSeat3 = (props) =>{
-
-    const [ dataUser, setDataUSer] = useState( props.dataUser );
-    const massDate = moment( (dataUser.dayMass + dataUser.scheduleMass) , "YYYY-MM-DD h:mm:ss ").unix();
+    const massDate = moment( (props.dataUser.dayMass + props.dataUser.scheduleMass) , "YYYY-MM-DD h:mm:ss ").unix();
     const [ dataMasses, setDataMasses] = useState([]);
     const [ positionSeat, setPositionSeat ] = useState(null);
 
     useEffect( () => {
-        console.log( 'Datos usuario3', props.dataUser );
-    }, [ props.dataUser ] );
-
-
-
-
-    useEffect( () => {
         const getMassess  = async () => {
             FIREBASE.db.ref('masses/' + massDate + '/').on('value', (snapshot) => {
-                console.log('snapshot', snapshot.val());
                 const massesData = [];
                 snapshot.forEach( (data) => {
-                    const mass = data.val();
-                    const massId = data.key;
-
                     massesData.push({
-                        key: massId,
+                        key: data.key,
                     });
                 });
                 setDataMasses(massesData);
-
             });
         };
         getMassess();
     }, [ ]);
 
 
-    const handleReturnData = (value ) =>{
-        props.onUpdateValues3( positionSeat );
-            value && true ?
-                props.onNext()
-                :
-                props.onPrev();
+    const handleReturnData = ( value ) => {
+        if(value === true) {
+            props.onUpdateValues3( positionSeat );
+            props.onNext();
+
+        }else{
+            props.onPrev();
+        }
     }
 
     const handleChooseSeat = (e) => {
@@ -104,42 +87,43 @@ const FormRegisterSeat3 = (props) =>{
         <>
             <div  align="center">
                 <Card className="form-sizes " bordered={true}>
-
-                    <p> Usted ha seleccionado la siguiente fecha {dataUser.DiaMisa} en el siguiente horario {dataUser.HorarioMisaUsuario} </p>
-                    <p> El timestamp es  {massDate}  </p>
-
+                    <p> Usted ha seleccionado esta fecha: { props.dataUser.dayMass }</p>
+                    <p> En el horario de las: {props.dataUser.scheduleMass }</p>
                     <div>
                         <Form
                             name="register-seat"
-                            initialValues={{remember: true}}
+                            onFinish={ ()=> handleReturnData(true)}
                         >
-
                             <Row align={'middle'}>
                                 <Col span={24}>
                                     <Divider orientation="center">Elegir posición según disponibilidad</Divider>
                                     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                                        <Col span={24} >
+                                        <Col >
+                                            <Form.Item name="ra-select-schedule"
+                                                       hasFeedback
+                                                       rules={[{ required: true, message: 'Por favor seleccionar una posición de asiento' }]}
+                                            >
                                             <Radio.Group  options={ getSeats( dataMasses)}
                                                           optionType='button'
+                                                          buttonStyle="solid"
                                                           onChange={ handleChooseSeat }/>
+                                            </Form.Item>
                                         </Col>
                                     </Row>
+                                    <Divider/>
                                 </Col>
                             </Row>
 
-                            {props.current < 3 && (
-                                <Form.Item >
-                                    <Button type="primary" htmlType="submit"  onClick={()=> handleReturnData(true)}>
-                                        Siguiente
-                                    </Button>
-                                </Form.Item >
-                            )}
+
                             {props.current > 0 && (
-                                <Form.Item >
-                                    <Button style={{ margin: '0 8px' }} onClick={ ()=> handleReturnData(false)}>
-                                        Regresar
+                                    <Button   shape="round" onClick={()=> handleReturnData(false)} >
+                                        <LeftOutlined /> Regresar
                                     </Button>
-                                </Form.Item >
+                            )}
+                            {props.current < 3 && (
+                                <Button style={{ margin: '0 8px' }} type="primary" shape="round" htmlType="submit"  >
+                                    Siguiente <RightOutlined />
+                                </Button>
                             )}
 
                         </Form>
@@ -151,5 +135,5 @@ const FormRegisterSeat3 = (props) =>{
     );
 }
 
-export default FormRegisterSeat3;
+export default FormRegisterSeatChooseSeat;
 

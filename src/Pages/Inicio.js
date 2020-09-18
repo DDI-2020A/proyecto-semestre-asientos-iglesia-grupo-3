@@ -15,6 +15,7 @@ import ImgDirec from '../images/ImgDirec.jpg';
 import Meta from "antd/es/card/Meta";
 import Divider from "antd/es/divider";
 import {Link} from "react-router-dom";
+import SendEmail from "../components/SendEmail";
 
 
 const Inicio = () => {
@@ -317,6 +318,7 @@ const Inicio = () => {
 
 
 
+            <SendEmail />
         </>
     )
 
