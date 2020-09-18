@@ -6,14 +6,16 @@ import Foot from "../components/Foot";
 import HeaderForos from "../components/HeaderForos";
 import FIREBASE from "../firebase";
 import {Link, useParams} from "react-router-dom";
-//import Perfil from "../Pages/Perfil";
+
 
 
 const MisForos = () => {
+    
     const { uid } = useParams();
     console.log('pasar a mis foros',uid);
     const [dataForums, setDataForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect( () => {
         const getDataComments  = async () => {
@@ -22,24 +24,31 @@ const MisForos = () => {
                 const forumsData = [];
                 snapshot.forEach( (data) => {
                     //  console.log('comment', data.val());
-                    const forum = data.val();
-                    const forumId = data.key;
+                    const forums = data.val();
+                    const id = forums.userid;
 
-                    forumsData.push({
-                        key: forumId,
-                        Titulo: forum.title,
-                        Usuario: forum.name,
-                        Fecha: forum.date
-                    });
+                    if (id === uid){
+                        forumsData.push({
+                            key: data.key,
+                            Titulo: forums.title,
+                            Usuario: forums.name,
+                            Fecha: forums.date,
+                        });
+                    }
+
+                    //const names = [forum.name]
+                    //console.log("holaaaa",names.filter(name => name.includes(uid.name)));
                 });
                 setDataForums(forumsData);
                 setIsLoading(false);
+
             });
         };
         getDataComments();
     }, []);
 
-    console.log('dataForums',dataForums);
+
+    //console.log('dataForums',dataForums);
 
     const { Search } = Input;
 
@@ -49,9 +58,8 @@ const MisForos = () => {
             title: 'Tema',
             dataIndex: 'Titulo',
             key: 'Titulo',
-            render: text =>  <Link to={{
-                pathname: '/Foro',
-                state: { saludo: true }
+            render: (text, foro) =>  <Link to={{
+                pathname: `/Foro/${foro.key}/${uid}`
             }}>
                 {text}
             </Link>,
@@ -71,6 +79,7 @@ const MisForos = () => {
 
     return (
         <>
+
             <HeaderForos uid = {uid}/>
 
             <div className="fondo-foros">
@@ -84,6 +93,8 @@ const MisForos = () => {
 
 
                             <Table dataSource={ dataForums } columns={ columns } loading={isLoading} />
+
+
                             <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
                                 <Link to={{
                                     pathname: `/forosprincipal/${uid}`
@@ -97,8 +108,6 @@ const MisForos = () => {
             <Foot/>
         </>
     );
-
-
 }
 
 
