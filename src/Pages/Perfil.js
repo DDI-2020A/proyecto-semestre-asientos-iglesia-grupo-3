@@ -93,14 +93,6 @@ const Perfil = () => {
                                             <div className="div-datos-titulos-perfil">{ dataProfile.address }</div>
                                         </Col>
                                     </Row>
-                                    <Row gutter={24}>
-                                        <Col align="right" xs={24} sm={24} md={10} lg={10} span={1}>
-                                            <p className="tam-titu2"><strong>Contraseña:</strong></p>
-                                        </Col>
-                                        <Col xs={24} sm={24} md={10} lg={11} span={1}>
-                                            <div className="div-datos-titulos-perfil">1234</div>
-                                        </Col>
-                                    </Row>
                                 </Col>
                                 <Col xs={24} sm={24} md={5} lg={5} span={1} align="center">
                                     <Row gutter={24}>

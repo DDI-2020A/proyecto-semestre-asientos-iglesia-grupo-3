@@ -4,9 +4,9 @@ import '../styles/foro.css';
 import HeaderForos from "../components/HeaderForos";
 import Foot from "../components/Foot";
 import moment from 'moment';
-import avatar4 from '../images/avatar4.jpg';
 import {Link, useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
+import  {avatars} from "../components/UserAvatar";
 
 const Foro = () => {
 
@@ -21,6 +21,7 @@ const Foro = () => {
         userId: '',
         date: '',
         message:'',
+        avatar: '',
         comments: []
     });
 
@@ -50,6 +51,7 @@ const Foro = () => {
                         nameC: comment.name,
                         dateC: comment.date,
                         userIdC: comment.userid,
+                        avatarC: comment.avatar
                     });
                 }
 
@@ -59,6 +61,7 @@ const Foro = () => {
                     date: forum.date,
                     message:forum.message,
                     userId: forum.userid,
+                    avatar: forum.avatar,
                     comments: listCommentsData,
                 };
                 console.log('forumdata', forumData);
@@ -68,15 +71,16 @@ const Foro = () => {
         };
 
         const getDataProfile  = async () => {
-            FIREBASE.db.ref('users/3/').on('value', (snapshot) => {
-                //console.log('snapshot', snapshot.val());
+            FIREBASE.db.ref(`users/${uid}`).on('value', (snapshot) => {
+                console.log('snapshotforoXD: ', snapshot.val());
                 const profile = snapshot.val();
                 const profileId = snapshot.key;
                 const profileData = {key: profileId,
                     address: profile.address,
                     email: profile.email,
                     name: profile.name,
-                    phone:profile.phone
+                    phone:profile.phone,
+                    avatar: profile.avatar
                 };
                 //console.log('forumdata', forumData);
                 setDataProfile(profileData);
@@ -96,6 +100,7 @@ const Foro = () => {
             comment: values.comment,
             date: date,
             name: dataProfile.name,
+            avatar: dataProfile.avatar,
             userid: dataProfile.key
         });
         message.success('Los datos se actualizaron corectamente');
@@ -104,17 +109,17 @@ const Foro = () => {
 
     return (
         <>
-            <HeaderForos user = {uid}/>
+            <HeaderForos user={uid}/>
 
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Foros: {dataForum.title}</strong></p>
                     <div align="left">
-                        <Card className="colorBaseB cuadro-datos " bordered={true} >
+                        <Card className="colorBaseB cuadro-datos " bordered={true}>
                             <Row gutter={24}>
                                 <Col xs={24} sm={24} md={14} lg={16} span={1}>
                                     <Row gutter={24}>
-                                        <Col  xs={24} sm={24} md={24} lg={24} span={1}>
+                                        <Col xs={24} sm={24} md={24} lg={24} span={1}>
                                             <p className="tam-titu2"><strong>Autor: {dataForum.user}</strong></p>
                                         </Col>
                                     </Row>
@@ -127,7 +132,7 @@ const Foro = () => {
                                 <Col align="center" xs={24} sm={24} md={8} lg={8} span={1}>
                                     <img
                                         alt="example"
-                                        src={avatar4} className="tam-imagen-dato-perfil"
+                                        src={avatars[dataForum.avatar]} className="tam-imagen-dato-perfil"
                                     />
                                 </Col>
                             </Row>
@@ -138,7 +143,7 @@ const Foro = () => {
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Reseña</strong></p>
                         <Card className="colorBaseB internal-box-size " bordered={true} align="left">
-                            <h3> { dataForum.message }</h3>
+                            <h3> {dataForum.message}</h3>
                         </Card>
                     </Card>
 
@@ -146,18 +151,18 @@ const Foro = () => {
                         <p className="tam-titu2"><strong>Comentarios</strong></p>
                         <Card className="colorBaseB internal-box-size " bordered={true} align="left">
                             {
-                                dataForum.comments.map( ( comment ) => {
+                                dataForum.comments.map((comment) => {
                                     return (
                                         <Comment
                                             author={<h2>{comment.nameC} </h2>}
                                             avatar={
                                                 <img
                                                     alt="example"
-                                                    src={avatar4}
+                                                    src={avatars[comment.avatarC]}
                                                 />
                                             }
                                             content={
-                                                <p>{ comment.commentC }</p>
+                                                <p>{comment.commentC}</p>
                                             }
                                             datetime={
                                                 <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
@@ -174,11 +179,12 @@ const Foro = () => {
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Agregar Comentario</strong></p>
                         <Card className="colorBaseB internal-box-size " bordered={true} align="left">
-                            <Form  name="nest-messages" onFinish={onFinish} >
-                                <Form.Item name={['comment']}>
-                                    <Input.TextArea id="contenedor-comen" />
+                            <Form name="nest-messages" onFinish={onFinish}>
+                                <Form.Item name={['comment']}
+                                           rules={[{required: true, message: 'Porfavor ingrese un comentario!'}]}>
+                                    <Input.TextArea id="contenedor-comen"/>
                                 </Form.Item>
-                                <Form.Item >
+                                <Form.Item>
                                     <Button type="primary" htmlType="submit">
                                         Comentar
                                     </Button>
@@ -188,7 +194,7 @@ const Foro = () => {
                     </Card>
                     <Button key="1" type="primary" className="posicion-btns">
                         <Link to={{
-                            pathname: `/forosprincipal`
+                            pathname: `/forosprincipal/${uid}`
                         }}>Regresar</Link>
                     </Button>
                 </div>

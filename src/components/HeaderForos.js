@@ -1,16 +1,14 @@
-
 import React, { useState, useEffect} from 'react';
-
 import { Button, PageHeader} from 'antd';
 import { Link} from "react-router-dom";
-import avatar4 from  '../images/avatar4.jpg';
+import  {avatars} from "../components/UserAvatar";
 import '../styles/headerforos.css';
 import FIREBASE from "../firebase";
 
 const HeaderForos = ( { uid } ) => {
 
     //const [userUid, setUserUid] = useState( user.uid );
-    console.log('uid del usuario pasado a headerforos. Varable useestate:', uid);
+    //console.log('uid del usuario pasado a headerforos. Varable useestate:', uid);
 
     return (
         <div className='header2'>
@@ -31,19 +29,12 @@ const HeaderForos = ( { uid } ) => {
                         <Link to={{
                             pathname: `/perfil/${uid}`
                         }}>
-                            <p className="tam-text">Perfil
-                                <img
-                                    alt="example"
-                                    src={avatar4} className="tam-imagen-btn-perfil"
-                                /></p>
+                            <p className="tam-text">Perfil</p>
                         </Link>
                     </Button>,
                     <Button key="4" type="danger" onClick={()=>FIREBASE.auth.signOut()}>
                         Salir
                     </Button>,
-                    <Button key="4" type="danger" >
-                        <Link to="/">Salir momentaneo</Link>
-                    </Button>
                 ]}
             >
             </PageHeader>

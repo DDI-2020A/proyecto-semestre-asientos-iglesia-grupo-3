@@ -66,82 +66,73 @@ const ActualizarPerfil = () => {
 
     return (
         <>
-            <HeaderForos uid = {uid}/>
+            <HeaderForos uid={uid}/>
             <div className="fondo-foros">
                 {
                     dataProfile
-                    ? <div align="center">
-                        <p className="tam-titu"><strong>Actualizar Perfil</strong></p>
-                        <img
-                            alt="example"
-                            src={avatars[dataProfile.avatar]} className="tam-imagen-perfil"
-                        />
-                        <div><Button type="primary" onClick={showAvatars}>Cambiar Avatar</Button></div>
-                        <Modal
-                            title="Basic Modal"
-                            visible={showModal}
-                            onOk={cancelAvatars}
-                            onCancel={cancelAvatars}
-                        >
-                            <UserAvatar />
-                        </Modal>
-                        <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
-                            <p className="tam-titu2"><strong>Datos</strong></p>
+                        ? <div align="center">
+                            <p className="tam-titu"><strong>Actualizar Perfil</strong></p>
+                            <img
+                                alt="example"
+                                src={avatars[dataProfile.avatar]} className="tam-imagen-perfil"
+                            />
+                            <div><Button type="primary" onClick={showAvatars}>Cambiar Avatar</Button></div>
+                            <Modal
+                                title="Basic Modal"
+                                visible={showModal}
+                                onOk={cancelAvatars}
+                                onCancel={cancelAvatars}
+                            >
+                                <UserAvatar/>
+                            </Modal>
+                            <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
+                                <p className="tam-titu2"><strong>Datos</strong></p>
 
-                            <Card className="colorBaseB internal-box-size " bordered={true}>
-                                <Form
-                                    name="basic"
-                                    initialValues={dataProfile}
-                                    onFinish={onFinish}
-                                    //onFinishFailed={onFinishFailed}
-                                >
-                                    <Form.Item
-                                        label="Nombre"
-                                        name="name"
-                                        rules={[{required: true, message: 'Porfavor ingrese el nombre!'}]}
+                                <Card className="colorBaseB internal-box-size " bordered={true}>
+                                    <Form
+                                        name="basic"
+                                        initialValues={dataProfile}
+                                        onFinish={onFinish}
+                                        //onFinishFailed={onFinishFailed}
                                     >
-                                        <Input/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Dirección"
-                                        name="address"
-                                        rules={[{required: true, message: 'Porfavor ingrese su dirección!'}]}
-                                    >
-                                        <Input/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Teléfono"
-                                        name="phone"
-                                        rules={[{required: true, message: 'Porfavor ingrese su teléfono!'}]}
-                                    >
-                                        <Input/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Contraseña"
-                                        name="password"
-                                        rules={[{required: true, message: 'Porfavor ingrese una contraseña!'}]}
-                                    >
-                                        <Input.Password/>
-                                    </Form.Item>
-
-
-                                    <Form.Item>
-                                        <Button type="primary" htmlType="submit">
-                                            Guardar Cambios
+                                        <Form.Item
+                                            label="Nombre"
+                                            name="name"
+                                            rules={[{required: true, message: 'Porfavor ingrese el nombre!'}]}
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Dirección"
+                                            name="address"
+                                            rules={[{required: true, message: 'Porfavor ingrese su dirección!'}]}
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Teléfono"
+                                            name="phone"
+                                            rules={[{required: true, message: 'Porfavor ingrese su teléfono!'}]}
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item>
+                                            <Button type="primary" htmlType="submit">
+                                                Guardar Cambios
+                                            </Button>
+                                        </Form.Item>
+                                    </Form>
+                                    <div align="center">
+                                        <Button key="1" type="primary" className="posicion-btns">
+                                            <Link to={{
+                                                pathname: `/perfil/${uid}`
+                                            }}>Regresar</Link>
                                         </Button>
-                                    </Form.Item>
-                                </Form>
-                                <div align="center">
-                                    <Button key="1" type="primary" className="posicion-btns">
-                                        <Link to={{
-                                            pathname: `/perfil/${uid}`
-                                        }}>Regresar</Link>
-                                    </Button>
-                                </div>
+                                    </div>
+                                </Card>
                             </Card>
-                        </Card>
-                    </div>
-                    : 'Cargando datos...'
+                        </div>
+                        : 'Cargando datos...'
                 }
             </div>
             <Foot/>

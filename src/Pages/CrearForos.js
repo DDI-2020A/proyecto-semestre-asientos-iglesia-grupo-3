@@ -21,6 +21,7 @@ const CrearForos = () =>{
                 const user=snapshot.val();
                 const dataUser = {key: uid,
                     name: user.name,
+                    avatar: user.avatar
                 };
                 console.log('userdata', dataUser);
                 setUserData(dataUser);
@@ -38,6 +39,7 @@ const CrearForos = () =>{
                 name: userData.name,
                 title:document.querySelector('#title').value,
                 userId:uid,
+                avatar: userData.avatar
             });
             message.success('Foro creado')
             history.push(`/forosprincipal/${uid}`)
