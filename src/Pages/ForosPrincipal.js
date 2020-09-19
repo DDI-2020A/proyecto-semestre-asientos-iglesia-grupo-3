@@ -10,7 +10,7 @@ import FIREBASE from "../firebase";
 
 const ForosPrincipal = () => {
     const { uid } = useParams();
-    console.log('pruebapasar',uid);
+    //  console.log('pruebapasar',uid);
 
     const [dataListForums, setDataListForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
