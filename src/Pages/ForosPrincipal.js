@@ -7,13 +7,32 @@ import HeaderForos from "../components/HeaderForos";
 import {Link,useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
 
+export const normalizeString = ( string ) => (
+    string
+        .trim()
+        .toLowerCase()
+        .replace('á', 'a')
+        .replace('Á', 'A')
+        .replace('é', 'e')
+        .replace('É', 'E')
+        .replace('í', 'i')
+        .replace('Í', 'I')
+        .replace('ó', 'o')
+        .replace('Ó', 'O')
+        .replace('ú', 'u')
+        .replace('Ú', 'U')
+        .replace('ñ', 'n')
+        .replace('Ñ', 'N')
+);
 
 const ForosPrincipal = () => {
     const { uid } = useParams();
-    console.log('pruebapasar',uid);
+    //  console.log('pruebapasar',uid);
 
     const [dataListForums, setDataListForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const [search, setSearch] = useState("");
 
     useEffect( () => {
         const getDataListForums  = async () => {
@@ -39,7 +58,10 @@ const ForosPrincipal = () => {
         getDataListForums();
     }, []);
 
-    console.log('dataForums',dataListForums);
+    const busqueda = () => {
+
+    }
+    //console.log('dataForums',dataListForums);
 
     const { Search } = Input;
 
@@ -74,12 +96,13 @@ const ForosPrincipal = () => {
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Foros</strong></p>
-                    <Search className="tam-buscador" placeholder="Buscar" onSearch={value => console.log(value)}
-                            enterButton/>
+                    <Search className="tam-buscador" placeholder="Buscar" allowClear={true} onSearch={ value => setSearch(value)}
+                    />
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
-                            <Table dataSource={ dataListForums } columns={ columns } loading={isLoading} />;
+                            <Table dataSource={ dataListForums.filter((forums, index)=> normalizeString(forums.Titulo).includes(normalizeString(search))  ) }
+                                   columns={ columns } loading={isLoading} />
                         </Card>
                     </Card>
                 </div>

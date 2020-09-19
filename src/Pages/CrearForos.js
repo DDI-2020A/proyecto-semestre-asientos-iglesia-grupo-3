@@ -38,7 +38,7 @@ const CrearForos = () =>{
                 message:document.querySelector('#text').value,
                 name: userData.name,
                 title:document.querySelector('#title').value,
-                userId:uid,
+                userid:uid,
                 avatar: userData.avatar
             });
             message.success('Foro creado')

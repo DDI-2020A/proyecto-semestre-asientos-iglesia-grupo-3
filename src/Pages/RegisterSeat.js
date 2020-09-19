@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card} from "antd";
 import '../styles/registrarAsiento.css';
-
 import Foot from "../components/Foot";
 import FormRegisterSeat from "../components/FormRegisterSeat";
+
 
 
 const RegisterSeat = () => {
@@ -24,7 +24,6 @@ const RegisterSeat = () => {
                     </Card>
                 </Card>
             </div>
-
             <Foot />
 
         </>
