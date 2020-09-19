@@ -3,7 +3,7 @@ import {Card, Input, Table} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
-import HeaderForos from "../components/HeaderForos";
+import HeaderForums from "../components/HeaderForums";
 import {Link,useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
 
@@ -25,7 +25,7 @@ export const normalizeString = ( string ) => (
         .replace('Ñ', 'N')
 );
 
-const ForosPrincipal = () => {
+const MainForum = () => {
     const { uid } = useParams();
     //  console.log('pruebapasar',uid);
 
@@ -91,7 +91,7 @@ const ForosPrincipal = () => {
 
     return (
         <>
-            <HeaderForos uid = {uid}/>
+            <HeaderForums uid = {uid}/>
 
             <div className="fondo-foros">
                 <div align="center">
@@ -112,4 +112,4 @@ const ForosPrincipal = () => {
     );
 }
 
-export default ForosPrincipal;
+export default MainForum;

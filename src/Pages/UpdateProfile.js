@@ -4,11 +4,11 @@ import {Link, useHistory, useParams} from "react-router-dom";
 import '../styles/App.css';
 import '../styles/perfil.css'
 import Foot from "../components/Foot";
-import HeaderForos from "../components/HeaderForos";
+import HeaderForums from "../components/HeaderForums";
 import FIREBASE from "../firebase";
 import UserAvatar, {avatars} from "../components/UserAvatar";
 
-const ActualizarPerfil = () => {
+const UpdateProfile = () => {
 
     const history=useHistory();
     const { uid } = useParams();
@@ -90,7 +90,7 @@ const ActualizarPerfil = () => {
 
     return (
         <>
-            <HeaderForos uid={uid}/>
+            <HeaderForums uid={uid}/>
             <div className="fondo-foros">
                 {
                     dataProfile
@@ -175,4 +175,4 @@ const ActualizarPerfil = () => {
 
 }
 
-export default ActualizarPerfil;
+export default UpdateProfile;

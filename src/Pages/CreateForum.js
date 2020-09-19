@@ -3,11 +3,11 @@ import {Card, Input, Form, Button, message} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
-import HeaderForos from "../components/HeaderForos";
+import HeaderForums from "../components/HeaderForums";
 import {Link, useHistory, useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
 
-const CrearForos = () =>{
+const CreateForum = () =>{
     const history=useHistory();
     const { uid } = useParams();
     console.log('pasar a crear foro',uid);
@@ -41,7 +41,7 @@ const CrearForos = () =>{
                 userid:uid,
                 avatar: userData.avatar
             });
-            message.success('Foro creado')
+            message.success('Forum creado')
             history.push(`/forosprincipal/${uid}`)
         }catch (error) {
             message.error(error.message)
@@ -51,7 +51,7 @@ const CrearForos = () =>{
     }
     return (
         <>
-            <HeaderForos uid={uid}/>
+            <HeaderForums uid={uid}/>
 
             <div className="fondo-foros">
                 <div align="center">
@@ -60,18 +60,18 @@ const CrearForos = () =>{
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
 
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
-                            <Form name="nest-messages"  >
-                                <Form.Item name={['user', 'text']} label="Titulo" >
+                            <Form name="nest-messages"  onFinish={handleAddForum}>
+                                <Form.Item name={['user', 'text']} label="Titulo" rules={[{required: true, message: 'Porfavor ingrese un título a su foro!'}]}>
                                     <Input id='title'/>
                                 </Form.Item>
-                                <Form.Item name={['user', 'introduction']} label="Comentario">
+                                <Form.Item name={['user', 'introduction']} label="Comentario" rules={[{required: true, message: 'Porfavor ingrese un comentario!'}]}>
                                     <Input.TextArea id='text'/>
                                 </Form.Item>
                                 <Form.Item >
-                                    <Button onClick={ handleAddForum } type="primary" style={{ margin: '0 8px' }} htmlType="submit">
+                                    <Button  type="primary" style={{ margin: '0 8px' }} htmlType="submit">
                                         Crear Foro
                                     </Button>
-                                    <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
+                                    <Button type="primary" style={{ margin: '0 8px' }} >
                                         <Link to={{
                                             pathname: `/misforos/${uid}`
                                         }}>Regresar</Link>
@@ -87,4 +87,4 @@ const CrearForos = () =>{
         </>
     );
 }
-export default CrearForos;
+export default CreateForum;

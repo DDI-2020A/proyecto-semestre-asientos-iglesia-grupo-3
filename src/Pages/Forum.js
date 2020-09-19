@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {Card, Col, Input, Row, Comment, Tooltip, Button, Form, message} from "antd";
 import '../styles/foro.css';
-import HeaderForos from "../components/HeaderForos";
+import HeaderForums from "../components/HeaderForums";
 import Foot from "../components/Foot";
 import moment from 'moment';
 import {Link, useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
 import  {avatars} from "../components/UserAvatar";
 
-const Foro = () => {
+const Forum = () => {
 
     const {id} = useParams();
     const {uid} = useParams();
@@ -109,7 +109,7 @@ const Foro = () => {
 
     return (
         <>
-            <HeaderForos user={uid}/>
+            <HeaderForums user={uid}/>
 
             <div className="fondo-foros">
                 <div align="center">
@@ -204,4 +204,4 @@ const Foro = () => {
     );
 }
 
-export default Foro;
+export default Forum;

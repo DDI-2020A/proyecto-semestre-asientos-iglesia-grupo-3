@@ -5,7 +5,7 @@ import  {avatars} from "../components/UserAvatar";
 import '../styles/headerforos.css';
 import FIREBASE from "../firebase";
 
-const HeaderForos = ( { uid } ) => {
+const HeaderForums = ({ uid } ) => {
 
     //const [userUid, setUserUid] = useState( user.uid );
     //console.log('uid del usuario pasado a headerforos. Varable useestate:', uid);
@@ -47,7 +47,7 @@ const HeaderForos = ( { uid } ) => {
 
 }
 
-export default HeaderForos;
+export default HeaderForums;
 
 
 

@@ -4,12 +4,12 @@ import { useParams } from "react-router-dom";
 import '../styles/App.css';
 import '../styles/perfil.css'
 import Foot from "../components/Foot";
-import HeaderForos from "../components/HeaderForos";
+import HeaderForums from "../components/HeaderForums";
 import {Link} from "react-router-dom";
 import FIREBASE from "../firebase";
 import  {avatars} from "../components/UserAvatar";
 
-const Perfil = () => {
+const Profile = () => {
 
     const { uid } = useParams();
     //console.log('uid pasado a perfil: ',uid);
@@ -48,7 +48,7 @@ const Perfil = () => {
 
     return (
         <>
-            <HeaderForos uid = {uid}/>
+            <HeaderForums uid = {uid}/>
             <div className="fondo-foros">
                 <div align="center">
                     <img
@@ -125,4 +125,4 @@ const Perfil = () => {
 
 }
 
-export default Perfil;
+export default Profile;

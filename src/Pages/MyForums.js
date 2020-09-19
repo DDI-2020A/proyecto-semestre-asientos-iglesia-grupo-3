@@ -3,13 +3,13 @@ import {Button, Card, Input, Table} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
-import HeaderForos from "../components/HeaderForos";
+import HeaderForums from "../components/HeaderForums";
 import FIREBASE from "../firebase";
 import {Link, useParams} from "react-router-dom";
 
 
 
-const MisForos = () => {
+const MyForums = () => {
     
     const { uid } = useParams();
     console.log('pasar a mis foros',uid);
@@ -80,7 +80,7 @@ const MisForos = () => {
     return (
         <>
 
-            <HeaderForos uid = {uid}/>
+            <HeaderForums uid = {uid}/>
 
             <div className="fondo-foros">
                 <div align="center">
@@ -111,4 +111,4 @@ const MisForos = () => {
 }
 
 
-export default MisForos;
+export default MyForums;
