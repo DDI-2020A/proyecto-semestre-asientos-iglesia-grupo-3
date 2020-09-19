@@ -6,6 +6,7 @@ import Foot from "../components/Foot";
 import HeaderForums from "../components/HeaderForums";
 import FIREBASE from "../firebase";
 import {Link, useParams} from "react-router-dom";
+import {normalizeString} from "./MainForum";
 
 
 
@@ -15,6 +16,7 @@ const MyForums = () => {
     console.log('pasar a mis foros',uid);
     const [dataForums, setDataForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [search, setSearch] = useState("");
 
 
     useEffect( () => {
@@ -85,14 +87,15 @@ const MyForums = () => {
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Mis Foros</strong></p>
-                    <Search className="tam-buscador" placeholder="Buscar" onSearch={value => console.log(value)}
-                            enterButton/>
+                    <Search className="tam-buscador" placeholder="Buscar" allowClear={true} onSearch={ value => setSearch(value)}
+                    />
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
 
 
-                            <Table dataSource={ dataForums } columns={ columns } loading={isLoading} />
+                            <Table dataSource={  dataForums.filter((forums, index)=> normalizeString(forums.Titulo).includes(normalizeString(search))  ) }
+                                   columns={ columns } loading={isLoading} />
 
 
                             <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" >
