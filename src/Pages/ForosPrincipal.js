@@ -32,10 +32,7 @@ const ForosPrincipal = () => {
     const [dataListForums, setDataListForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-    // Cambios intento
     const [search, setSearch] = useState("");
-    // Fin de intento
 
     useEffect( () => {
         const getDataListForums  = async () => {
@@ -61,7 +58,10 @@ const ForosPrincipal = () => {
         getDataListForums();
     }, []);
 
-    console.log('dataForums',dataListForums);
+    const busqueda = () => {
+
+    }
+    //console.log('dataForums',dataListForums);
 
     const { Search } = Input;
 
@@ -96,29 +96,15 @@ const ForosPrincipal = () => {
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Foros</strong></p>
-                    <Search className="tam-buscador" placeholder="Buscar"
-                            enterButton/>
-                    <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
-                        <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
-                        <Card className="colorBaseB internal-box-size " bordered={true} align="center">
-                            <Table dataSource={ dataListForums } columns={ columns } loading={isLoading} />;
-                        </Card>
-                    </Card>
-
-
-                    {/*Intento*/}
-                    <Search className="tam-buscador" placeholder="Buscar"  onSearch={ value => setSearch(value)}
+                    <Search className="tam-buscador" placeholder="Buscar" allowClear={true} onSearch={ value => setSearch(value)}
                     />
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
-                            <Table dataSource={ dataListForums.filter((forums, index)=> normalizeString(forums.Titulo).includes(normalizeString(search))  ) } columns={ columns } loading={isLoading} />
+                            <Table dataSource={ dataListForums.filter((forums, index)=> normalizeString(forums.Titulo).includes(normalizeString(search))  ) }
+                                   columns={ columns } loading={isLoading} />
                         </Card>
                     </Card>
-
-                    {/*//Fin de intento*/}
-
-
                 </div>
             </div>
             <Foot/>
