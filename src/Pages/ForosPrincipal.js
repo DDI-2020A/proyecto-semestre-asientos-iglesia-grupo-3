@@ -7,6 +7,23 @@ import HeaderForos from "../components/HeaderForos";
 import {Link,useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
 
+export const normalizeString = ( string ) => (
+    string
+        .trim()
+        .toLowerCase()
+        .replace('á', 'a')
+        .replace('Á', 'A')
+        .replace('é', 'e')
+        .replace('É', 'E')
+        .replace('í', 'i')
+        .replace('Í', 'I')
+        .replace('ó', 'o')
+        .replace('Ó', 'O')
+        .replace('ú', 'u')
+        .replace('Ú', 'U')
+        .replace('ñ', 'n')
+        .replace('Ñ', 'N')
+);
 
 const ForosPrincipal = () => {
     const { uid } = useParams();
@@ -14,6 +31,11 @@ const ForosPrincipal = () => {
 
     const [dataListForums, setDataListForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+
+    // Cambios intento
+    const [search, setSearch] = useState("");
+    // Fin de intento
 
     useEffect( () => {
         const getDataListForums  = async () => {
@@ -74,7 +96,7 @@ const ForosPrincipal = () => {
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Foros</strong></p>
-                    <Search className="tam-buscador" placeholder="Buscar" onSearch={value => console.log(value)}
+                    <Search className="tam-buscador" placeholder="Buscar"
                             enterButton/>
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
@@ -82,6 +104,21 @@ const ForosPrincipal = () => {
                             <Table dataSource={ dataListForums } columns={ columns } loading={isLoading} />;
                         </Card>
                     </Card>
+
+
+                    {/*Intento*/}
+                    <Search className="tam-buscador" placeholder="Buscar"  onSearch={ value => setSearch(value)}
+                    />
+                    <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
+                        <p className="tam-titu2"><strong>Listado de Foros:</strong></p>
+                        <Card className="colorBaseB internal-box-size " bordered={true} align="center">
+                            <Table dataSource={ dataListForums.filter((forums, index)=> normalizeString(forums.Titulo).includes(normalizeString(search))  ) } columns={ columns } loading={isLoading} />
+                        </Card>
+                    </Card>
+
+                    {/*//Fin de intento*/}
+
+
                 </div>
             </div>
             <Foot/>
