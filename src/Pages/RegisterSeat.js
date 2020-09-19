@@ -6,6 +6,7 @@ import Foot from "../components/Foot";
 import FormRegisterSeat from "../components/FormRegisterSeat";
 
 
+
 const RegisterSeat = () => {
 
     return (
