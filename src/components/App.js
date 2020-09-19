@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 
 function App() {
-   const history = useHistory();
+    const history = useHistory();
 
     useEffect(() => {
              FIREBASE.auth.onAuthStateChanged(function (user) {
