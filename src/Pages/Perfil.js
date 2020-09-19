@@ -12,7 +12,7 @@ import  {avatars} from "../components/UserAvatar";
 const Perfil = () => {
 
     const { uid } = useParams();
-    console.log('uid pasado a perfil: ',uid);
+    //console.log('uid pasado a perfil: ',uid);
 
     const [dataProfile, setDataProfile] = useState({key: '',
         address: '',
@@ -26,7 +26,7 @@ const Perfil = () => {
     useEffect( () => {
         const getDataProfile  = async () => {
             FIREBASE.db.ref(`users/${ uid }`).on('value', (snapshot) => {
-                console.log('snapshot', snapshot.val());
+                //console.log('snapshot', snapshot.val());
                 const profile = snapshot.val();
                 const profileId = snapshot.key;
                 const profileData = {key: profileId,

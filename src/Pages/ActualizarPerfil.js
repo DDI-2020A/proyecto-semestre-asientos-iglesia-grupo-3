@@ -15,15 +15,14 @@ const ActualizarPerfil = () => {
     //console.log('uid pasado a actualiar perfil: ',uid);
 
     const [showModal, setShowModal] = useState(false);
-    const [showModalEmail, setShowModalEmail] = useState(false);
     const [dataProfile, setDataProfile] = useState(null);
     const [dataBill, SetDataBill] = useState({avatarUser: ""});
-    console.log("dataBill",dataBill);
+    //console.log("dataBill",dataBill);
 
     useEffect( () => {
         const getDataProfile  = async () => {
             FIREBASE.db.ref(`users/${ uid }`).on('value', (snapshot) => {
-                console.log('snapshot', snapshot.val());
+                //console.log('snapshot', snapshot.val());
                 const profile = snapshot.val();
                 const profileId = snapshot.key;
                 const profileData = {key: profileId,
@@ -33,7 +32,7 @@ const ActualizarPerfil = () => {
                     phone:profile.phone,
                     avatar:profile.avatar
                 };
-                console.log('profileData', profileData);
+                //console.log('profileData', profileData);
                 setDataProfile(profileData);
 
             });
@@ -45,32 +44,9 @@ const ActualizarPerfil = () => {
         setShowModal(true);
     }
 
-    const showEmail = () => {
-        setShowModalEmail(true);
-    }
-
     const cancelAvatars = () => {
         setShowModal(false);
     }
-
-    const okEmail = () => {
-        setShowModalEmail(false);
-        //const user = FIREBASE.auth().currentUser;
-        //console.log("usermodalcorreo: ",user);
-        const user = FIREBASE.auth().currentUser;
-
-        if (user) {
-            console.log("usermodalcorreo: ",user);
-        } else {
-            console.log("usermodalcorreo: ",user);
-        }
-
-        /*user.updateEmail("user@example.com").then(function() {
-            // Update successful.
-        }).catch(function(error) {
-            // An error happened.
-        });*/
-    };
 
     const OkAvatars = () => {
         setShowModal(false);
@@ -172,15 +148,6 @@ const ActualizarPerfil = () => {
                                         >
                                             <Input disabled={true}/>
                                         </Form.Item>
-                                        <Button type="primary" onClick={showEmail}>Actualizar Correo Electrónico</Button>
-                                        <Modal
-                                            title="Actualizar Correo Electrónico"
-                                            visible={showModalEmail}
-                                            onOk={okEmail}
-                                            //onCancel={cancelAvatars}
-                                        >
-                                            <Input> </Input>
-                                        </Modal>
                                         <Form.Item>
                                             <div align="center">
                                                 <Button type="primary" htmlType="submit">
