@@ -8,11 +8,24 @@ import FIREBASE from "../firebase";
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+    const history = useHistory();
 
 
     const handleLogin = async (values) => {
         try {
             await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
+            await FIREBASE.auth.onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+                    let uid = user.uid;
+                    console.log('Pasar uid', uid);
+                    history.push(`/forosprincipal/${uid}`);
+                } else {
+                    // User is signed out.
+                    console.log('user loggedOut');
+                    history.replace("/");
+                }
+            });
         } catch(error) {
             message.error(error.message)
         }

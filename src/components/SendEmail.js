@@ -46,7 +46,7 @@ const SendEmail =()=>{
                           <Divider />
                           <Row gutter={16} align="center">
                               <Col xs={20} sm={20} md={10} lg={10}  span={8}>
-                                  <a href="https://www.google.com.ec/maps/place/La+luz+del+mundo/@-0.3285672,-78.5537108,15z/data=!4m8!1m2!2m1!1siglesia+la+luz+del+mundo!3m4!1s0x91d5a2350cf78025:0xb59ef8a2f91564d8!8m2!3d-0.3285672!4d-78.5449561"
+                                  <a href="https://www.google.com/maps/place/Iglesia+Cat%C3%B3lica+San+Ignacio+de+Loyola+-+Solanda/@-0.2682568,-78.542168,17z/data=!4m5!3m4!1s0x91d598e901b455f7:0xed4e19d0ae826a4e!8m2!3d-0.2682568!4d-78.5399793"
                                    target="_blank">
                                       <img
                                           style={{ width: '100%', height: '90%' }}

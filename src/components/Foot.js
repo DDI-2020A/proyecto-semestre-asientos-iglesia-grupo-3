@@ -12,10 +12,10 @@ const Foot = ( ) => {
                 <Descriptions layout="vertical">
                     <Descriptions.Item label="Contáctanos" >0969045324<WhatsAppOutlined style={{width:25, height:25}}/></Descriptions.Item>
                     <Descriptions.Item label="Redes Sociales">
-                        <a href="https://www.facebook.com/Iglesia-La-Luz-Del-Mundo-Batall%C3%B3n-Vuelta-Del-Barco-Guerrero-110498634102157"><FacebookOutlined style={{width:20, height:20}} /></a>
-                        <a href="https://twitter.com/iglesialldm?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><TwitterOutlined style={{width:25, height:25}} /></a> </Descriptions.Item>
+                        <a href="https://www.facebook.com/parroquiasanignaciodeloyola.solanda" target="_blank"><FacebookOutlined style={{width:20, height:20}} /></a>
+                        <a href="https://twitter.com/psanignacio?lang=es" target="_blank"><TwitterOutlined style={{width:25, height:25}} /></a> </Descriptions.Item>
                     <Descriptions.Item label="Dirección ">
-                        <a href="https://www.google.com.ec/maps/place/La+luz+del+mundo/@-0.3285672,-78.5537108,15z/data=!4m8!1m2!2m1!1siglesia+la+luz+del+mundo!3m4!1s0x91d5a2350cf78025:0xb59ef8a2f91564d8!8m2!3d-0.3285672!4d-78.5449561"
+                        <a href="https://www.google.com/maps/place/Iglesia+Cat%C3%B3lica+San+Ignacio+de+Loyola+-+Solanda/@-0.2682568,-78.542168,17z/data=!3m1!4b1!4m5!3m4!1s0x91d598e901b455f7:0xed4e19d0ae826a4e!8m2!3d-0.2682568!4d-78.5399793"
                            target="_blank">
                             <img
                                 style={{ width: '20%', height: '20%' }}
