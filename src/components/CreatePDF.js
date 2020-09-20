@@ -16,8 +16,8 @@ const PDF = (props) => {
         var doc = new jsPDF('p', 'pt');
 
         doc.addImage(imgData, 'JPEG', 240, 10, 120, 100)
-        doc.setFontSize(40)
-        doc.text('Iglesia X ', 230, 150, )
+        doc.setFontSize(30)
+        doc.text('Iglesia San Ignacio de Loyola ', 100, 150, )
 
         doc.setFontSize(22)
         doc.text('Se han registrado los siguientes datos: ', 100, 190, )
@@ -56,7 +56,7 @@ const PDF = (props) => {
     return (
         <>
             <Card className="form-sizes " bordered={true}>
-                <h1> Iglesia X</h1>
+                <h1> Iglesia San Ignacio de Loyola</h1>
                 <div>
                     <Divider dashed />
                     <Row gutter={16} align="center" >

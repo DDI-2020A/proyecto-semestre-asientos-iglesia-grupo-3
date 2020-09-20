@@ -33,7 +33,7 @@ const Inicio = () => {
                             <Card className=" tamanio-cuadro"  bordered={false} style={{marginTop:95}}>
                                 <div className="site-card-wrapper "  >
                                     <p>Bienvenidos</p>
-                                    <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia X,
+                                    <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia San Ignacio de Loyola,
                                         desde la comodidad de tu casa  </p>
                                     <Button className="separa-boton" type="primary" shape="round"  >
                                         <Link to="/RegisterSeat">Registrar Asiento</Link>

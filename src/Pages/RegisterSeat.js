@@ -15,7 +15,7 @@ const RegisterSeat = () => {
                     <h2>Registrar Asiento</h2>
                     <Card className="colorBaseB internal-box-size " bordered={true}>
                         <p>
-                            Ingrese sus datos para asignarle un asiento para la ceremonia en la Iglesia X, según
+                            Ingrese sus datos para asignarle un asiento para la ceremonia en la Iglesia San Ignacio de Loyola, según
                             su disponibilidad de horario
                         </p>
 
