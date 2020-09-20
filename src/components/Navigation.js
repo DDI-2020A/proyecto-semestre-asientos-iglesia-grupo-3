@@ -5,13 +5,13 @@ import Login from "../Pages/Login";
 import RegisterSeat from "../Pages/RegisterSeat";
 import React from "react";
 import PasswordReset from "../Pages/PasswordReset";
-import ForosPrincipal from "../Pages/ForosPrincipal";
-import Perfil from "../Pages/Perfil";
+import MainForum from "../Pages/MainForum";
+import Profile from "../Pages/Profile";
 import FormBill from "../Pages/FormBill";
-import MisForos from "../Pages/MisForos";
-import CrearForos from "../Pages/CrearForos";
-import Foro from "../Pages/Foro";
-import ActualizarPerfil from "../Pages/ActualizarPerfil";
+import MyForums from "../Pages/MyForums";
+import CreateForum from "../Pages/CreateForum";
+import Forum from "../Pages/Forum";
+import UpdateProfile from "../Pages/UpdateProfile";
 
 const Navigation = () => {
 
@@ -36,22 +36,22 @@ const Navigation = () => {
                 <FormBill/>
             </Route>
             <Route path="/forosprincipal/:uid">
-                <ForosPrincipal />
+                <MainForum />
             </Route>
             <Route path="/perfil/:uid">
-                <Perfil/>
+                <Profile/>
             </Route>
             <Route path="/misforos/:uid">
-                <MisForos/>
+                <MyForums/>
             </Route>
             <Route path="/crearforos/:uid">
-                <CrearForos/>
+                <CreateForum/>
             </Route>
             <Route path="/foro/:id/:uid">
-                <Foro/>
+                <Forum/>
             </Route>
             <Route path="/actualizarperfil/:uid">
-                <ActualizarPerfil/>
+                <UpdateProfile/>
             </Route>
         </Switch>
     )
