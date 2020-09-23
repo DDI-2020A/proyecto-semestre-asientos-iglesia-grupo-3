@@ -70,7 +70,7 @@ const FormRegisterSeat = () => {
                                            onUpdateValues = { handleFillUserData } /> ,
         },
         {
-            title: 'Seleccionar Horario',
+            title: 'Seleccionar horario',
             content: <FormRegisterSeatSchedule current = {current}
                                                dataUser = { dataUser }
                                                onNext = { handleNext }

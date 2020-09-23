@@ -33,8 +33,8 @@ const Inicio = () => {
                             <Card className=" tamanio-cuadro"  bordered={false} style={{marginTop:95}}>
                                 <div className="site-card-wrapper "  >
                                     <p>Bienvenidos</p>
-                                    <p>  Ahora puedes reservar un asiento para la ceremonia de la Eucaristia de la Iglesia San Ignacio de Loyola,
-                                        desde la comodidad de tu casa  </p>
+                                    <p>  Ahora puede reservar un asiento para la ceremonia de la Eucaristia de la Iglesia San Ignacio de Loyola,
+                                        desde la comodidad de su hogar.  </p>
                                     <Button className="separa-boton" type="primary" shape="round"  >
                                         <Link to="/RegisterSeat">Registrar Asiento</Link>
                                     </Button>
@@ -153,7 +153,7 @@ const Inicio = () => {
                                         }
                                     >
                                         <Meta
-                                            title="Richard Marntinez"
+                                            title="Richard Martinez"
                                             description="Yo fui sanado de un cáncer en mi garganta, para los médicos yo que daría mudo y gracias a Dios, cumplo 18 años el próximo 16 de diciembre y hablo perfectamente bien, para la gloria y honra del Señor."
                                         />
                                     </Card>
@@ -170,7 +170,7 @@ const Inicio = () => {
                                     >
                                         <Meta
                                             title="Evaluna  Fernandez "
-                                            description="Cuando conocí de Jesús supe que todo me es permitido, pero que no todo me conviene. Comprendí que Dios quiere que disfrutemos la vida, pero que los excesos solo nos llevan al hastío y que nunca encontraremos la satisfacción total en esta tierra sin El en nuestras vidas."
+                                            description="Cuando conocí de Jesús supe que todo me es permitido, pero que no todo me conviene. Comprendí que Dios quiere que disfrutemos la vida, pero que los excesos solo nos llevan al hastío y que nunca encontraremos la satisfacción total en esta tierra sin él en nuestras vidas."
                                         />
                                     </Card>
 

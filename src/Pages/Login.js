@@ -37,7 +37,7 @@ const Login = () => {
                 <Card className="BaseA cuadro-grande"  bordered={false}>
                     <Card className="BaseB cuadro-interno "  bordered={false}>
                     <h1>
-                        Se parte de nosotros y comparte opiniones,
+                        Se parte de nosotros y comparta sus opiniones,
                         experiencias dentro de un ambiente
                         seguro y abierto al diálogo.
                     </h1>

@@ -19,7 +19,7 @@ const Header = () => {
                     <a href="#id-contact"><Button type="link" ghost>Contáctanos</Button></a>,
 
                     <Button key="2">
-                        <Link to="/login">Login</Link>
+                        <Link to="/login">Iniciar Sesión</Link>
                     </Button>,
                     <Button key="1" type="primary">
 
@@ -41,12 +41,7 @@ const Header = () => {
 
 export default Header;
 
-/*     const [numPag, setNumPag] = useState (props.numPag);
 
-    useEffect(() => {
-            setNumPag(props.numPag)
-        }
-    ), [numPag];*/
 
 
 

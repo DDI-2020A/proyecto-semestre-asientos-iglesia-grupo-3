@@ -20,8 +20,6 @@ const Bill = () => {
                 </Card>
             </div>
             <Foot/>
-
-
         </>
     );
 

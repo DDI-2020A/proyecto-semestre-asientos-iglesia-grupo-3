@@ -3,6 +3,7 @@ import {Form, Input, Button, message} from "antd";
 import '../styles/bill.css';
 import FIREBASE from "../firebase";
 import {useHistory} from 'react-router-dom';
+import {LeftOutlined} from "@ant-design/icons";
 
 const UserData = (props) => {
     const history=useHistory();
@@ -82,6 +83,11 @@ const UserData = (props) => {
                         <Input  id="userPhone" placeholder="Ingrese su teléfono" />
 
                     </Form.Item>
+                    {props.current > 0 && (
+                        <Button  style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onPrev }>
+                            <LeftOutlined />Regresar
+                        </Button>
+                    )}
                     {
                         props.current < 2 && (
                             <Button type="primary"  style={{ margin: '0 8px' }} htmlType="submit" onClick={handleKeepData}>
@@ -89,11 +95,6 @@ const UserData = (props) => {
                             </Button>
                         )
                     }
-                    {props.current > 0 && (
-                        <Button type="primary" style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onPrev }>
-                            Regresar
-                        </Button>
-                    )}
                 </Form>
             </div>
         </>

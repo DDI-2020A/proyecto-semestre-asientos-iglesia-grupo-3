@@ -44,7 +44,7 @@ const FormBill = () => {
     }
     const steps = [
         {
-            title: 'Seleccionar Avatar',
+            title: 'Seleccionar avatar',
              content: <UserAvatar current = {current}
                                              dataBill = { dataBill}
                                              onNext = { handleNext }

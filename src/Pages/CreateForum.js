@@ -61,7 +61,7 @@ const CreateForum = () =>{
 
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
                             <Form name="nest-messages"  onFinish={handleAddForum}>
-                                <Form.Item name={['user', 'text']} label="Titulo" rules={[{required: true, message: 'Porfavor ingrese un título a su foro!'}]}>
+                                <Form.Item name={['user', 'text']} label="Título" rules={[{required: true, message: 'Porfavor ingrese un título a su foro!'}]}>
                                     <Input id='title'/>
                                 </Form.Item>
                                 <Form.Item name={['user', 'introduction']} label="Comentario" rules={[{required: true, message: 'Porfavor ingrese un comentario!'}]}>

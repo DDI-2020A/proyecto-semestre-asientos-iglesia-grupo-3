@@ -41,8 +41,7 @@ const SendEmail =()=>{
                       <div className="site-card-wrapper " >
                           <Divider orientation="center">Contáctanos</Divider>
                           Para recibir información detallada sobre las utilidades y servicios que ofrece nuestra página
-                          ponte en contacto con nosotros enviando un correo electrónico, en el que se detalle sus inquietudes
-                          para resolveras.
+                          pongase en contacto con nosotros enviando un correo electrónico, en el que se detalle sus inquietudes.
                           <Divider />
                           <Row gutter={16} align="center">
                               <Col xs={20} sm={20} md={10} lg={10}  span={8}>

@@ -18,6 +18,7 @@ import a16 from  '../images/avatar16.jpg';
 import '../styles/bill.css';
 import React, {useEffect, useState} from "react";
 import Divider from "antd/es/divider";
+import {RightOutlined} from "@ant-design/icons";
 export const avatars={
     a1,
     a2,
@@ -81,8 +82,8 @@ const UserAvatar =( props )=>{
                         <Divider orientation="center">
                             {
                                 props.current < 2 && (
-                                    <Button type="primary"  style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onNext }>
-                                        Siguiente
+                                    <Button   style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onNext }>
+                                        Siguiente <RightOutlined />
                                     </Button>
                                 )
                             }
